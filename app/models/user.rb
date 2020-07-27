@@ -27,7 +27,7 @@ class User < ApplicationRecord
 
   #Associations =>
 
-  has_many: :orders,
+  has_many :orders,
     primary_key: :id,
     foreign_key: :user_id,
     class_name: :Orders
