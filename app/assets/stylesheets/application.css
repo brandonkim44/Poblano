@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+ 
+ .header-left-container {
+    display: flex;
+ }
+
+ .header-left-container-sign-in {
+    display: flex;
+}
+
+.header-left-container-sign-in:hover {
+    cursor: pointer;
+}
+
+.person-outline-img {
+    height: 30px;
+}
+
+.poblano-logo-img {
+    height: 60px;
+}
