@@ -9,5 +9,5 @@ class Order < ApplicationRecord
     belongs_to :store,
         primary_key: :id,
         foreign_key: :store_id,
-        class_name: :User
+        class_name: :Store
 end
