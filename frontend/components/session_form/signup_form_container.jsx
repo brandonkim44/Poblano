@@ -20,14 +20,13 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-    debugger;
     return ({
         submitForm: user => dispatch(signup(user)),
         otherForm: (
             <div>
                 <span>Already a member?</span>
                 <br/>
-                <button onClick={() => dispatch(openModal('signin'))}>SIGN IN</button>
+                <button className="goto-signup-button" onClick={() => dispatch(openModal('signin'))}>SIGN IN</button>
             </div>
         ),
         closeModal: () => dispatch(closeModal())

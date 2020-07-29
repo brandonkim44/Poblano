@@ -19,6 +19,24 @@ class ApplicationController < ActionController::Base
         !!current_user
     end
 
+    def deep_snake_case_params!(val)
+        case val
+            when (val.is_a? Array)
+                #recursive
+                val.map {|v| deep_snake_case_params!(v) }
+            when (val.is_a? Hash)
+                #turns params into array, each ele is a key, delete the key, then replace it with snake_cased key
+                val.keys.each do |k, v = val[k]|
+                    val.delete k
+                    snaked_key = k.underscore
+                    val[snaked_key] = deep_snake_case_params!(v)
+                end
+            val
+        else
+            val
+        end
+    end
+
     # def ensure_logged_in
     #     redirect_to api_session_url unless logged_in? 
     # end

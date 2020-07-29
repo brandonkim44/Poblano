@@ -13,7 +13,7 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger;
+
         this.submitForm(this.state).then(this.closeModal);
     }
 
@@ -23,45 +23,61 @@ class SessionForm extends React.Component {
         }
     }
 
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, idx) => (
+                    <li key={`error-${idx}`}>{error}</li>
+                ))}
+            </ul>
+        );
+    }
+
     render() {
         const form = this.formType === 'SIGN IN' ? (
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" value={this.state.email} onChange={this.handleInput('email')}/>
-                <br />
-                <input type="password" value={this.state.password} onChange={this.handleInput('password')}/>
-                <br />
-                <input type="submit" value={this.formType}/>
-            </form>
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <input className="input" type="text" placeholder="Email" onChange={this.handleInput('email')}/>
+                    <br />
+                    <input className="input" type="password" placeholder="Password" onChange={this.handleInput('password')}/>
+                    <br />
+                    <input className="signin-button" type="submit" value={this.formType}/>
+                </form>
+            </div>
         ) : (
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" value={this.state.firstName} onChange={this.handleInput('firstName')}/>
-                <br />
-                <input type="text" value={this.state.lastName} onChange={this.handleInput('lastName')}/>
-                <br />
-                <input type="text" value={this.state.email} onChange={this.handleInput('email')}/>
-                <br />
-                <input type="password" value={this.state.password} onChange={this.handleInput('password')}/>
-                <br />
-                <input type="text" value={this.state.phoneNumber} onChange={this.handleInput('phoneNumber')}/>
-                <br />
-                <label>
-                    <input type="radio" checked value="United States" name="country"/>
-                    United States
-                </label>
-                <label>
-                    <input type="radio" value="Canada" name="country"/>
-                    Canada
-                </label>
-                <br />
-                <input type="submit" value={this.formType}/>
-            </form>
-        );
+            <div>
+                <h3 className="signup-message">Create an account so you can get rewards and order your favorites even faster.</h3>
+                <form className="signup-form" onSubmit={this.handleSubmit}>
+                    <input className="input" type="text" placeholder="First Name" onChange={this.handleInput('firstName')}/>
+                    <br />
+                    <input className="input" type="text" placeholder="Last Name" onChange={this.handleInput('lastName')}/>
+                    <br />
+                    <input className="input" type="text" placeholder="Email" onChange={this.handleInput('email')}/>
+                    <br />
+                    <input className="input" type="password" placeholder="Password" onChange={this.handleInput('password')}/>
+                    <br />
+                    <input className="input" type="text" placeholder="Mobile Number" onChange={this.handleInput('phoneNumber')}/>
+                    <br />
+                    <label>
+                        <input type="radio" checked value="United States" name="country"/>
+                        United States
+                    </label>
+                    <label>
+                        <input type="radio" value="Canada" name="country" onChange={this.handleInput('country')}/>
+                        Canada
+                    </label>
+                    <br />
+                    <input type="submit" className="signup-button" value={this.formType}/>
+                </form>
+            </div>
+            );
         
         return (
             <div>
-                <h1>{this.formType}</h1>
+                <h1 className="heading">{this.formType}</h1>
                 {form}
                 {this.props.otherForm}
+                {this.renderErrors()}
             </div>
         );
     }

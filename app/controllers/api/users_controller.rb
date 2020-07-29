@@ -14,6 +14,7 @@ class Api::UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :password, :country)
+        permitted_params_hash = params.require(:user).permit(:firstName, :lastName, :email, :phoneNumber, :password, :country).to_h
+        deep_snake_case_params!(permitted_params_hash)
     end
 end

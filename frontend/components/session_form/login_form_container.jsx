@@ -20,10 +20,10 @@ const mapDispatchToProps = dispatch => {
         submitForm: user => dispatch(login(user)),
         otherForm: (
             <div>
-                <h3>NOT A MEMBER?</h3>
-                <span>Join Rewards. Get Rewarded.</span>
+                <h3 className="heading">NOT A MEMBER?</h3>
+                <span className="subheading">Join Rewards. Get Rewarded.</span>
                 <br/>
-                <button onClick={() => dispatch(openModal('signup'))}>CREATE AN ACCOUNT</button>
+                <button className="goto-signin-button" onClick={() => dispatch(openModal('signup'))}>CREATE AN ACCOUNT</button>
             </div>
         ),
         closeModal: () => dispatch(closeModal())
