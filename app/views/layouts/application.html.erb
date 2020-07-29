@@ -10,6 +10,9 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
     </style>
+    <script type="text/javascript">
+      window.poblanoLogo = "<%= image_url('poblano-logo.png') %>"
+    </script>
     <% if logged_in? %>
       <script>
         window.currentUser = {
@@ -23,9 +26,6 @@
         window.currentUser = null;
       </script>
     <% end %>
-  <script type="text/javascript">
-    window.poblanoLogo = "<%= image_url('poblano-logo.png') %>"
-  </script>
   </head>
   <body>
     <%= yield %>
