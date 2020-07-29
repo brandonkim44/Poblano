@@ -59,7 +59,7 @@ class SessionForm extends React.Component {
                     <input className="input" type="text" placeholder="Mobile Number" onChange={this.handleInput('phoneNumber')}/>
                     <br />
                     <label>
-                        <input type="radio" checked value="United States" name="country"/>
+                        <input type="radio" defaultChecked="United States" name="country" onChange={this.handleInput('country')}/>
                         United States
                     </label>
                     <label>
