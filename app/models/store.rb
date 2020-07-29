@@ -4,5 +4,5 @@ class Store < ApplicationRecord
     has_many :orders,
         primary_key: :id,
         foreign_key: :store_id,
-        class_name: :Orders
+        class_name: :Order
 end

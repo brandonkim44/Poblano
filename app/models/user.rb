@@ -30,14 +30,10 @@ class User < ApplicationRecord
     self.session_token
   end
 
-  #Associations =>
-
   has_many :orders,
     primary_key: :id,
     foreign_key: :user_id,
-    class_name: :Orders
-
-  # <=
+    class_name: :Order
 
   private
 
