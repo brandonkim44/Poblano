@@ -13,8 +13,8 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.submitForm(user).then(this.closeModal);
+        debugger;
+        this.submitForm(this.state).then(this.closeModal);
     }
 
     handleInput(field) {
@@ -61,6 +61,7 @@ class SessionForm extends React.Component {
             <div>
                 <h1>{this.formType}</h1>
                 {form}
+                {this.props.otherForm}
             </div>
         );
     }

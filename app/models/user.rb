@@ -8,10 +8,16 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  def self.find_by_credentials(username, password)
-    @user = User.find_by(username: username)
-    @user if (@user && BCrypt::Password.new(self.password_digest).is_password?(password))
+  def self.find_by_credentials(email, password)
+    @user = User.find_by(email: email)
+    debugger
+    return @user if (@user && @user.is_password?(password))
     nil
+  end
+
+  def is_password?(password)
+    debugger
+    BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
   def password=(password)
@@ -20,7 +26,7 @@ class User < ApplicationRecord
   end
 
   def reset_session_token!
-    self.class.generate_unique_session_token
+    self.class.generate_session_token
     self.save!
     self.session_token
   end

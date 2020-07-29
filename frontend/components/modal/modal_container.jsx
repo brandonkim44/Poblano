@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Modal from './modal';
 
 const mapStateToProps = ({ ui: { modal} }) => {
+    debugger;
     return ({
         modal
     });

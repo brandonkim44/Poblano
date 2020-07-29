@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import SessionForm from './session_form';
 import React from 'react';
 import { login } from '../../actions/session_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => {
     return ({
@@ -21,6 +22,7 @@ const mapDispatchToProps = dispatch => {
             <div>
                 <h3>NOT A MEMBER?</h3>
                 <span>Join Rewards. Get Rewarded.</span>
+                <br/>
                 <button onClick={() => dispatch(openModal('signup'))}>CREATE AN ACCOUNT</button>
             </div>
         ),
