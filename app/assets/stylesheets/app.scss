@@ -90,6 +90,7 @@ $light-brown: #786259;
 }
 
 span.modal-close-button {
+  position: relative;
   float: right;
   margin: 50px; 
   color: #614436;
@@ -115,7 +116,7 @@ span.modal-close-button {
   top: 0;
   height: 100px;
   width: 100%;
-  z-index: 100;
+  z-index: 5;
   background-color: white;
 }
 
