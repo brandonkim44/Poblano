@@ -31,3 +31,22 @@
 
 en:
   hello: "Hello world"
+  # activerecord:
+  #   attributes:
+  #     user:
+  #       first_name: "First Name"
+  #       last_name: "Last Name"
+  #       email: "Email"
+  #       password: "Password"
+  #       phone_number: "Phone Number"
+  #       country: "Country"
+  #   errors:
+  #     models:
+  #       user:
+  #         attributes:
+  #           first_name:
+  #             blank: """
+  #           email:
+  #             blank: "cannot be empty"
+  #           password:
+  #             blank: "cannot be empty"

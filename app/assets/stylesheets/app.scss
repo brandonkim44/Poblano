@@ -1,0 +1,252 @@
+
+$font-stack: 'Roboto', sans-serif;
+$border-bottom-input: 1px solid rgba(69, 20, 0, .2);
+
+
+.heading {
+   font-family: $font-stack;
+   color: rgb(60, 29, 0);
+ }
+
+ .subheading {
+
+ }
+
+ .input {
+  border: 0;
+  background-color: rgba(247, 242, 238, 1);
+  border-bottom: $border-bottom-input;
+ }
+ 
+ .header-left-container {
+    display: flex;
+    font-family: $font-stack;
+ }
+
+ .header-left-container-sign-in {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    align-items: center;
+    padding: 20px;
+}
+
+.poblano-logo-simple {
+  height: 95px;
+}
+
+.header-left-container-sign-in:hover {
+    cursor: pointer;
+}
+
+.sign-in-header {
+  text-transform: uppercase;
+}
+
+.signup-message {
+  width: 280px;
+}
+
+.person-outline-img {
+    height: 40px;
+}
+
+.poblano-logo-img {
+    height: 60px;
+    padding: 20px;
+}
+
+.poblano-logo-img:hover {
+    cursor: pointer;
+}
+
+.signin-button, .signup-button {
+  border: 1px solid #451400;
+  background-color: #451400;
+  color: white;
+  font-family: $font-stack;
+}
+
+.goto-signin-button, .goto-signup-button {
+  border: 1px solid #451400;
+  background-color: white;
+  color: #451400;
+  font-family: $font-stack;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(247, 242, 238, 1);
+  z-index: 10;
+}
+
+span.modal-close-button {
+  float: right;
+  margin: 50px; 
+  color: #614436;
+  font-size: 40px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* rgb 69 20 0 for their brown */
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.header {
+  display: flex;
+  flex-direction: row;
+}
+
+.ul-list-nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.ul-list-nav > li {
+    font-family: $font-stack;
+    color: #451400;
+}
+
+.sign-out-button {
+  font-family: $font-stack;
+  text-decoration: underline;
+}
+
+.sign-out-button:hover {
+  cursor: pointer;
+}
+
+
+/* input fields for sign up container onBlur and onFocus */
+
+.input-First.Name-required {
+  border: 0;
+  background-color: rgba(247, 242, 238, 1);
+  border-bottom: $border-bottom-input;
+  outline: none;
+}
+
+.input-First.Name-required-focused {
+  border: 0;
+  background-color: rgba(247, 242, 238, 1);
+  border-bottom: $border-bottom-input;
+  outline: none
+}
+
+.input-Last.Name-required {
+  border: 0;
+  background-color: rgba(247, 242, 238, 1);
+  border-bottom: $border-bottom-input;
+  outline: none;
+}
+
+.input-Last.Name-required-focused {
+  border: 0;
+  background-color: rgba(247, 242, 238, 1);
+  border-bottom: $border-bottom-input;
+  outline: none
+}
+
+.input-Email-required {
+  border: 0;
+  background-color: rgba(247, 242, 238, 1);
+  border-bottom: $border-bottom-input;
+  outline: none;
+}
+
+.input-Email-required-focused {
+  border: 0;
+  background-color: rgba(247, 242, 238, 1);
+  border-bottom: $border-bottom-input;
+  outline: none
+}
+
+.input-Password-required {
+  border: 0;
+  background-color: rgba(247, 242, 238, 1);
+  border-bottom: $border-bottom-input;
+  outline: none;
+}
+
+.input-Password-required-focused {
+  border: 0;
+  background-color: rgba(247, 242, 238, 1);
+  border-bottom: $border-bottom-input;
+  outline: none
+}
+
+.input-Phone.Number-required {
+  border: 0;
+  background-color: rgba(247, 242, 238, 1);
+  border-bottom: $border-bottom-input;
+  outline: none;
+}
+
+.input-Phone.Number-required-focused {
+  border: 0;
+  background-color: rgba(247, 242, 238, 1);
+  border-bottom: $border-bottom-input;
+  outline: none
+}
+
+
+input[class="input-Phone Number-required"]::placeholder{
+  color: red;
+}
+
+input[class="input-Phone Number-required-focused"]::placeholder{
+  color: red;
+}
+
+input[class="input-First Name-required"]::placeholder{
+  color: red;
+}
+
+input[class="input-First Name-required-focused"]::placeholder{
+  color: red;
+}
+
+input[class="input-Last Name-required"]::placeholder{
+  color: red;
+}
+
+input[class="input-Last Name-required-focused"]::placeholder{
+  color: red;
+}
+
+input[class="input-Email-required"]::placeholder{
+  color: red;
+}
+
+input[class="input-Email-required-focused"]::placeholder{
+  color: red;
+}
+
+input[class="input-Password-required"]::placeholder{
+  color: red;
+}
+
+input[class="input-Password-required-focused"]::placeholder{
+  color: red;
+}
+
+
+/* toggle input field names */
+
+.hidden {
+  display: none;
+}
+
+.shown {
+  display: block;
+}

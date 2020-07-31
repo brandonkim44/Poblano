@@ -3,7 +3,8 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import Modal from './modal';
 
-const mapStateToProps = ({ ui: { modal} }) => {
+const mapStateToProps = ( { ui: { modal} } ) => {
+    debugger;
     return ({
         modal
     });
@@ -11,6 +12,7 @@ const mapStateToProps = ({ ui: { modal} }) => {
 
 const mapDispatchToProps = dispatch => {
     return ({
+        clearErrors: () => dispatch(closeErrors()),
         closeModal: () => dispatch(closeModal())
     });
 };

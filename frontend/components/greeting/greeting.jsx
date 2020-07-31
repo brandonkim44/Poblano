@@ -14,15 +14,22 @@ const Greeting = ({ currentUser, openModal }) => {
         );
     };
     const greeting = () => {
+
         return (
             <div className="header-left-container-greeting">
-                {/* <img className="" src={} alt="person" /> */}
-                <h4 className="sign-in-header">HEY {currentUser.firstName}</h4>
+                <div className="header-left-container-sign-in" onClick={() => openModal('profile')}>
+                    {/* <img className="" src={} alt="person" /> */}
+                    <h4 className="sign-in-header">HEY {currentUser.firstName}</h4>
+                </div>
             </div>
         );
     };
 
-    return currentUser ? greeting() : signIn();
+    if (currentUser.id) {
+        return greeting();
+    } else {
+        return signIn();
+    }
 };
 
 

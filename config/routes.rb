@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :create, :destroy]
     resources :stores, only: [:index]
   end
+
+  get '*path' => redirect('/')
 end

@@ -7,11 +7,20 @@ class Api::SessionsController < ApplicationController
             params[:user][:email],
             params[:user][:password]
         )
+       
         if @user
             login!(@user)
             render "api/users/show"
         else
-            render json: ["The email or password you entered isn't quite right."], status: 400
+            if params[:user][:email] == ""
+                render json: ["Email Required"], status: 400
+            elsif !(params[:user][:email] =~ /\A.+\@.+\..+\z/)
+                render json: ["Looks like an invalid email. Try again?"], status: 400
+            elsif params[:user][:password] == ""
+                render json: ["Password Required"], status: 400
+            else
+                render json: ["The email or password you entered isn't quite right. As a reminder, your password contains", "at least 8 characters | ABC | abc | 123 | !@%"], status: 400
+            end
         end
     end
 

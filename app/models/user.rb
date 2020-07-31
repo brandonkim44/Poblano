@@ -2,9 +2,12 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  validates :first_name, :last_name, :phone_number, :email, :country, :password_digest, :session_token, presence: true
+  validates :first_name, :last_name, :password_digest, :session_token, presence: true
+  validates :country, inclusion: { in: [true, false] }, presence: true
+  validates :email, presence: true, format: { with: /\A.+\@.+\..+\z/, message: "Please enter a valid email." }
+  validates :phone_number, presence: true, length: { is: 10 }, format: { with: /\A\d+\z/, message: "Please enter a valid Phone number"}
   validates :phone_number, :email, :session_token, uniqueness: true
-  validates :password, length: { minimum: 6 }, allow_nil: true
+  validates :password, length: { minimum: 8 }, allow_nil: true, format: { with: /\A(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@$]).{8,}\z/, message: "Please enter a valid password" }
 
   after_initialize :ensure_session_token
 

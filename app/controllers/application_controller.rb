@@ -20,21 +20,13 @@ class ApplicationController < ActionController::Base
     end
 
     def deep_snake_case_params!(val)
-        case val
-            when (val.is_a? Array)
-                #recursive
-                val.map {|v| deep_snake_case_params!(v) }
-            when (val.is_a? Hash)
-                #turns params into array, each ele is a key, delete the key, then replace it with snake_cased key
-                val.keys.each do |k, v = val[k]|
-                    val.delete k
-                    snaked_key = k.underscore
-                    val[snaked_key] = deep_snake_case_params!(v)
-                end
-            val
-        else
-            val
+        return val unless val.is_a? Hash
+        new_hash = {}
+        val.each do |k, v|
+            snaked_key = k.underscore
+            new_hash[snaked_key] = deep_snake_case_params!(v)
         end
+        return new_hash
     end
 
     # def ensure_logged_in

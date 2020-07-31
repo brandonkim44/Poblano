@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
 import React from 'react';
-import { login } from '../../actions/session_actions';
+import { login, clearErrors } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return ({
         input: {
-            email: "Email",
-            password: "Password"
+            email: "",
+            password: ""
         },
         errors: state.errors.session,
         formType: 'SIGN IN'
@@ -17,6 +17,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return ({
+        login: (user) => dispatch(login(user)),
         submitForm: user => dispatch(login(user)),
         otherForm: (
             <div>
@@ -26,6 +27,7 @@ const mapDispatchToProps = dispatch => {
                 <button className="goto-signin-button" onClick={() => dispatch(openModal('signup'))}>CREATE AN ACCOUNT</button>
             </div>
         ),
+        clearErrors: () => dispatch(clearErrors()),
         closeModal: () => dispatch(closeModal())
     });
 };
