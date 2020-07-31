@@ -13,14 +13,11 @@ const App = (props) => {
         <header className="header">
             <div className="header-left-container">
                 <Link to="/">
-                    {/* <img className="poblano-logo-img" src={window.poblanoLogo} alt="poblano-logo"/> */}
+                    <img className="poblano-logo-img" src={window.poblanoLogo} alt="poblano-logo"/>
                 </Link>
                 <GreetingContainer />
             </div>
 
-            <div>
-                <img src="" alt=""/>
-            </div>
             <Switch>
                 
             </Switch>
@@ -37,6 +34,74 @@ const App = (props) => {
                 </div>
             </nav>
         </header>
+        <main className="main-container">
+            <div className="guac-banner" >
+                <h1>- Be Extra -</h1>
+                <img className="guac-img" src={window.guac} alt="guac" />
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+                        <li>
+                        </li>
+        </main>
 
     </div>
     );

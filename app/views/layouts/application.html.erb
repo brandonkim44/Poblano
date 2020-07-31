@@ -9,7 +9,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <script type="text/javascript">
+      window.poblanoLogo = "<%= image_url('poblano-logo.png') %>"
       window.PoblanoLogoSimple = "<%= image_url('poblano-logo-simple.png') %>"
+      window.guac = "<%= image_url('guac.gif') %>"
     </script>
     <% if logged_in? %>
       <script>

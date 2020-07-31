@@ -78,7 +78,7 @@ class SessionForm extends React.Component {
 
     signInForm() {
         return (
-            <div>
+            <div className="signInForm">
                 <form onSubmit={this.handleSubmit}>
                     <div onChange={this.handleInput('email')}>
                         <div className="hidden">Email</div>
