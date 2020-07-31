@@ -24,16 +24,13 @@ class SessionForm extends React.Component {
     handleInput(field) {
         //might want to implement a debounce 
         return e => {
-            debugger;
             if (e.target.value === "") {
                 e.currentTarget.firstChild.className = "hidden";
             } else {
                 e.currentTarget.firstChild.className = "shown";
             }
             e.target.classname = "input";
-            debugger;
             this.setState({ [field]: e.target.value })
-            debugger;
         }
     }
 

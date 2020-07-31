@@ -6,11 +6,6 @@ import GreetingContainer from './greeting/greeting_container';
 import ModalContainer from './modal/modal_container';
 import ProfileContainer from './profile/profile_container';
 const App = (props) => {
-
-    // const handleClick = () => {
-    //     debugger;
-    //     props.history.push("/")
-    // }
     
     return (
     <div>

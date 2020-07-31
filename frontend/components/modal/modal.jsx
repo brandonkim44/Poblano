@@ -9,7 +9,6 @@ class Modal extends React.Component {
     }
 
     render () {
-        debugger;
         if (!this.props.modal) {
             return null;
         }
@@ -22,7 +21,6 @@ class Modal extends React.Component {
                 component = <SignupFormContainer />;
                 break;
             case 'profile':
-                debugger;
                 component = <ProfileContainer />
                 break;
             default:

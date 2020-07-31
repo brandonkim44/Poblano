@@ -13,7 +13,6 @@ export const receiveCurrentUser = currentUser => {
 };
 
 export const logoutCurrentUser = () => {
-    debugger;
     return ({
         type: LOGOUT_CURRENT_USER
     });
@@ -42,15 +41,13 @@ export const signup = user => dispatch => {
 };
 
 export const login = user => dispatch => {
-    debugger;
     return (
         APIUtil.login(user)
-        .then(user => { debugger; return (dispatch(receiveCurrentUser(user)))}, promise => dispatch(receiveErrors(promise.responseJSON)))
+        .then(user => { return (dispatch(receiveCurrentUser(user)))}, promise => dispatch(receiveErrors(promise.responseJSON)))
     );
 };
 
 export const logout = () => dispatch => {
-    debugger;
     return (
         APIUtil.logout().then(() => dispatch(logoutCurrentUser()))
     );

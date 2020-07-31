@@ -4,7 +4,6 @@ import { closeModal } from '../../actions/modal_actions';
 import { logout } from "../../actions/session_actions";
 
 const mapStateToProps = (state) => {
-    debugger;
     return ({
         currentUser: state.entities.users[state.session.id] ? state.entities.users[state.session.id] : {}
     });

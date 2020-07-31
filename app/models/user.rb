@@ -2,8 +2,9 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  #why should there be no model validation for country / why conflicting with seed?
   validates :first_name, :last_name, :password_digest, :session_token, presence: true
-  validates :country, inclusion: { in: [true, false] }, presence: true
+  validates :country, inclusion: { in: [true, false] }
   validates :email, presence: true, format: { with: /\A.+\@.+\..+\z/, message: "Please enter a valid email." }
   validates :phone_number, presence: true, length: { is: 10 }, format: { with: /\A\d+\z/, message: "Please enter a valid Phone number"}
   validates :phone_number, :email, :session_token, uniqueness: true
