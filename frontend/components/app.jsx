@@ -13,7 +13,7 @@ const App = (props) => {
         <header className="header">
             <div className="header-left-container">
                 <Link to="/">
-                    <img className="poblano-logo-img" src={window.poblanoLogo} alt="poblano-logo"/>
+                    {/* <img className="poblano-logo-img" src={window.poblanoLogo} alt="poblano-logo"/> */}
                 </Link>
                 <GreetingContainer />
             </div>
