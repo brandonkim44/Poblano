@@ -34,6 +34,7 @@ class Profile extends React.Component {
     }
 
     handleClick() {
+        document.body.className = "modal-close"
         this.props.closeModal();
         this.props.logout();
     }

@@ -1,107 +1,49 @@
 import React from 'react';
 import SignupFormContainer from './session_form/signup_form_container';
-import { Link, Route, Redirect, Switch, withRouter } from 'react-router-dom';
+import { Link, Route, Redirect, Switch, withRouter, NavLink } from 'react-router-dom';
 import LoginFormContainer from './session_form/login_form_container';
 import GreetingContainer from './greeting/greeting_container';
 import ModalContainer from './modal/modal_container';
 import ProfileContainer from './profile/profile_container';
+import FindChipotleContainer from './find_chipotle/find_chipotle_container';
+import NavBar from './navbar/navbar';
+import Footer from '../footer/footer';
+import Main from '../components/main/main';
+import { openModal } from '../actions/modal_actions';
+
+//come back to hamgburger menu
 const App = (props) => {
-    
     return (
     <div>
         <ModalContainer />
+
         <header className="header">
+            <img className="hamburger" src={window.hamburger} alt="hamburger-icon" onClick={() => dispatch(openModal('nav'))}/>
+            
             <div className="header-left-container">
                 <Link to="/">
                     <img className="poblano-logo-img" src={window.poblanoLogo} alt="poblano-logo"/>
                 </Link>
-                <GreetingContainer />
+                    <GreetingContainer />
             </div>
-
-            <Switch>
-                
-            </Switch>
             
+            <NavBar />
 
-            <nav className="nav-bar">
-                <div className="nav-bar-container">
-                    <ul className="ul-list-nav">
-                        {/* <li>Order</li>
-                        <li>Rewards</li>
-                        <li>Our Values</li>
-                        <li>Nutrition</li> */}
-                    </ul>
+            <div className="header-right-container">
+                <div>
+                    <FindChipotleContainer />
                 </div>
-            </nav>
-        </header>
-        <main className="main-container">
-            <div className="guac-banner" >
-                <h1>- Be Extra -</h1>
-                <img className="guac-img" src={window.guac} alt="guac" />
+                <div>
+                    <img className="bag-icon" src={window.bagIcon} alt="bag-icon"/>
+                </div>
             </div>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-                        <li>
-                        </li>
-        </main>
+        </header>
+
+        <Switch>
+            <Route exact path="/" component={Main}/> 
+        </Switch>
+        
+        <Footer />
 
     </div>
     );

@@ -9,6 +9,7 @@ class SessionForm extends React.Component {
         this.state = this.props.input;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
+        this.handleUpdat = this.handleUpdate.bind(this);
     }
 
     componentWillMount() {
@@ -16,22 +17,77 @@ class SessionForm extends React.Component {
     }
 
     handleSubmit(e) {
+        //iterate through fields and check if value is empty and if empty, change classname to required for placeholder
         e.preventDefault();
         const user = Object.assign({}, this.state);
+        delete user.updateFocus;
+        delete user.updateBlur;
         this.props.submitForm(user).then(this.props.closeModal);
     }
 
     handleInput(field) {
         //might want to implement a debounce 
         return e => {
-            if (e.target.value === "") {
-                e.currentTarget.firstChild.className = "hidden";
+            if (e.target.value === "" && (field === "email" || field === "password" || field === "phoneNumber")) {
+                e.currentTarget.firstChild.className = `hidden ${field}`;
+                //refactor below code to use switch case statement
+
+                // switch (field) {
+                //     case "email":
+                        
+                //         break;
+                
+                //     default:
+                //         break;
+                // }
+            } else if (field === "email") {
+                const emailRegex = new RegExp('.+\@.+\..+');
+                if (emailRegex.test(e.target.value)) {
+                        e.currentTarget.firstChild.className = `hidden ${field}`
+                        return e.currentTarget.childNodes[0].className = 'shown'
+                } else {
+                    if (arguments[1] === "signin") {
+                        return e.currentTarget.firstChild.className = `shown signin ${field}`
+                    } else {
+                        return e.currentTarget.firstChild.className = `shown ${field}`
+                    }
+                }
+            } else if (field === "password") {
+                const passwordRegex = new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@$]).{2,}$');
+                if (passwordRegex.test(e.target.value) && e.target.value.length > 7) {
+                    e.currentTarget.firstChild.className = `hidden ${field}`
+                    return e.currentTarget.children[2].className = 'shown'
+                } else {
+                    if (arguments[1] === "signin") {
+                        return e.currentTarget.firstChild.className = `shown signin ${field}`
+
+                    } else {
+                        return e.currentTarget.firstChild.className = `shown ${field}`
+                    }
+                }
+            } else if (field === "phoneNumber") {
+                const phoneRegex = new RegExp('^[0-9]{9,}$');
+                debugger;
+                if (phoneRegex.test(e.target.value) && e.target.value.length === 10) {
+                    e.currentTarget.firstChild.className = `hidden ${field}`
+                    return e.currentTarget.childNodes[1].className = 'shown'
+                } else {
+                    return e.currentTarget.firstChild.className = `shown ${field}`
+                }
+            } else if (e.target.value === "") {
+                return e.currentTarget.firstChild.className = "hidden"
             } else {
-                e.currentTarget.firstChild.className = "shown";
+                return e.currentTarget.firstChild.className = "shown"
             }
+
             e.target.classname = "input";
-            this.setState({ [field]: e.target.value })
         }
+    }
+
+    handleUpdate(field) {
+        return e => {
+            this.setState({ [field]: e.target.value })
+        };
     }
 
     handleDemo() {
@@ -46,7 +102,7 @@ class SessionForm extends React.Component {
         return (
             <ul>
                 {this.props.errors.map((error, idx) => (
-                    <li key={`error-${idx}`}>{error}</li>
+                    <li className="error-message" key={`error-${idx}`}>{error}</li>
                 ))}
             </ul>
         )
@@ -68,7 +124,7 @@ class SessionForm extends React.Component {
         return e => {
             if (field === "Password") {
                 let children = e.currentTarget.childNodes;
-                children[1].className = "show";
+                children[1].className = "shown";
             }
             e.target.placeholder = `${field} Required`
             e.target.className = `input-${field}-required-focused`
@@ -77,24 +133,49 @@ class SessionForm extends React.Component {
     }
 
     signInForm() {
+        const fillerSpace = (num) => {
+            let arr = [];
+            for(let i = 0; i < num; i++) { arr.push(<br/>) };
+            return arr;
+        };
+
         return (
             <div className="signInForm">
+               <h1 className="heading-signin">{this.props.formType}</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <div onChange={this.handleInput('email')}>
+                    <div onChange={this.handleInput('email', 'signin')}>
                         <div className="hidden">Email</div>
-                        <input className="input" type="text" placeholder="Email" onChange={this.handleInput('email')}/>
+                        <input 
+                            className="input" 
+                            type="text" 
+                            placeholder="Email" 
+                            onChange={this.handleUpdate('email')}
+                        />
                     </div>
                     <br />
-                    <div onChange={this.handleInput('password')}>
+                    <div onChange={this.handleInput('password', 'signin')}>
                         <div className="hidden">Password</div>
-                        <input className="input" type="password" placeholder="Password" onChange={this.handleInput('password')}/>
+                        <input 
+                            className="input" 
+                            type="password" 
+                            placeholder="Password" 
+                            onChange={this.handleUpdate('password')}
+                        />
                     </div>
                     <br />
-                    <input className="signin-button" type="submit" value={this.props.formType} />
+                {this.renderErrors()}
+                    <input 
+                        className="signin-button" 
+                        type="submit" 
+                        value={this.props.formType} 
+                    />
                     <br />
                 </form>
-                    <button className="signin-button" onClick={() => this.handleDemo()}>Demo Login</button>
-                {this.renderErrors()}
+                    <button 
+                        className="signin-button" 
+                        onClick={() => this.handleDemo()}>DEMO LOGIN
+                    </button>
+                <span className="session-form-separator"></span>
             </div>
         );
     }
@@ -105,49 +186,108 @@ class SessionForm extends React.Component {
         
         return(
             <div>
+                <h1 className="heading-signup">{this.props.formType}</h1>
                 <h3 className="signup-message">Create an account so you can get rewards and order your favorites even faster.</h3>
                 <form className="signup-form" onSubmit={this.handleSubmit}>
                     <div onChange={this.handleInput('firstName')}>
                         <div className="hidden">First Name</div>
-                        <input className="input" type="text" placeholder="First Name" onBlur={this._onBlur('updateBlur', "First Name")} onFocus={this._onFocus('updateFocus', "First Name")}/>
+                        <input 
+                            className="input" 
+                            type="text" 
+                            placeholder="First Name" 
+                            onBlur={this._onBlur('updateBlur', "First Name")} 
+                            onFocus={this._onFocus('updateFocus', "First Name")} 
+                            onChange={this.handleUpdate('firstName')}
+                        />
                     </div>
                     <br />
                     <div onChange={this.handleInput('lastName')}>
                         <div className="hidden">Last Name</div>
-                        <input className="input" type="text" placeholder="Last Name" onBlur={this._onBlur('updateBlur', "Last Name")} onFocus={this._onFocus('updateFocus', "Last Name")}/>
+                        <input 
+                            className="input" 
+                            type="text" 
+                            placeholder="Last Name" 
+                            onBlur={this._onBlur('updateBlur', "Last Name")} 
+                            onFocus={this._onFocus('updateFocus', "Last Name")} 
+                            onChange={this.handleUpdate('lastName')}
+                        />
                     </div>
                     <br />
                     <div onChange={this.handleInput('email')}>
+                        <div className="hidden email">Please Enter A Valid Email</div>
                         <div className="hidden">Email</div>
-                        <input className="input" type="text" placeholder="Email" onBlur={this._onBlur('updateBlur', "Email")} onFocus={this._onFocus('updateFocus', "Email")}/>
+                        <input 
+                            className="input" 
+                            type="text" 
+                            placeholder="Email" 
+                            onBlur={this._onBlur('updateBlur', "Email")} 
+                            onFocus={this._onFocus('updateFocus', "Email")} 
+                            onChange={this.handleUpdate('email')}
+                        />
                     </div>
                     <br />
                     <div onChange={this.handleInput('password')} onBlur={this._onBlur('updateBlur', "Password")} onFocus={this._onFocus('updateFocus', "Password")}>
-                        <div className="hidden">Password</div>
+                        <div className="hidden password">Please Enter A Valid Password</div>
                         <div className="hidden">
                             Create a password with these requirements:
-                            <span>8 characters&nbsp;ABC&nbsp;abc&nbsp;123&nbsp;!@</span>
+                            <span className="password-requirement-message">&nbsp;8&nbsp;characters&nbsp;ABC&nbsp;abc&nbsp;123&nbsp;!@$</span>
                         </div>
-                        <input className="input" type="password" placeholder="Password"/>
+                        <div className="hidden">Password</div>
+                        <input 
+                            className="input" 
+                            type="password" 
+                            placeholder="Password" 
+                            onChange={this.handleUpdate('password')}
+                        />
                     </div>
                     <br />
                     <div onChange={this.handleInput('phoneNumber')}>
+                        <div className="hidden phoneNumber">Please Enter A Valid Phone Number</div>
                         <div className="hidden">Phone Number</div>
-                        <input className="input" type="text" placeholder="Phone Number" onBlur={this._onBlur('updateBlur', "Phone Number")} onFocus={this._onFocus('updateFocus', "Phone Number")}/>
+                        <input 
+                            className="input" 
+                            type="text" 
+                            placeholder="Phone Number" 
+                            onBlur={this._onBlur('updateBlur', "Phone Number")} 
+                            onFocus={this._onFocus('updateFocus', "Phone Number")}
+                             onChange={this.handleUpdate('phoneNumber')}
+                        />
                     </div>
                     <br />
-                    <label>
-                        <input type="radio" defaultChecked value="false" name="country" onChange={this.handleInput('country')} />
-                        United States
-                    </label>
-                    <label>
-                        <input type="radio" value="false" name="country" onChange={this.handleInput('country')} />
-                        Canada
-                    </label>
+                    <div className="shown country">Country</div>
+                    <div className="radio-buttons">
+                        <label className="radio-button-labels">
+                            <input
+                                className="radio-button"
+                                type="radio" 
+                                defaultChecked 
+                                value="false" 
+                                name="country" 
+                                onChange={this.handleUpdate('country')} 
+                            />
+                            <span></span>
+                            United States
+                        </label>
+                        <label className="radio-button-labels">
+                            <input 
+                                className="radio-button"
+                                type="radio" 
+                                value="false" 
+                                name="country" 
+                                onChange={this.handleUpdate('country')} 
+                            />
+                            <span></span>
+                            Canada
+                        </label>
+                    </div>
                     <br />
-                    <input type="submit" className="signup-button" value={this.props.formType} />
+                    <input 
+                        type="submit" 
+                        className="signup-button" 
+                        value={this.props.formType} 
+                    />
+                    <span className="session-form-separator"></span>
                 </form>
-                {this.renderErrors()}
             </div>
         );
     }
@@ -161,7 +301,6 @@ class SessionForm extends React.Component {
         
         return (
             <div>
-                <h1 className="heading">{this.props.formType}</h1>
                 {form}
                 {this.props.otherForm}
             </div>

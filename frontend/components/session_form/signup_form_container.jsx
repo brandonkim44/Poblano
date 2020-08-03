@@ -24,9 +24,8 @@ const mapDispatchToProps = dispatch => {
         submitForm: user => dispatch(signup(user)),
         otherForm: (
             <div className="signup-instead-container">
-                <span>Already a member?</span>
-                <br/>
-                <button className="goto-signup-button" onClick={() => dispatch(openModal('signin'))}>SIGN IN</button>
+                <span className="already-member">AlREADY A MEMBER?</span>
+                <span className="goto-signin-button" onClick={() => dispatch(openModal('signin'))}>SIGN IN</span>
             </div>
         ),
         closeModal: () => dispatch(closeModal()),

@@ -7,8 +7,15 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap" rel="stylesheet">
     <script type="text/javascript">
+      window.githubIcon = "<%= image_url('github-icon.png') %>"
+      window.hamburger = "<%= image_url('hamburger.png') %>"
+      window.tinyLogo = "<%= image_url('tiny-logo.png') %>"
+      window.linkedIcon = "<%= image_url('linkedin.png') %>"
+      window.bagIcon = "<%= image_url('bag-icon.png') %>"
+      window.gradientBanner = "<%= image_url('shimmer.png') %>"
       window.poblanoLogo = "<%= image_url('poblano-logo.png') %>"
       window.PoblanoLogoSimple = "<%= image_url('poblano-logo-simple.png') %>"
       window.guac = "<%= image_url('guac.gif') %>"
@@ -32,7 +39,16 @@
 
 
   
-  <body>
+  <body class="modal-close">
     <%= yield %>
   </body>
+  <script>
+        //document.querySelector(".sign-in-header").addEventListener('click', function() {
+          //document.querySelector("body").style.overflow = 'hidden';
+        //debugger;
+      //});
+      //document.querySelector(".modal-close-button").addEventListener('click', function() {
+        //document.querySelector("body").style.overflow = 'unset';
+      //});
+    </script>
 </html>

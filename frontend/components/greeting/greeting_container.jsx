@@ -8,7 +8,8 @@ const mapStateToProps = ( { session, entities: { users } } ) => {
     });
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
+    debugger;
     return({
         openModal: modal => dispatch(openModal(modal))
     });
