@@ -12,11 +12,18 @@ class NutritionItems extends React.Component {
     //     this.setState({ entree });
     // }
 
+    // renderEntree() {
+    //     return (
+            
+    //     )
+    // }
+
+
     landingPage() {
         return (
             <div className="gallery">
                 <figure className="gallery-item gallery-item-1">
-                    <img src={window.burrito} class="gallery-img" alt="burrito" ></img>
+                    <img src={window.burrito} class="gallery-img" alt="burrito" onClick={() => renderEntree('burrito')}></img>
                     <figcaption>BURRITO</figcaption>
                 </figure>
                 <figure className="gallery-item gallery-item-2">

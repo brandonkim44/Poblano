@@ -1,7 +1,7 @@
 import React from 'react';
 import NutritionLandingItems from './nutrition_landing_items';
 
-class Nutrition extends React.Component {
+class NutritionLanding extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -27,4 +27,4 @@ class Nutrition extends React.Component {
     }
 };
 
-export default Nutrition;
+export default NutritionLanding;
