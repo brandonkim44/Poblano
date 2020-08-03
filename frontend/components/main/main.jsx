@@ -11,7 +11,7 @@ const Main = () => {
 
                 <div className="main-advertisement-container">
                     <img className="main-poblano-simple-logo" src={window.PoblanoLogoSimple} alt="poblano-logo-simple" />
-                    <h2>JOIN CHIPOTLE REWARDS. UNWRAP SOME FREE CHIPOTLE.</h2>
+                    <h2>JOIN POBLANO REWARDS. UNWRAP SOME FREE POBLANO.</h2>
                     <div className="main-create-signin">
                         <span className="main-create" onClick={() => dispatch(openModal('signup'))}>CREATE AN ACCOUNT</span>
                         <span className="main-or">OR</span>

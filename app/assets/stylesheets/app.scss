@@ -599,42 +599,15 @@ body.modal-close {
    @include input-field;
  }
 
-.input-First.Name-required {
-  @include input-field;
-}
-
-.input-First.Name-required-focused {
-  @include input-field;
-}
-
-.input-Last.Name-required {
-  @include input-field;
-}
-
-.input-Last.Name-required-focused {
-  @include input-field;
-}
-
-.input-Email-required {
-  @include input-field;
-}
-
-.input-Email-required-focused {
-  @include input-field
-}
-
-.input-Password-required {
-  @include input-field
-}
-
-.input-Password-required-focused {
-  @include input-field
-}
-
-.input-Phone.Number-required {
-  @include input-field
-}
-
+.input-First.Name-required, 
+.input-First.Name-required-focused,
+.input-Last.Name-required,
+.input-Last.Name-required-focused,
+.input-Email-required,
+.input-Email-required-focused,
+.input-Password-required,
+.input-Password-required-focused,
+.input-Phone.Number-required,
 .input-Phone.Number-required-focused {
   @include input-field;
 }
@@ -652,15 +625,6 @@ input[class="input-Password-required"]::placeholder,
 input[class="input-Password-required-focused"]::placeholder {
   color: red;
 }
-
-// .password-requirement-message {
-//   background-color: $dark-brown;
-//   color: white;
-//   font-size: 16px;
-//   font-weight: bold;
-//   font-family: Arial, Helvetica, sans-serif;
-//   position: relative;
-// }
 
 /* toggle input field names */
 
@@ -682,6 +646,93 @@ input[class="input-Password-required-focused"]::placeholder {
   font-family: $font-nunito;
   color: $light-brown;
 }
+
+/* nutrition page */
+
+.nutrition-calculator-container {
+  position: relative;
+  top: 100px;
+}
+
+
+
+/* Nutrition Items (Entree Pic Gallery) */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 5vw);
+  grid-gap: 15px;
+  max-width: 960px;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-item-1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.gallery > .gallery-item > .gallery-img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.gallery-item-2 {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.gallery-item-3 {
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.gallery-item-4 {
+    grid-column-start: 7;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.gallery-item-5 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 5;
+}
+
+.gallery-item-6 {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 5;
+}
+
+.gallery-item-7 {
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 3;
+    grid-row-end: 5;
+}
+
+.gallery-item-8 {
+    grid-column-start: 7;
+    grid-column-end: 9;
+    grid-row-start: 3;
+    grid-row-end: 5;
+}
+
 /* footer */
 
 .footer-container {
@@ -734,3 +785,4 @@ input[class="input-Password-required-focused"]::placeholder {
 .github-icon:hover {
   cursor: pointer;
 }
+

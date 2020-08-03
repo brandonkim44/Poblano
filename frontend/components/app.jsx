@@ -10,6 +10,7 @@ import NavBar from './navbar/navbar';
 import Footer from '../footer/footer';
 import Main from '../components/main/main';
 import { openModal } from '../actions/modal_actions';
+import NutritionLandingContainer from './nutrition/nutrition_landing_container';
 
 //come back to hamgburger menu
 const App = (props) => {
@@ -40,7 +41,8 @@ const App = (props) => {
         </header>
 
         <Switch>
-            <Route exact path="/" component={Main}/> 
+            <Route exact path="/nutrition-calculator" component={NutritionLandingContainer}/>
+            <Route exact path="/" component={Main}/>
         </Switch>
         
         <Footer />
