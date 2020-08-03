@@ -12,7 +12,7 @@ import Main from '../components/main/main';
 import { openModal } from '../actions/modal_actions';
 import Header from './header/header';
 
-//come back to hamgburger menu
+
 const App = (props) => {
 
     return (

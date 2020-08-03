@@ -6,6 +6,7 @@ import FindChipotleContainer from '../find_chipotle/find_chipotle_container';
 import NavBar from '../navbar/navbar';
 
 const Header = () => {
+    //come back to hamgburger menu
         return (
             <header className="header">
                 <img className="hamburger" src={window.hamburger} alt="hamburger-icon" onClick={() => dispatch(openModal('nav'))} />
