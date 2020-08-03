@@ -1,86 +1,22 @@
 import React from 'react';
 import { openModal } from '../../actions/modal_actions';
+import MainLandingPage from './main_landing_page';
+import NutritionLandingContainer from '../nutrition/nutrition_landing_container';
+import { Route } from 'react-router-dom';
 
-const Main = () => {
-    return (
-        <main className="main-container">
-            <div className="guac-banner" >
-                <img className="guac-img" src={window.guac} alt="guac" />
-                <h1 className="guac-pre-title">- Be Extra -</h1>
-                <h1 className="guac-title">National Avocado Day </h1>
-
-                <div className="main-advertisement-container">
-                    <img className="main-poblano-simple-logo" src={window.PoblanoLogoSimple} alt="poblano-logo-simple" />
-                    <h2>JOIN POBLANO REWARDS. UNWRAP SOME FREE POBLANO.</h2>
-                    <div className="main-create-signin">
-                        <span className="main-create" onClick={() => dispatch(openModal('signup'))}>CREATE AN ACCOUNT</span>
-                        <span className="main-or">OR</span>
-                        <span className="main-signin" onClick={() => dispatch(openModal('signin'))}>SIGN IN</span>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-        </main>
-    )
+class Main extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    
+    render() {
+        return (
+            <main className="main-container">
+                <Route exact path="/nutrition-calculator" component={NutritionLandingContainer} />
+                <Route exact path="/" component={MainLandingPage} />
+            </main>
+        )
+    }
 };
 
 export default Main;

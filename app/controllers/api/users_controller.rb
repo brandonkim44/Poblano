@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
             login!(@user)
             render :show
         else
-            render json: [], status: 401
+            render json: ["Something isn't quite right... Please look over your email, password, or phone number to make sure they're valid."], status: 401
         end
     end
 

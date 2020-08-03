@@ -10,40 +10,18 @@ import NavBar from './navbar/navbar';
 import Footer from '../footer/footer';
 import Main from '../components/main/main';
 import { openModal } from '../actions/modal_actions';
-import NutritionLandingContainer from './nutrition/nutrition_landing_container';
+import Header from './header/header';
 
 //come back to hamgburger menu
 const App = (props) => {
+
     return (
     <div>
         <ModalContainer />
 
-        <header className="header">
-            <img className="hamburger" src={window.hamburger} alt="hamburger-icon" onClick={() => dispatch(openModal('nav'))}/>
-            
-            <div className="header-left-container">
-                <Link to="/">
-                    <img className="poblano-logo-img" src={window.poblanoLogo} alt="poblano-logo"/>
-                </Link>
-                    <GreetingContainer />
-            </div>
-            
-            <NavBar />
+        <Header />
 
-            <div className="header-right-container">
-                <div>
-                    <FindChipotleContainer />
-                </div>
-                <div>
-                    <img className="bag-icon" src={window.bagIcon} alt="bag-icon"/>
-                </div>
-            </div>
-        </header>
-
-        <Switch>
-            <Route exact path="/nutrition-calculator" component={NutritionLandingContainer}/>
-            <Route exact path="/" component={Main}/>
-        </Switch>
+        <Main />
         
         <Footer />
 

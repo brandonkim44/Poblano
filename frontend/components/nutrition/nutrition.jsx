@@ -1,5 +1,5 @@
 import React from 'react';
-import NutritionItems from './nutrition_items';
+import NutritionLandingItems from './nutrition_landing_items';
 
 class Nutrition extends React.Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class Nutrition extends React.Component {
                     </div>
                     <div className="nutrition-entrees-container">
                         <h2 className="nutrition-entrees-container-header">SELECT A MEAL TO BEGIN</h2>
-                        <NutritionItems />
+                        <NutritionLandingItems />
                     </div>
                 </div>
                 {/* component for ingredients */}

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import NutritionLandingItems from './nutrition_landing_items';
+import NutritionEntree from './nutrition_entree';
 
 const mapStateToProps = state => {
     return ({
@@ -9,9 +9,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return ({
-        
+
     });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NutritionLandingItems);
-
+export default connect(mapStateToProps, mapDispatchToProps)(NutritionEntree);
