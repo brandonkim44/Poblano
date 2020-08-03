@@ -31,13 +31,11 @@ class Modal extends React.Component {
                 component = <ProfileContainer />
                 break;
             case 'nav':
-                debugger;
                 component = <NavBar />
             default:
                 return null;
         }
 
-        debugger
         //make modal dynamic
         return (
             <div className="modal-background">

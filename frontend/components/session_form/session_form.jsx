@@ -67,7 +67,6 @@ class SessionForm extends React.Component {
                 }
             } else if (field === "phoneNumber") {
                 const phoneRegex = new RegExp('^[0-9]{9,}$');
-                debugger;
                 if (phoneRegex.test(e.target.value) && e.target.value.length === 10) {
                     e.currentTarget.firstChild.className = `hidden ${field}`
                     return e.currentTarget.childNodes[1].className = 'shown'

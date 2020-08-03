@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
-    debugger;
     return (
         <nav className="nav-bar">
             <div className="nav-bar-container">

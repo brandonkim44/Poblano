@@ -8,7 +8,6 @@ class Api::UsersController < ApplicationController
         else
             email = user_params["email"]
             phone_number = user_params["phone_number"]
-            debugger
             if User.find_by(email: email)
                 render json: ["Email has already been taken"], status: 401
             elsif User.find_by(phone_number: phone_number)
