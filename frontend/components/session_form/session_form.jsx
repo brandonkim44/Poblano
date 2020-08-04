@@ -44,7 +44,7 @@ class SessionForm extends React.Component {
                 const emailRegex = new RegExp('.+\@.+\..+');
                 if (emailRegex.test(e.target.value)) {
                         e.currentTarget.firstChild.className = `hidden ${field}`
-                        return e.currentTarget.childNodes[0].className = 'shown'
+                        return e.currentTarget.childNodes[1].className = 'shown'
                 } else {
                     if (arguments[1] === "signin") {
                         return e.currentTarget.firstChild.className = `shown signin ${field}`
