@@ -6,7 +6,10 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :orders, only: [:index, :create, :destroy]
     resources :stores, only: [:index]
+    resources :meals, only: [:show]
   end
+
+
 
   get '*path' => redirect('/')
 end
