@@ -43,7 +43,7 @@ export const signup = user => dispatch => {
 export const login = user => dispatch => {
     return (
         APIUtil.login(user)
-        .then(user => { return (dispatch(receiveCurrentUser(user)))}, promise => dispatch(receiveErrors(promise.responseJSON)))
+        .then(user => dispatch(receiveCurrentUser(user)), promise => dispatch(receiveErrors(promise.responseJSON)))
     );
 };
 

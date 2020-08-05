@@ -1,10 +1,19 @@
 class Api::MealsController < ApplicationController
 
-    def show
-        @meal = Meal.find_by(meal_name: params[:meal][:meal_name])
-        @ingredients = @meal.builds.where(meal_id: @meal.id)
-        render :show
+    def index
+        @meals = Meal.all
+        render :index
     end
 
+    def show
+        @meal = Meal.find_by(id: params[:id])
+
+        if @meal
+            @ingredients = @meal.ingredients
+            render :show
+        else
+            render json: ["Could not find meal"], status: 401
+        end
+    end
 
 end
