@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'open-uri'
+
 User.destroy_all
 Ingredient.destroy_all
 Meal.destroy_all
@@ -716,14 +718,14 @@ end
 # tortilla.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/tortilla.jpg"), filename: 'tortilla.jpg')
 
 
-# salad.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/salad.jpg"), filename: 'salad.jpg')
-# quesadilla.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/quesadilla.jpg"), filename: 'quesadilla.jpg')
-# burrito.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/burrito.png"), filename: 'burrito.png')
-# bowl.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/bowl.png"), filename: 'bowl.png')
-# tacos.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/tacos.png"), filename: 'tacos.png')
-# kids.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/kids.png"), filename: 'kids.png')
-# lifestyle.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/lifestyle.png"), filename: 'lifestyle.png')
-# sides.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/sides.png"), filename: 'sides.png')
+salad.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/salad.jpg"), filename: 'salad.jpg')
+quesadilla.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/quesadilla.jpg"), filename: 'quesadilla.jpg')
+burrito.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/burrito.png"), filename: 'burrito.png')
+bowl.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/bowl.png"), filename: 'bowl.png')
+tacos.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/tacos.png"), filename: 'tacos.png')
+kids.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/kids.png"), filename: 'kids.png')
+lifestyle.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/lifestyle.png"), filename: 'lifestyle.png')
+sides.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/sides.png"), filename: 'sides.png')
 
 
 p "Created #{User.count} users"

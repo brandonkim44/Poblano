@@ -1,7 +1,7 @@
 class Meal < ApplicationRecord
     validates :meal_name, presence: true
 
-    # has_one_attached :photo
+    has_one_attached :photo
 
     has_many :builds,
         primary_key: :id,

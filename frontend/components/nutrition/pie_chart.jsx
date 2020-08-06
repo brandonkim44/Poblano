@@ -18,7 +18,7 @@ const data = [
 const COLORS = ['#c3b5a6', '#b68109', '#776259'];
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 2;
+    const radius = innerRadius + (outerRadius - innerRadius) * 1.2;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
@@ -45,13 +45,14 @@ class NutritionChart extends PureComponent {
                     data={this.props.data}
                     cx={120}
                     cy={200}
-                    innerRadius={60}
+                    innerRadius={40}
                     outerRadius={80}
                     fill="#8884d8"
                     paddingAngle={5}
                     dataKey="value"
                     labelLine={false}
                     label={renderCustomizedLabel}
+                    isAnimationActive={false}
                 >
                     {
                         data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
