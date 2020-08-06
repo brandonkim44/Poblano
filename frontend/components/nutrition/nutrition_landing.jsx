@@ -18,7 +18,6 @@ class NutritionLanding extends React.Component {
                         Find out exactly how your meal stacks up, down to the ingredient.</span>
                     </div>
                     <div className="nutrition-entrees-container">
-                        <h2 className="nutrition-entrees-container-header">SELECT A MEAL TO BEGIN</h2>
                         <MealContainer />
                     </div>
                 </div>

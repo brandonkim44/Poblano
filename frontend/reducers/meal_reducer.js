@@ -12,6 +12,5 @@ const mealReducer = (state = {}, action) => {
     }
 };
 
-//should i have two slices of states: one for "meal" => array of ingredients and another for "meals" => all the meals
 
 export default mealReducer;

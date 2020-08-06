@@ -6,25 +6,27 @@ class Meal extends React.Component {
     constructor(props) {
         super(props);
         this.updateComponent = this.updateComponent.bind(this);
+        this.state = { page: this.props.page };
+        debugger;
     }
 
     mealsPage() {
         debugger;
-        return <IndexContainer />
+        return <IndexContainer update={() => this.updateComponent("show")}/>
     }
 
     ingredientsPage() {
         // debugger;
-        return <ShowContainer update={this.updateComponent}/>
+        return <ShowContainer update={() => this.updateComponent("index")}/>
     }
 
-    updateComponent() {
-        this.setState( { indexPage: false } );
+    updateComponent(display) {
+        this.setState( { page: display } );
     }
 
     render() {
-
-        const renderedComponent = this.props.indexPage ? (
+        debugger;
+        const renderedComponent = (this.state.page === "index")  ? (
                 this.mealsPage()
             ) : (
                 this.ingredientsPage()

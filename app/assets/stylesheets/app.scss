@@ -786,3 +786,16 @@ input[class="input-Password-required-focused"]::placeholder {
   cursor: pointer;
 }
 
+/* show (ingredients page) */
+
+.start-over {
+  cursor: pointer;
+}
+
+.fillings > li:hover {
+  cursor: pointer;
+}
+
+.fillings:hover {
+  cursor: pointer;
+}

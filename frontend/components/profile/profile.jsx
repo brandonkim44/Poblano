@@ -17,7 +17,7 @@ class Profile extends React.Component {
         ) : (
             null
         )
-    }
+    } 
 
     progress() {
         currentUser.id ? (
