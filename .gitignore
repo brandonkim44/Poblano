@@ -3,3 +3,4 @@ bundle.js
 bunde.js.map
 tmp/
 config/master.key
+/public/assets
