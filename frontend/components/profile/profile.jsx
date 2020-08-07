@@ -1,10 +1,12 @@
 import React from 'react';
 import { times } from 'lodash';
+import { ProgressBar } from '../progress_bar/progress_bar';
 
 class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.rewardPointsLeft = (1250 - parseInt(this.props.currentUser.rewardPoints));
+        this.percentage = Math.floor((this.rewardPointsLeft / 1250) * 100);
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -25,7 +27,8 @@ class Profile extends React.Component {
                     {this.props.currentUser.rewardPoints} /  1250
                     </div>
                 <br />
-                {/* put progress bar here*/}
+                <ProgressBar percentage={this.percentage} />
+                <br />
                 <span className="points-message">{this.rewardPointsLeft} points until your next reward</span>
             </div>
         );

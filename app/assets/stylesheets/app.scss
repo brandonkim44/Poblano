@@ -1138,6 +1138,21 @@ input[class="input-Password-required-focused"]::placeholder {
 
 /* rewards advertisement page */
 
+.progress-bar {
+  position: relative;
+  height: 30px;
+  width: 465px;
+  border-radius: 50px;
+  border: 1px solid $gray;
+}
+
+.filler {
+  background: #ad2118;
+  height: 100%;
+  transition: width .2s ease-in;
+  border-radius: inherit;
+}
+
 .falling-burritos-banner {
   position: relative;
   top: 100px;
