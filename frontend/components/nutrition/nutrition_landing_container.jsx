@@ -3,13 +3,11 @@ import NutritionLanding from './nutrition_landing';
 
 const mapStateToProps = state => {
     return ({
-
     });
 };
 
 const mapDispatchToProps = dispatch => {
     return ({
-        
     });
 };
 

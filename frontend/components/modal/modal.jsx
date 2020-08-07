@@ -36,20 +36,44 @@ class Modal extends React.Component {
                 return null;
         }
 
+        const renderModal = () => {
+            if (this.props.modal === "profile") {
+                return (
+                    <div className="modal-background">
+                        <div className="modal-display-container">
+                            <img className="gradient-banner" src={window.gradientBanner} alt="gradient-banner" />
+                            <span className="modal-close-button" onClick={this.handleClick}>x</span>
+                        </div>
+                        <div className="modal-child-profile" onClick={e => e.stopPropagation()}>
+                            {component}
+                        </div>
+                    </div>
+                )
+            } else {
+                return (
+                    <div className="modal-background">
+                        <div className="modal-display-container">
+                            <img className="gradient-banner" src={window.gradientBanner} alt="gradient-banner" />
+                            <div className="modal-logo-img">
+                                <img className="poblano-logo-simple" src={window.PoblanoLogoSimple} alt="poblano-logo-simple" />
+                            </div>
+                            <span className="modal-close-button" onClick={this.handleClick}>x</span>
+                        </div>
+                        <div className="modal-child" onClick={e => e.stopPropagation()}>
+                            {component}
+                        </div>
+                    </div>
+                )
+            }
+
+        }
+
+        debugger;
         //make modal dynamic
         return (
-            <div className="modal-background">
-                <div className="modal-display-container">
-                    <img className="gradient-banner" src={window.gradientBanner} alt="gradient-banner"/>
-                    <div className="modal-logo-img">
-                        <img className="poblano-logo-simple" src={window.PoblanoLogoSimple} alt="poblano-logo-simple" />
-                    </div>
-                    <span className="modal-close-button" onClick={this.handleClick}>x</span>
-                </div>
-                <div className="modal-child" onClick={e => e.stopPropagation()}>
-                    {component}
-                </div>
-            </div>
+            <>
+                {renderModal()}
+            </>
         );
     }
 }

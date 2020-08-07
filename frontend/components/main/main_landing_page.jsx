@@ -1,4 +1,5 @@
 import React from 'react';
+import { openModal } from '../../actions/modal_actions';
 
 const MainLandingPage = () => {
     return (

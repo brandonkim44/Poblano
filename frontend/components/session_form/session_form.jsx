@@ -9,7 +9,7 @@ class SessionForm extends React.Component {
         this.state = this.props.input;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
-        this.handleUpdat = this.handleUpdate.bind(this);
+        this.handleUpdate = this.handleUpdate.bind(this);
     }
 
     componentWillMount() {

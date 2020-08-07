@@ -1,5 +1,6 @@
 node_modules/
-bundle.js
-bunde.js.map
-tmp/
+/bundle.js
+/bunde.js.map
 config/master.key
+/public/assets
+/tmp/*

@@ -4,12 +4,15 @@
     <title>Poblano</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= favicon_link_tag 'poblano-logo.png' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap" rel="stylesheet">
     <script type="text/javascript">
+      window.rewards = "<%= image_url('rewards.png') %>"
+      window.fallingburritos = "<%= image_url('fallingburritos.gif') %>"
+      window.comingsoon = "<%= image_url('comingsoon.png') %>"
       window.burrito = "<%= image_url('entree_pics/burrito.png') %>"
       window.bowl = "<%= image_url('entree_pics/bowl.png') %>"
       window.tacos = "<%= image_url('entree_pics/tacos.png') %>"
