@@ -8,19 +8,34 @@ const NavBar = () => {
             <div className="nav-bar-container">
                 <ul className="ul-list-nav">
                     <li>
-                        <NavLink to="/order" className="nav-bar-item" activeClassName="nav-bar-item-clicked" replace>ORDER</NavLink>
+                        <NavLink 
+                            to="/order" 
+                            className="nav-bar-item" 
+                            activeClassName="nav-bar-item-clicked" 
+                            replace
+                        >ORDER</NavLink>
                     </li>
                     <li>
-                        <a href="/" className="nav-bar-item nav-bar-item-clicked">CATERING</a>
+                        <a href="/" className="nav-bar-item">CATERING</a>
                     </li>
                     <li>
-                        <NavLink to="/rewards" className="nav-bar-item" activeClassName="nav-bar-item-clicked" replace>REWARDS</NavLink>
+                        <NavLink 
+                            to="/rewards" 
+                            className="nav-bar-item" 
+                            activeClassName="nav-bar-item-clicked" 
+                            replace
+                        >REWARDS</NavLink>
                     </li>
                     <li>
-                        <a href="/" className="nav-bar-item nav-bar-item-clicked">OUR VALUES</a>
+                        <a href="/" className="nav-bar-item">OUR VALUES</a>
                     </li>
                     <li>
-                        <NavLink to="/nutrition-calculator" className="nav-bar-item" activeClassName="nav-bar-item-clicked" replace>NUTRITION</NavLink>
+                        <NavLink 
+                            to="/nutrition-calculator" 
+                            className="nav-bar-item" 
+                            activeClassName="nav-bar-item-clicked" 
+                            replace
+                        >NUTRITION</NavLink>
                     </li>
                 </ul>
             </div>

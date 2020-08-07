@@ -37,53 +37,106 @@ class Index extends React.Component {
         this.props.update();
     }
 
+    underlineFigCaption() {
+        debugger;
+        return e => {
+            e.currentTarget.children[1].className = "meal-name-hovered"
+        }
+    }
+
+    returnFigCaption() {
+        return e => {
+            e.currentTarget.children[1].className = "meal-name"
+        }
+    }
+
     render() {
         debugger;
 
-        if (this.props.meals["burrito"]) {
+        // if (this.props.meals["burrito"]) {
             debugger;
             return(
                 <div>
-                    <h2 className="nutrition-entrees-container-header">SELECT A MEAL TO BEGIN</h2>
+                    <h2 className="meals-page-title">SELECT A MEAL TO BEGIN</h2>
                     <div className="gallery">
-                        <figure className="gallery-item gallery-item-1">
-                            <img src={window.burrito} className="gallery-img" alt="burrito" onClick={() => this.handleClick(this.props.meals.burrito.id)}></img>
-                            <figcaption>BURRITO</figcaption>
+                        <figure 
+                            className="gallery-item gallery-item-1" 
+                            onClick={() => this.handleClick(this.props.meals.burrito.id)}
+                            onMouseOver={this.underlineFigCaption()}
+                            onMouseLeave={this.returnFigCaption()}
+                            >
+                            <img src={window.burrito} className="gallery-img" alt="burrito"></img>
+                            <figcaption className="meal-name">BURRITO</figcaption>
                         </figure>
-                        <figure className="gallery-item gallery-item-2">
-                            <img src={window.bowl} className="gallery-img" alt="bowl" onClick={() => this.handleClick(this.props.meals.bowl.id)}></img>
-                            <figcaption>BURRITOS&nbsp;BOWL</figcaption>
+                        <figure 
+                            className="gallery-item gallery-item-2" 
+                            onClick={() => this.handleClick(this.props.meals.bowl.id)}
+                            onMouseOver={this.underlineFigCaption()}
+                            onMouseLeave={this.returnFigCaption()}
+                            >
+                            <img src={window.bowl} className="gallery-img" alt="bowl"></img>
+                            <figcaption className="meal-name">BURRITO&nbsp;BOWL</figcaption>
                         </figure>
-                        <figure className="gallery-item gallery-item-3">
-                            <img src={window.tacos} className="gallery-img" alt="tacos" onClick={() => this.handleClick(this.props.meals.tacos.id)}></img>
-                            <figcaption>TACOS</figcaption>
+                        <figure 
+                            className="gallery-item gallery-item-3" 
+                            onClick={() => this.handleClick(this.props.meals.tacos.id)}
+                            onMouseOver={this.underlineFigCaption()}
+                            onMouseLeave={this.returnFigCaption()}
+                            >
+                            <img src={window.tacos} className="gallery-img" alt="tacos"></img>
+                            <figcaption className="meal-name">TACOS</figcaption>
                         </figure>
-                        <figure className="gallery-item gallery-item-4">
-                            <img src={window.salad} className="gallery-img" alt="salad" onClick={() => this.handleClick(this.props.meals.salad.id)}></img>
-                            <figcaption>SALAD</figcaption>
+                        <figure 
+                            className="gallery-item gallery-item-4" 
+                            onClick={() => this.handleClick(this.props.meals.salad.id)}
+                            onMouseOver={this.underlineFigCaption()}
+                            onMouseLeave={this.returnFigCaption()}
+                            >
+                            <img src={window.salad} className="gallery-img" alt="salad"></img>
+                            <figcaption className="meal-name">SALAD</figcaption>
                         </figure>
-                        <figure className="gallery-item gallery-item-5">
-                            <img src={window.quesadilla} className="gallery-img" alt="quesadilla" onClick={() => this.handleClick(this.props.meals.quesadilla.id)}></img>
-                            <figcaption>QUESADILLA</figcaption>
+                        <figure 
+                            className="gallery-item gallery-item-5" 
+                            onClick={() => this.handleClick(this.props.meals.quesadilla.id)}
+                            onMouseOver={this.underlineFigCaption()}
+                            onMouseLeave={this.returnFigCaption()}
+                            >
+                            <img src={window.quesadilla} className="gallery-img" alt="quesadilla"></img>
+                            <figcaption className="meal-name">QUESADILLA</figcaption>
                         </figure>
-                        <figure className="gallery-item gallery-item-6">
-                            <img src={window.kidsmeal} className="gallery-img" alt="kidsmeal" onClick={() => this.handleClick(this.props.meals.kids.id)}></img>
-                            <figcaption>KID'S&nbsp;MEAL</figcaption>
+                        <figure 
+                            className="gallery-item gallery-item-6" 
+                            onClick={() => this.handleClick(this.props.meals.kids.id)}
+                            onMouseOver={this.underlineFigCaption()}
+                            onMouseLeave={this.returnFigCaption()}
+                            >
+                            <img src={window.kidsmeal} className="gallery-img" alt="kidsmeal"></img>
+                            <figcaption className="meal-name">KID'S&nbsp;MEAL</figcaption>
                         </figure>
-                        <figure className="gallery-item gallery-item-7">
-                            <img src={window.sidesdrinks} className="gallery-img" alt="sides-and-drinks" onClick={() => this.handleClick(this.props.meals.sides.id)}></img>
-                            <figcaption>SIDES&nbsp; &amp; &nbsp;DRINKS</figcaption>
+                        <figure 
+                            className="gallery-item gallery-item-7" 
+                            onClick={() => this.handleClick(this.props.meals.sides.id)}
+                            onMouseOver={this.underlineFigCaption()}
+                            onMouseLeave={this.returnFigCaption()}
+                            >
+                            <img src={window.sidesdrinks} className="gallery-img" alt="sides-and-drinks"></img>
+                            <figcaption className="meal-name">SIDES&nbsp; &amp; &nbsp;DRINKS</figcaption>
                         </figure>
-                        <figure className="gallery-item gallery-item-8">
-                            <img src={window.lifestyle} className="gallery-img" alt="lifestyle-bowls" onClick={() => this.handleClick(this.props.meals.lifestyle.id)}></img>
-                            <figcaption>LIFESTYLE&nbsp;BOWLS</figcaption>
+                        <figure 
+                            className="gallery-item gallery-item-8" 
+                            onClick={() => this.handleClick(this.props.meals.lifestyle.id)}
+                            onMouseOver={this.underlineFigCaption()}
+                            onMouseLeave={this.returnFigCaption()}
+                            >
+                            <img src={window.lifestyle} className="gallery-img" alt="lifestyle-bowls"></img>
+                            <figcaption className="meal-name">LIFESTYLE&nbsp;BOWLS</figcaption>
                         </figure>
                     </div>
                 </div>
             );
-        } else {
-            return null;
-        }
+        // } else {
+            // return null;
+        // }
     }
 };
 

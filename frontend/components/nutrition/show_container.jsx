@@ -20,7 +20,8 @@ const mapStateToProps = state => {
                 { name: 'Total Fat', value: 0 },
                 { name: 'Protein', value: 0 },
                 { name: 'Carbohydrates', value: 0 },
-            ]
+            ],
+        calories: 0
     });
 };
 

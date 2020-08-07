@@ -4,33 +4,32 @@ import { times } from 'lodash';
 class Profile extends React.Component {
     constructor(props) {
         super(props);
+        this.rewardPointsLeft = (1250 - parseInt(this.props.currentUser.rewardPoints));
         this.handleClick = this.handleClick.bind(this);
     }
 
     greetingMessage() {
-        currentUser.id ? (
-            <div className="header-left-container-greeting">
-                <div className="header-left-container-sign-in">
-                    <h4 className="sign-in-header">HEY {this.props.currentUser.firstName}</h4>
+        return (
+            <div className="profile-modal-greeting-container">
+                <div className="">
+                    <h4 className="profile-greeting">HEY {this.props.currentUser.firstName}</h4>
                 </div>
             </div>
-        ) : (
-            null
-        )
+        );
     } 
 
     progress() {
-        currentUser.id ? (
+        return (
             <div className="progress-container">
                 <div className="points">
                     {this.props.currentUser.rewardPoints} /  1250
                     </div>
                 <br />
-                <span>{this.props.currentUser.rewardPoints} until your next reward</span>
+                {/* put progress bar here*/}
+                <span className="points-message">{this.rewardPointsLeft} points until your next reward</span>
             </div>
-        ) : (
-            null
-        )
+        );
+        
     }
 
     handleClick() {
@@ -41,10 +40,10 @@ class Profile extends React.Component {
 
     render() {
         return (
-            <div>
-                {/* {this.greetingMessage()} */}
+            <div className="profile-container">
+                {this.greetingMessage()}
                 <br/>
-                {/* {this.progress()} */}
+                {this.progress()}
                 <br />
                 <span className="sign-out-button" onClick={this.handleClick}>Sign out</span>
             </div>

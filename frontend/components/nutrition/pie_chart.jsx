@@ -23,7 +23,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
     return (
-        <text className={"text"} x={x} y={y} fill="black" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+        <text className="text" x={x} y={y} textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
             {`${(percent * 100).toFixed(0)}%`}
         </text>
     );
@@ -40,10 +40,10 @@ class NutritionChart extends PureComponent {
     render() {
         debugger;
         return (
-            <PieChart width={800} height={400} onMouseEnter={this.onPieEnter}>
+            <PieChart width={this.props.width} height={this.props.height} onMouseEnter={this.onPieEnter}>
                 <Pie
                     data={this.props.data}
-                    cx={120}
+                    cx={this.props.width / 2}
                     cy={200}
                     innerRadius={40}
                     outerRadius={80}
