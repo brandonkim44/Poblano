@@ -67,9 +67,6 @@ class Modal extends React.Component {
             }
 
         }
-
-        debugger;
-        //make modal dynamic
         return (
             <>
                 {renderModal()}

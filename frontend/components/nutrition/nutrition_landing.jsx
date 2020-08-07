@@ -3,7 +3,6 @@ import MealContainer from './meal_container';
 
 class NutritionLanding extends React.Component {
     constructor(props) {
-        debugger;
         super(props);
     }
 

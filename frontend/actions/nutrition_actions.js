@@ -28,7 +28,6 @@ export const fetchIngredients = id => dispatch => {
     return (
         APIUtil.fetchIngredients(id)
             .then(ingredients => { 
-                debugger;
                 return (dispatch(receiveIngredients(ingredients)))
             })
     );
@@ -38,7 +37,6 @@ export const fetchMeals = () => dispatch => {
     return (
         APIUtil.fetchMeals()
             .then(meals => {
-                debugger;
                 return (dispatch(receiveMeals(meals)))
             })
     );

@@ -7,16 +7,13 @@ class Meal extends React.Component {
         super(props);
         this.updateComponent = this.updateComponent.bind(this);
         this.state = { page: this.props.page };
-        debugger;
     }
 
     mealsPage() {
-        debugger;
         return <IndexContainer update={() => this.updateComponent("show")}/>
     }
 
     ingredientsPage() {
-        // debugger;
         return <ShowContainer update={() => this.updateComponent("index")}/>
     }
 
@@ -25,7 +22,6 @@ class Meal extends React.Component {
     }
 
     render() {
-        debugger;
         const renderedComponent = (this.state.page === "index")  ? (
                 this.mealsPage()
             ) : (

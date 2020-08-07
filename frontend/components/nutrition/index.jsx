@@ -31,14 +31,11 @@ class Index extends React.Component {
     }
 
     handleClick(mealId) {
-        debugger;
         this.props.fetchIngredients(mealId);
-        debugger;
         this.props.update();
     }
 
     underlineFigCaption() {
-        debugger;
         return e => {
             e.currentTarget.children[1].className = "meal-name-hovered"
         }
@@ -51,10 +48,8 @@ class Index extends React.Component {
     }
 
     render() {
-        debugger;
 
         // if (this.props.meals["burrito"]) {
-            debugger;
             return(
                 <div>
                     <h2 className="meals-page-title">SELECT A MEAL TO BEGIN</h2>

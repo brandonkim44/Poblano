@@ -14,9 +14,7 @@ class Show extends React.Component {
         this.sides = this.sides.bind(this);
         this.drinks = this.drinks.bind(this);
         this.renderLegend = this.renderLegend.bind(this);
-        debugger;
         this.state = { data: this.props.data, calories: this.props.calories };
-        debugger;
     }
 
     startOver() {
@@ -24,16 +22,13 @@ class Show extends React.Component {
     }
 
     updateState() {
-        debugger;
         // return null;
         return e => {
-            debugger;
             let ingredientName = e.target.alt;
             let totalFats;
             let protein;
             let carbs;
             let calories;
-            debugger;
             if (this.state[ingredientName]) {
                 totalFats = parseInt(this.state.data[0].value) - parseInt(e.target.dataset.fats);
                 protein = parseInt(this.state.data[1].value) - parseInt(e.target.dataset.protein);
@@ -44,7 +39,7 @@ class Show extends React.Component {
                     { name: 'Protein', value: protein },
                     { name: 'Carbohydrates', value: carbs },
                 ];
-                debugger;
+            
                 e.target.className = "ingredient-img"
                 this.setState({ data: data, calories: calories, [ingredientName]: false});
             } else {
@@ -315,10 +310,10 @@ class Show extends React.Component {
     }
 
     render() {
-        debugger;
+    
 
         const component = () => { 
-            debugger;
+        
             if (this.props.ingredients.length > 0) {
                 return (
                         <div>

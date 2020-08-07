@@ -91,7 +91,6 @@ class Reward extends React.Component {
     }
 
     render() {
-        debugger;
         if (this.props.currentUser.id) {
             return this.displayRewards();
         } else {

@@ -38,7 +38,6 @@ class NutritionChart extends PureComponent {
     // static jsfiddleUrl = 'https://jsfiddle.net/alidingling/3Leoa7f4/';
 
     render() {
-        debugger;
         return (
             <PieChart width={this.props.width} height={this.props.height} onMouseEnter={this.onPieEnter}>
                 <Pie

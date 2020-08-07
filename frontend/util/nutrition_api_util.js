@@ -1,5 +1,4 @@
 export const fetchIngredients = id => {
-    debugger;
     return (
         $.ajax({
             method: 'GET',

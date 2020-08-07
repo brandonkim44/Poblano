@@ -5,7 +5,6 @@ const ingredientsReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_INGREDIENTS:
-            debugger;
             const mealName = Object.entries(action.ingredients)[0][0];
             const ingredientsArr = Object.entries(action.ingredients)[0][1];
             const topItOffArr = [];
@@ -15,7 +14,6 @@ const ingredientsReducer = (state = {}, action) => {
             const lifestyleArr = [];
             const sidesArr = [];
             const drinksArr = [];
-            debugger;
             ingredientsArr.forEach( ingredient => {
                 if (FILLINGS.includes(ingredient.ingredientName)) {
                     fillingsArr.push(ingredient)

@@ -5,7 +5,6 @@ import { fetchIngredients } from '../../actions/nutrition_actions';
 const mapStateToProps = state => {
     const mealName = Object.keys(state.entities.ingredients)[0];
     const ingredients = state.entities.ingredients[mealName]
-    debugger;
     return ({
         mealName: mealName,
         ingredients: ingredients ? Object.keys(ingredients) : {},
