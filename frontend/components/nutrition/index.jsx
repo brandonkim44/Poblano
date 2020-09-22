@@ -49,7 +49,7 @@ class Index extends React.Component {
 
     render() {
 
-        // if (this.props.meals["burrito"]) {
+        if (this.props.meals["burrito"]) {
             return(
                 <div>
                     <h2 className="meals-page-title">SELECT A MEAL TO BEGIN</h2>
@@ -60,7 +60,7 @@ class Index extends React.Component {
                             onMouseOver={this.underlineFigCaption()}
                             onMouseLeave={this.returnFigCaption()}
                             >
-                            <img src={window.burrito} className="gallery-img" alt="burrito"></img>
+                            <img src={this.props.meals.burrito.photoUrl} className="gallery-img" alt="burrito"></img>
                             <figcaption className="meal-name">BURRITO</figcaption>
                         </figure>
                         <figure 
@@ -69,7 +69,7 @@ class Index extends React.Component {
                             onMouseOver={this.underlineFigCaption()}
                             onMouseLeave={this.returnFigCaption()}
                             >
-                            <img src={window.bowl} className="gallery-img" alt="bowl"></img>
+                            <img src={this.props.meals.bowl.photoUrl} className="gallery-img" alt="bowl"></img>
                             <figcaption className="meal-name">BURRITO&nbsp;BOWL</figcaption>
                         </figure>
                         <figure 
@@ -78,7 +78,7 @@ class Index extends React.Component {
                             onMouseOver={this.underlineFigCaption()}
                             onMouseLeave={this.returnFigCaption()}
                             >
-                            <img src={window.tacos} className="gallery-img" alt="tacos"></img>
+                            <img src={this.props.meals.tacos.photoUrl} className="gallery-img" alt="tacos"></img>
                             <figcaption className="meal-name">TACOS</figcaption>
                         </figure>
                         <figure 
@@ -87,7 +87,7 @@ class Index extends React.Component {
                             onMouseOver={this.underlineFigCaption()}
                             onMouseLeave={this.returnFigCaption()}
                             >
-                            <img src={window.salad} className="gallery-img" alt="salad"></img>
+                            <img src={this.props.meals.salad.photoUrl} className="gallery-img" alt="salad"></img>
                             <figcaption className="meal-name">SALAD</figcaption>
                         </figure>
                         <figure 
@@ -96,7 +96,7 @@ class Index extends React.Component {
                             onMouseOver={this.underlineFigCaption()}
                             onMouseLeave={this.returnFigCaption()}
                             >
-                            <img src={window.quesadilla} className="gallery-img" alt="quesadilla"></img>
+                            <img src={this.props.meals.quesadilla.photoUrl} className="gallery-img" alt="quesadilla"></img>
                             <figcaption className="meal-name">QUESADILLA</figcaption>
                         </figure>
                         <figure 
@@ -105,7 +105,7 @@ class Index extends React.Component {
                             onMouseOver={this.underlineFigCaption()}
                             onMouseLeave={this.returnFigCaption()}
                             >
-                            <img src={window.kidsmeal} className="gallery-img" alt="kidsmeal"></img>
+                            <img src={this.props.meals.kids.photoUrl} className="gallery-img" alt="kidsmeal"></img>
                             <figcaption className="meal-name">KID'S&nbsp;MEAL</figcaption>
                         </figure>
                         <figure 
@@ -114,7 +114,7 @@ class Index extends React.Component {
                             onMouseOver={this.underlineFigCaption()}
                             onMouseLeave={this.returnFigCaption()}
                             >
-                            <img src={window.sidesdrinks} className="gallery-img" alt="sides-and-drinks"></img>
+                            <img src={this.props.meals.sides.photoUrl} className="gallery-img" alt="sides-and-drinks"></img>
                             <figcaption className="meal-name">SIDES&nbsp; &amp; &nbsp;DRINKS</figcaption>
                         </figure>
                         <figure 
@@ -123,15 +123,15 @@ class Index extends React.Component {
                             onMouseOver={this.underlineFigCaption()}
                             onMouseLeave={this.returnFigCaption()}
                             >
-                            <img src={window.lifestyle} className="gallery-img" alt="lifestyle-bowls"></img>
+                            <img src={this.props.meals.lifestyle.photoUrl} className="gallery-img" alt="lifestyle-bowls"></img>
                             <figcaption className="meal-name">LIFESTYLE&nbsp;BOWLS</figcaption>
                         </figure>
                     </div>
                 </div>
             );
-        // } else {
-            // return null;
-        // }
+        } else {
+            return null;
+        }
     }
 };
 

@@ -29,7 +29,7 @@ const NavBar = () => {
                         <a href="/" className="nav-bar-item">OUR VALUES</a>
                     </li>
                     <li>
-                        <NavLink 
+                        <NavLink
                             to="/nutrition-calculator" 
                             className="nav-bar-item" 
                             activeClassName="nav-bar-item-clicked" 

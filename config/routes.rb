@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     resources :meals, only: [:index, :show]
   end
 
-
-
-  get '*path' => redirect('/')
+  # get '*path' => redirect('/')
+  # get '/nutrition-calculator', to: 'api/meals#index'
+  get '*path' => redirect('/'), constraints: lambda { |req| req.path.exclude? 'rails/active_storage'}
+  
 end

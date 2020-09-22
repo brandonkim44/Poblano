@@ -1,7 +1,7 @@
 class Ingredient < ApplicationRecord
     validates :ingredient_name, presence: true
 
-    # has_one_attached :photo
+    has_one_attached :photo
 
     has_many :builds,
         primary_key: :id,

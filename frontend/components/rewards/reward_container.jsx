@@ -3,6 +3,7 @@ import Reward from './reward';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({ session, entities: { users } }) => {
+    debugger;
     return ({
         currentUser: session.id ? users[session.id] : {}
     });

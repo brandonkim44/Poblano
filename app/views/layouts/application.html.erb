@@ -41,6 +41,18 @@
           "rewardPoints": "<%= current_user.reward_points %>"
         };
       </script>
+
+      <script>
+              document.addEventListener("scroll", () => {
+                  const chart = document.querySelector('.chart-and-legend');
+                  if(chart.scrollTop > 200) {
+                      document.querySelector('.chart-and-legend').className= "chart-and-legend-hooked";
+                  }
+                  else {
+                      document.querySelector('.chart-and-legend-hooked').className = "chart-and-legend";
+                  }
+              })
+      </script>
     <% else %>
       <script>
         window.currentUser = null;

@@ -52,7 +52,7 @@ User.create!([{
 
 # require 'open-uri'
 
-# Ingredient.create!(
+# Ingredients
   
 
 flourtortilla = Ingredient.create({
@@ -691,33 +691,23 @@ lifestyle_ingredients.each do |ingredient|
   })
 end
 
-# def attachPhotos
-#   ingredients.each do |ingredient|
-#     file = open(``)
-#     Ingredient.create(ingredient).attach(io: file, filename: `#{ingredient[:filename]}.jpg`)
-#   end
-# end
+ingredientsWithJPG = ['flourtortilla', 'keto', 'whole30', 'paleo', 'vegan', 'vegetarian']
 
+def attachIngredientPhotos(ingredientsArray, jpgIngredients)
+  ingredientsArray.each do |ingredient|
+    if jpgIngredients.include?(ingredient["filename"])
+      file = open("https://poblano-app-seeds.s3.amazonaws.com/#{ingredient["filename"]}.jpg")
+      ingredient.photo.attach(io: file, filename: "#{ingredient["filename"]}.jpg")
+    else
+      file = open("https://poblano-app-seeds.s3.amazonaws.com/#{ingredient["filename"]}.png")
+      ingredient.photo.attach(io: file, filename: "#{ingredient["filename"]}.png")
+    end
+  end
+end
 
-# meals.each do |meal|
-#   file_name = meal.meal_name
+attachIngredientPhotos(ingredients, ingredientsWithJPG)
 
-#   if (file_name == "salad" || file_name == "quesadilla")
-#     file_string = "https://poblano-app-seeds.s3.amazonaws.com/" + "#{file_name}" + ".jpg"
-#     file = open(file_string)
-#     file_name_string = "#{file_name}" + ".jpg"
-#     meal.photo.attach(io: file, filename: file_name_string)
-#   else
-#     file_string = "https://poblano-app-seeds.s3.amazonaws.com/" + "#{file_name}" + ".png"
-#     file = open(file_string)
-#     file_name_string = "#{file_name}" + ".png"
-#     meal.photo.attach(io: file, filename: file_name_string)
-#   end
-# end
-
-# tortilla.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/tortilla.jpg"), filename: 'tortilla.jpg')
-
-
+# attach photos for meals
 salad.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/salad.jpg"), filename: 'salad.jpg')
 quesadilla.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/quesadilla.jpg"), filename: 'quesadilla.jpg')
 burrito.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/burrito.png"), filename: 'burrito.png')
@@ -726,6 +716,7 @@ tacos.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/tacos.pn
 kids.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/kids.png"), filename: 'kids.png')
 lifestyle.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/lifestyle.png"), filename: 'lifestyle.png')
 sides.photo.attach(io: open("https://poblano-app-seeds.s3.amazonaws.com/sides.png"), filename: 'sides.png')
+
 
 
 p "Created #{User.count} users"

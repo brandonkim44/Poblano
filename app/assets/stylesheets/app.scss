@@ -1022,19 +1022,24 @@ input[class="input-Password-required-focused"]::placeholder {
   background-color: #f7f2ee;
   max-width: 350px;
   max-height: 490px;
-  position: absolute;
-  top: 500px;
+  position: relative;
+  top: 50px;
 }
 
-@media (min-height: 400px) {
-  .chart-and-legend {
-    display: flex;
-    position: fixed;
-    top: 180px;
-    left: 800px;
-  }
 
+.chart-and-legend-hooked {
+  display: flex;
+  position: fixed;
+  top: 300px;
+  left: 850px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f2ee;
+  max-width: 350px;
+  max-height: 490px;
 }
+
+
 .pie-chart {
   position: relative;
   left: 40px;

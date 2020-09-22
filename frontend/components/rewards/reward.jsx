@@ -9,6 +9,7 @@ class Reward extends React.Component {
         this.progress = this.progress.bind(this);
         this.greetingMessage = this.greetingMessage.bind(this);
         this.rewardPointsLeft = (1250 - parseInt(this.props.currentUser.rewardPoints));
+        debugger;
         this.percentage = Math.floor((this.rewardPointsLeft / 1250) * 100);
     }
     
@@ -58,6 +59,7 @@ class Reward extends React.Component {
     }
 
     progress() {
+        debugger;
         return (
             <div className="progress-container">
                 <div className="points">
