@@ -4,6 +4,7 @@ import MainLandingPage from './main_landing_page';
 import NutritionLandingContainer from '../nutrition/nutrition_landing_container';
 import { Route } from 'react-router-dom';
 import RewardContainer from '../rewards/reward_container';
+import OrderIndexContainer from '../orders/order_index_container';
 
 class Main extends React.Component {
     constructor(props) {
@@ -20,6 +21,10 @@ class Main extends React.Component {
                 <Route
                     exact path="/rewards"
                     component={RewardContainer}
+                />
+                <Route
+                    exact path="/order"
+                    component={OrderIndexContainer}
                 />
                 <Route
                     exact path="/" 

@@ -15,6 +15,7 @@ class Show extends React.Component {
         this.drinks = this.drinks.bind(this);
         this.renderLegend = this.renderLegend.bind(this);
         this.state = { data: this.props.data, calories: this.props.calories };
+        this.listenForScroll();
     }
 
     startOver() {
@@ -66,7 +67,7 @@ class Show extends React.Component {
                     <li key={ingredient.id}>
                         <figure className="figure">
                             <img 
-                                src={window.comingsoon} 
+                                src={ingredient.photoUrl} 
                                 className="ingredient-img"
                                 alt={ingredient.ingredientName}
                                 data-fats={ingredient.fats}
@@ -99,7 +100,7 @@ class Show extends React.Component {
                     <li key={ingredient.id}>
                         <figure className="figure">
                             <img
-                                src={window.comingsoon}
+                                src={ingredient.photoUrl}
                                 className="ingredient-img"
                                 alt={ingredient.ingredientName}
                                 data-fats={ingredient.fats}
@@ -131,7 +132,7 @@ class Show extends React.Component {
                     <li key={ingredient.id}>
                         <figure className="figure">
                             <img
-                                src={window.comingsoon}
+                                src={ingredient.photoUrl}
                                 className="ingredient-img"
                                 alt={ingredient.ingredientName}
                                 data-fats={ingredient.fats}
@@ -163,7 +164,7 @@ class Show extends React.Component {
                     <li key={ingredient.id}>
                         <figure className="figure">
                             <img
-                                src={window.comingsoon}
+                                src={ingredient.photoUrl}
                                 className="ingredient-img"
                                 alt={ingredient.ingredientName}
                                 data-fats={ingredient.fats}
@@ -195,7 +196,7 @@ class Show extends React.Component {
                     <li key={ingredient.id}>
                         <figure className="figure">
                             <img
-                                src={window.comingsoon}
+                                src={ingredient.photoUrl}
                                 className="ingredient-img"
                                 alt={ingredient.ingredientName}
                                 data-fats={ingredient.fats}
@@ -226,7 +227,7 @@ class Show extends React.Component {
                     <li key={ingredient.id}>
                         <figure className="figure">
                             <img
-                                src={window.comingsoon}
+                                src={ingredient.photoUrl}
                                 className="ingredient-img"
                                 alt={ingredient.ingredientName}
                                 data-fats={ingredient.fats}
@@ -258,7 +259,7 @@ class Show extends React.Component {
                     <li key={ingredient.id}>
                         <figure className="figure">
                             <img
-                                src={window.comingsoon}
+                                src={ingredient.photoUrl}
                                 className="ingredient-img"
                                 alt={ingredient.ingredientName}
                                 data-fats={ingredient.fats}
@@ -307,6 +308,22 @@ class Show extends React.Component {
                 </div>
             </div>
         )
+    }
+
+    listenForScroll() {
+        document.addEventListener('scroll', () => {
+            const chart = document.querySelector('.chart-and-legend')
+            const offset = chart.offsetTop;
+            
+            if (window.pageYOffset > offset && offset != 100) {
+                const offsetLeft = chart.getBoundingClientRect().left;
+                chart.classList.add('sticky');
+                chart.style.left = offsetLeft + 'px';
+            } else if (offset === 100 && window.pageYOffset < 309) {
+                chart.classList.remove('sticky');
+                chart.style.left = 'unset';
+            }
+        });
     }
 
     render() {
