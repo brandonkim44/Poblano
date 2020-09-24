@@ -12,6 +12,7 @@ User.destroy_all
 Ingredient.destroy_all
 Meal.destroy_all
 Build.destroy_all
+ActiveStorage::Attachment.all.each { |attachment| attachment.purge }
 
 User.create!([{
   first_name: "John",
@@ -531,7 +532,8 @@ ingredients = [
 
 
 burrito = Meal.create({
-  meal_name: "burrito"
+  meal_name: "burrito",
+  description: "Your choice of freshly grilled meat or sofritas wrapped in a warm flour tortilla with rice, beans, or fajita veggies, and topped with guac, salsa, queso blanco, sour cream or cheese."
 })
 
 bowl = Meal.create({

@@ -4,6 +4,7 @@ $border-bottom-input: 1px solid rgba(69, 20, 0, .2);
 $lightest-brown: rgba(247, 242, 238, 1);
 $light-brown: #786259;
 $dark-brown: #451400;
+$gold: #b68207;
 $darkest-brown: #1b0800;
 $poblano-green: #405749;
 $gray: #d4cbc7;
@@ -1312,4 +1313,17 @@ input[class="input-Password-required-focused"]::placeholder {
   letter-spacing: -1px;
   font-family: $font-nunito;
   min-width: 430px;
+}
+
+/* Order page */
+
+.order-caption {
+  text-align: center;
+  margin: 10px, 0px, 10px, 0px;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: $font-stack;
+  color: $gold;
+  letter-spacing: -1px;
+  visibility: hidden;
 }

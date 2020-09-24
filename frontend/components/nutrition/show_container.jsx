@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import Show from './show';
-import { fetchIngredients } from '../../actions/nutrition_actions';
 
 const mapStateToProps = state => {
     const mealName = Object.keys(state.entities.ingredients)[0];

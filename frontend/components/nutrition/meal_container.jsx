@@ -5,8 +5,7 @@ import { fetchMeals } from '../../actions/nutrition_actions';
 
 const mapStateToProps = (state) => {
     return ({
-        page: "index",
-        ingredients: state.entities.ingredients
+        page: "index"
     });
 };
 

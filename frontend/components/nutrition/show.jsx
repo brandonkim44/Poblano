@@ -1,5 +1,6 @@
 import React from 'react';
 import NutritionChart from './pie_chart';
+import { IngredientItem } from './ingredient_item';
 
 class Show extends React.Component {
     constructor(props) {
@@ -59,26 +60,14 @@ class Show extends React.Component {
         }
     }
 
+
+
     fillings() {
 
         if (this.props.fillings.length > 0) {
             const section = this.props.fillings.map(ingredient => {
                 return (
-                    <li key={ingredient.id}>
-                        <figure className="figure">
-                            <img 
-                                src={ingredient.photoUrl} 
-                                className="ingredient-img"
-                                alt={ingredient.ingredientName}
-                                data-fats={ingredient.fats}
-                                data-protein={ingredient.protein}
-                                data-calories={ingredient.calories}
-                                data-carbs={ingredient.carbs}
-                                onClick={this.updateState()}
-                                ></img>
-                            <div className="ingredient-name">{ingredient.ingredientName}</div>
-                        </figure>
-                    </li>
+                    <IngredientItem key={ingredient.id} ingredient={ingredient} updateState={this.updateState}/>
                 )
             })
             return (
@@ -97,21 +86,7 @@ class Show extends React.Component {
         if (this.props.includedIngredients.length > 0) {
             const section = this.props.includedIngredients.map(ingredient => {
                 return (
-                    <li key={ingredient.id}>
-                        <figure className="figure">
-                            <img
-                                src={ingredient.photoUrl}
-                                className="ingredient-img"
-                                alt={ingredient.ingredientName}
-                                data-fats={ingredient.fats}
-                                data-protein={ingredient.protein}
-                                data-calories={ingredient.calories}
-                                data-carbs={ingredient.carbs}
-                                onClick={this.updateState()}
-                            ></img>
-                            <div className="ingredient-name">{ingredient.ingredientName}</div>
-                        </figure>
-                    </li>
+                    <IngredientItem key={ingredient.id} ingredient={ingredient} updateState={this.updateState} />
                 )
             })
             return (
@@ -129,21 +104,7 @@ class Show extends React.Component {
         if (this.props.riceAndBeans.length > 0) {
             const section = this.props.riceAndBeans.map(ingredient => {
                 return (
-                    <li key={ingredient.id}>
-                        <figure className="figure">
-                            <img
-                                src={ingredient.photoUrl}
-                                className="ingredient-img"
-                                alt={ingredient.ingredientName}
-                                data-fats={ingredient.fats}
-                                data-protein={ingredient.protein}
-                                data-calories={ingredient.calories}
-                                data-carbs={ingredient.carbs}
-                                onClick={this.updateState()}
-                            ></img>
-                            <div className="ingredient-name">{ingredient.ingredientName}</div>
-                        </figure>
-                    </li>
+                    <IngredientItem key={ingredient.id} ingredient={ingredient} updateState={this.updateState} />
                 )
             })
             return (
@@ -161,21 +122,7 @@ class Show extends React.Component {
         if (this.props.toppings.length > 0) {
             const section = this.props.toppings.map(ingredient => {
                 return (
-                    <li key={ingredient.id}>
-                        <figure className="figure">
-                            <img
-                                src={ingredient.photoUrl}
-                                className="ingredient-img"
-                                alt={ingredient.ingredientName}
-                                data-fats={ingredient.fats}
-                                data-protein={ingredient.protein}
-                                data-calories={ingredient.calories}
-                                data-carbs={ingredient.carbs}
-                                onClick={this.updateState()}
-                            ></img>
-                            <div className="ingredient-name">{ingredient.ingredientName}</div>
-                        </figure>
-                    </li>
+                    <IngredientItem key={ingredient.id} ingredient={ingredient} updateState={this.updateState} />
                 )
             })
             return (
@@ -193,21 +140,7 @@ class Show extends React.Component {
         if (this.props.lifestyleBowls.length > 0) {
             const section = this.props.lifestyleBowls.map(ingredient => {
                 return (
-                    <li key={ingredient.id}>
-                        <figure className="figure">
-                            <img
-                                src={ingredient.photoUrl}
-                                className="ingredient-img"
-                                alt={ingredient.ingredientName}
-                                data-fats={ingredient.fats}
-                                data-protein={ingredient.protein}
-                                data-calories={ingredient.calories}
-                                data-carbs={ingredient.carbs}
-                                onClick={this.updateState()}
-                            ></img>
-                            <div className="ingredient-name">{ingredient.ingredientName}</div>
-                        </figure>
-                    </li>
+                    <IngredientItem key={ingredient.id} ingredient={ingredient} updateState={this.updateState} />
                 )
             })
             return (
@@ -224,21 +157,7 @@ class Show extends React.Component {
         if (this.props.sides.length > 0) {
             const section = this.props.sides.map(ingredient => {
                 return (
-                    <li key={ingredient.id}>
-                        <figure className="figure">
-                            <img
-                                src={ingredient.photoUrl}
-                                className="ingredient-img"
-                                alt={ingredient.ingredientName}
-                                data-fats={ingredient.fats}
-                                data-protein={ingredient.protein}
-                                data-calories={ingredient.calories}
-                                data-carbs={ingredient.carbs}
-                                onClick={this.updateState()}
-                            ></img>
-                            <div className="ingredient-name">{ingredient.ingredientName}</div>
-                        </figure>
-                    </li>
+                    <IngredientItem key={ingredient.id} ingredient={ingredient} updateState={this.updateState} />
                 )
             })
             return (
@@ -256,21 +175,7 @@ class Show extends React.Component {
         if (this.props.drinks.length > 0) {
             const section = this.props.drinks.map(ingredient => {
                 return (
-                    <li key={ingredient.id}>
-                        <figure className="figure">
-                            <img
-                                src={ingredient.photoUrl}
-                                className="ingredient-img"
-                                alt={ingredient.ingredientName}
-                                data-fats={ingredient.fats}
-                                data-protein={ingredient.protein}
-                                data-calories={ingredient.calories}
-                                data-carbs={ingredient.carbs}
-                                onClick={this.updateState()}
-                            ></img>
-                            <div className="ingredient-name">{ingredient.ingredientName}</div>
-                        </figure>
-                    </li>
+                    <IngredientItem key={ingredient.id} ingredient={ingredient} updateState={this.updateState} />
                 )
             })
             return (
