@@ -15,6 +15,12 @@ import Header from './header/header';
 
 const App = (props) => {
 
+    const displayFooter = () => {
+        if (props.location.pathname !== "/order") {
+            return <Footer />
+        }
+    }
+
     return (
     <div>
         <ModalContainer />
@@ -23,7 +29,7 @@ const App = (props) => {
 
         <Main />
         
-        <Footer />
+        {displayFooter()}
 
     </div>
     );

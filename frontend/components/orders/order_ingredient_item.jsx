@@ -8,10 +8,7 @@ export const OrderIngredientItem = (props) => {
                     src={props.ingredient.photoUrl}
                     className="ingredient-img"
                     alt={props.ingredient.ingredientName}
-                    data-fats={props.ingredient.fats}
-                    data-protein={props.ingredient.protein}
-                    data-calories={props.ingredient.calories}
-                    data-carbs={props.ingredient.carbs}
+                    // data-price={props.ingredient.price}
                 ></img>
                 <div className="ingredient-name">{props.ingredient.ingredientName}</div>
             </figure>

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Show from './show';
+// import fetchSideIngredients from '../'
 
 const mapStateToProps = state => {
     const mealName = Object.keys(state.entities.ingredients)[0];
@@ -25,7 +26,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return ({
-        
+        fetchSideIngredients: () => dispatch(fetchSideIngredients())
     });
 };
 

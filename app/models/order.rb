@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-    validates :price, :details, presence: true
+    validates :price, :details, :order_name, presence: true
 
     belongs_to :user,
         primary_key: :id,

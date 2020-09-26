@@ -1,5 +1,6 @@
 import React from 'react';
 import { OrderIngredientItem } from './order_ingredient_item';
+import { OrderFooter } from './order_footer';
 
 class OrderShow extends React.Component {
     constructor(props) {
@@ -11,10 +12,32 @@ class OrderShow extends React.Component {
         this.lifestyleBowls = this.lifestyleBowls.bind(this);
         this.sides = this.sides.bind(this);
         this.drinks = this.drinks.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        this.orderPrice = 0;
     }
 
     startOver() {
         this.props.update();
+    }
+
+    handleClick(e) {
+        //change class name so it stays the color that it is hovered
+        this.orderPrice += e.currentTarget.getAttribute('data-price');
+    }
+
+    componentDidUpdate(prevProps) {
+        debugger;
+        if (JSON.stringify(this.props) != JSON.stringify(prevProps)) {
+            debugger;
+            if (this.props.mealName != "sides" && this.props.sidesId) {
+                debugger;
+                if (Array.isArray(this.props.sides)) {
+                    return null;
+                } else {
+                    this.props.fetchSideIngredients(this.props.sidesId);
+                }
+            }
+        }
     }
 
     fillings() {
@@ -27,7 +50,8 @@ class OrderShow extends React.Component {
             })
             return (
                 <div className="section" >
-                    <span className="section-name">FILLINGS</span>
+                    <span className="section-name">Protein or Veggie</span>
+                    <span>Choose up to two</span>
                     <ul className="section-container">
                         {section}
                     </ul>
@@ -38,18 +62,65 @@ class OrderShow extends React.Component {
 
     riceAndBeans() {
         if (this.props.riceAndBeans.length > 0) {
-            const section = this.props.riceAndBeans.map(ingredient => {
+            const riceOpts = [];
+            const beanOpts = [];
+
+            for (let i = 0; i < this.props.riceAndBeans.length; i++) {
+                let ingredient = this.props.riceAndBeans[i];
+                if (ingredient.ingredientName === "Pinto Beans" || ingredient.ingredientName === "Black Beans") {
+                    beanOpts.push(ingredient);
+                } else {
+                    riceOpts.push(ingredient);
+                }
+            }
+
+            const sectionRice = riceOpts.map(ingredient => {
                 return (
                     <OrderIngredientItem key={ingredient.id} ingredient={ingredient}/>
                 )
             })
+
+            const sectionBean = beanOpts.map(ingredient => {
+                return (
+                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient} />
+                )
+            })
+
             return (
+                <>
                 <div className="section" >
-                    <span className="section-name">RICE&nbsp;AND&nbsp;BEANS</span>
+                    <span className="section-name">RICE</span>
                     <ul className="section-container">
-                        {section}
+                        {sectionRice}
+                        <li>
+                            <figure className="figure">
+                                <img
+                                    src={window.comingsoon}
+                                    className="ingredient-img"
+                                    alt="no-rice"
+                                ></img>
+                                <div className="ingredient-name">No&nbsp;Rice</div>
+                            </figure>
+                        </li>
                     </ul>
                 </div>
+                <div className="section" >
+                    <span className="section-name">BEANS</span>
+                    <ul className="section-container">
+                        {sectionBean}
+                         <li>
+                            <figure className="figure">
+                                <img
+                                    src={window.comingsoon}
+                                    className="ingredient-img"
+                                    alt="no-beans"
+                                ></img>
+                                <div className="ingredient-name">No&nbsp;Beans</div>
+                            </figure>
+                        </li>
+                    </ul>
+                </div>
+                </>
             )
         }
     }
@@ -63,7 +134,7 @@ class OrderShow extends React.Component {
             })
             return (
                 <div className="section" >
-                    <span className="section-name">TOP&nbsp;IT&nbsp;OFF</span>
+                    <span className="section-name">TOP&nbsp;THINGS&nbsp;OFF</span>
                     <ul className="section-container">
                         {section}
                     </ul>
@@ -92,6 +163,7 @@ class OrderShow extends React.Component {
     sides() {
         if (this.props.sides.length > 0) {
             const section = this.props.sides.map(ingredient => {
+                debugger;
                 return (
                     <OrderIngredientItem key={ingredient.id} ingredient={ingredient}/>
                 )
@@ -163,6 +235,9 @@ class OrderShow extends React.Component {
                     </div>
                     <div className="ingredients-container">
                         {component()}
+                    </div>
+                    <div className="order-footer">
+                        <OrderFooter />
                     </div>
                 </ul>
             </div>

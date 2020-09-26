@@ -1,5 +1,7 @@
 import { RECEIVE_INGREDIENTS } from '../actions/nutrition_actions';
 import { FILLINGS, RICE_AND_BEANS, TOP_IT_OFF, INCLUDED, LIFESTYLE, SIDES, DRINKS } from '../util/sections_ingredients';
+import { RECEIVE_SIDE_INGREDIENTS } from '../actions/order_actions';
+import merge from 'lodash/merge';
 
 const ingredientsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -43,6 +45,9 @@ const ingredientsReducer = (state = {}, action) => {
                 }
             }
             return sectionedIngredients;
+        case RECEIVE_SIDE_INGREDIENTS:
+            const sideIngredients = action.sideIngredients["sides"];
+            return merge({}, state, { sides: sideIngredients })
         default:
             return state;
     }
