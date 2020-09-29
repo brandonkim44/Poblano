@@ -1,6 +1,7 @@
 import React from 'react';
 
 export const OrderIngredientItem = (props) => {
+
     return (
         <li>
             <figure className="figure">
@@ -9,6 +10,7 @@ export const OrderIngredientItem = (props) => {
                     className="ingredient-img"
                     alt={props.ingredient.ingredientName}
                     // data-price={props.ingredient.price}
+                    onClick={(e) => props.handleClick(e)}
                 ></img>
                 <div className="ingredient-name">{props.ingredient.ingredientName}</div>
             </figure>

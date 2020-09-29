@@ -1317,6 +1317,21 @@ input[class="input-Password-required-focused"]::placeholder {
 
 /* Order page */
 
+.order-entrees-container {
+  width: 100%;
+  z-index: 20;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid $gray;
+  justify-content: center;
+}
+
+.order-ingredients-container {
+  display: flex;
+  justify-content: center;
+}
+
 .order-caption {
   text-align: center;
   margin: 10px, 0px, 10px, 0px;
@@ -1328,6 +1343,51 @@ input[class="input-Password-required-focused"]::placeholder {
   visibility: hidden;
 }
 
-.order-footer {
-  
+.order-footer-container {
+  min-height: 100px;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  z-index: 5;
+  background-color: $lightest-brown;
 }
+
+.order-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-footer-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.order-footer-left > h1 {
+  font-family: $font-stack;
+  color: $dark-brown;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.order-footer-left > span {
+  font-family: $font-stack;
+  color: $dark-brown;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.order-footer-right {
+
+}
+
+.order-footer-btn {
+  background-color: $dark-brown;
+  color: white;
+  font-family: $font-stack;
+  font-size: 32px;
+  text-align: center;
+  font-weight: 700;
+}
+

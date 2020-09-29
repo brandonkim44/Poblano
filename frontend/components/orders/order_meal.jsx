@@ -25,7 +25,7 @@ class OrderMeal extends React.Component {
         const renderedComponent = (this.state.page === "index") ? (
             this.mealsPage()
         ) : (
-                this.ingredientsPage()
+            this.ingredientsPage()
             );
 
         return (

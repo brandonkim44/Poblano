@@ -14,6 +14,8 @@ class OrderShow extends React.Component {
         this.drinks = this.drinks.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.orderPrice = 0;
+        //an array of orders for multiple meals in an order, push an order into the order. An order will be a JSON object, which can be stringified
+        this.orders = [];
     }
 
     startOver() {
@@ -22,7 +24,12 @@ class OrderShow extends React.Component {
 
     handleClick(e) {
         //change class name so it stays the color that it is hovered
-        this.orderPrice += e.currentTarget.getAttribute('data-price');
+        if (e.target.className === "ingredient-img") {
+            e.target.className = "ingredient-img-clicked";
+        } else {
+            e.target.className = "ingredient-img";
+        }
+        // this.orderPrice += e.currentTarget.getAttribute('data-price');
     }
 
     componentDidUpdate(prevProps) {
@@ -45,7 +52,7 @@ class OrderShow extends React.Component {
         if (this.props.fillings.length > 0) {
             const section = this.props.fillings.map(ingredient => {
                 return (
-                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient}/>
+                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient} handleClick={this.handleClick}/>
                 )
             })
             return (
@@ -76,13 +83,13 @@ class OrderShow extends React.Component {
 
             const sectionRice = riceOpts.map(ingredient => {
                 return (
-                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient}/>
+                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient} handleClick={this.handleClick}/>
                 )
             })
 
             const sectionBean = beanOpts.map(ingredient => {
                 return (
-                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient} />
+                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient} handleClick={this.handleClick}/>
                 )
             })
 
@@ -129,7 +136,7 @@ class OrderShow extends React.Component {
         if (this.props.toppings.length > 0) {
             const section = this.props.toppings.map(ingredient => {
                 return (
-                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient}/>
+                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient} handleClick={this.handleClick}/>
                 )
             })
             return (
@@ -147,7 +154,7 @@ class OrderShow extends React.Component {
         if (this.props.lifestyleBowls.length > 0) {
             const section = this.props.lifestyleBowls.map(ingredient => {
                 return (
-                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient}/>
+                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient} handleClick={this.handleClick}/>
                 )
             })
             return (
@@ -165,7 +172,7 @@ class OrderShow extends React.Component {
             const section = this.props.sides.map(ingredient => {
                 debugger;
                 return (
-                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient}/>
+                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient} handleClick={this.handleClick}/>
                 )
             })
             return (
@@ -183,7 +190,7 @@ class OrderShow extends React.Component {
         if (this.props.drinks.length > 0) {
             const section = this.props.drinks.map(ingredient => {
                 return (
-                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient}/>
+                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient} handleClick={this.handleClick}/>
                 )
             })
             return (
@@ -218,7 +225,7 @@ class OrderShow extends React.Component {
             }
         }
         return (
-            <div className="show-page-container">
+            <div className="order-show-page-container">
                 <br />
                 <ul>
                     <div className="show-page-header">
@@ -233,13 +240,13 @@ class OrderShow extends React.Component {
                             START OVER
                         </span>
                     </div>
-                    <div className="ingredients-container">
+                    <div className="order-ingredients-container">
                         {component()}
                     </div>
-                    <div className="order-footer">
-                        <OrderFooter />
-                    </div>
                 </ul>
+                <div className="order-footer-container">
+                    <OrderFooter />
+                </div>
             </div>
         )
     }

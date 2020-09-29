@@ -10,7 +10,7 @@ class OrderLanding extends React.Component {
         return (
             <div>
                 <div className="nutrition-calculator-container">
-                    <div className="nutrition-entrees-container">
+                    <div className="order-entrees-container">
                         <OrderMealContainer />
                     </div>
                 </div>
