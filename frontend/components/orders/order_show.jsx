@@ -1,6 +1,7 @@
 import React from 'react';
 import { OrderIngredientItem } from './order_ingredient_item';
 import { OrderFooter } from './order_footer';
+import { FILLINGS } from '../../util/sections_ingredients';
 
 class OrderShow extends React.Component {
     constructor(props) {
@@ -16,6 +17,14 @@ class OrderShow extends React.Component {
         this.orderPrice = 0;
         //an array of orders for multiple meals in an order, push an order into the order. An order will be a JSON object, which can be stringified
         this.orders = [];
+        this.orderDetails = "Select a protein or veggie to get started";
+        this.orderStoreId = 0;
+        this.state = {
+            userId: this.props.currentUser.id,
+            storeId: this.orderStoreId,
+            price: this.orderPrice,
+            details: this.orderDetails
+        }
     }
 
     startOver() {
@@ -26,7 +35,16 @@ class OrderShow extends React.Component {
         //change class name so it stays the color that it is hovered
         if (e.target.className === "ingredient-img") {
             e.target.className = "ingredient-img-clicked";
+            let filling = e.target.nextSibling.innerText;
+            console.log(filling);
+            if (FILLINGS.includes(filling)) {
+                this.orderDetails = `${filling} ${this.props.mealName}`;
+            }
+            this.setState({ details: this.orderDetails})
+            console.log(this.orderDetails);
         } else {
+            this.orderDetails = "Select a protein or veggie to get started";
+            this.setState({ details: this.orderDetails })
             e.target.className = "ingredient-img";
         }
         // this.orderPrice += e.currentTarget.getAttribute('data-price');
@@ -34,6 +52,9 @@ class OrderShow extends React.Component {
 
     componentDidUpdate(prevProps) {
         debugger;
+        console.log(prevProps);
+        console.log(this.props);
+
         if (JSON.stringify(this.props) != JSON.stringify(prevProps)) {
             debugger;
             if (this.props.mealName != "sides" && this.props.sidesId) {
@@ -208,8 +229,9 @@ class OrderShow extends React.Component {
 
 
         const component = () => {
-
+            debugger;
             if (this.props.ingredients.length > 0) {
+                debugger;
                 return (
                     <div>
                         {this.fillings()}
@@ -245,7 +267,7 @@ class OrderShow extends React.Component {
                     </div>
                 </ul>
                 <div className="order-footer-container">
-                    <OrderFooter />
+                    <OrderFooter orderDetails={this.state.details}/>
                 </div>
             </div>
         )

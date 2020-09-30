@@ -46,8 +46,18 @@ const ingredientsReducer = (state = {}, action) => {
             }
             return sectionedIngredients;
         case RECEIVE_SIDE_INGREDIENTS:
-            const sideIngredients = action.sideIngredients["sides"];
-            return merge({}, state, { sides: sideIngredients })
+            const ingredients = action.sideIngredients["sides"];
+            const sideIngredients = [];
+            const drinkIngredients = [];
+            for (let i = 0; i < ingredients.length; i++) {
+                let ingredient = ingredients[i];
+                if (SIDES.includes(ingredient.ingredientName)) {
+                    sideIngredients.push(ingredient)
+                } else if (DRINKS.includes(ingredient.ingredientName)) {
+                    drinkIngredients.push(ingredient)
+                }
+            }
+            return merge({}, state, { sides: sideIngredients, drinks: drinkIngredients })
         default:
             return state;
     }

@@ -5,6 +5,7 @@ import { fetchSideIngredients } from '../../actions/order_actions';
 const mapStateToProps = state => {
     const mealName = Object.keys(state.entities.ingredients)[0];
     const sides = state.entities.ingredients.sides;
+    const drinks = state.entities.ingredients.drinks;
     let mealDescription = null;
     let mealPhoto = null;
     let sidesId = null;
@@ -17,8 +18,13 @@ const mapStateToProps = state => {
     if (sides) {
         sideIngredients = sides;
     }
+    let drinkIngredients = {};
+    if (drinks) {
+        drinkIngredients = drinks;
+    }
     const ingredients = state.entities.ingredients[mealName];
     return ({
+        currentUser: state.session.id ? state.entities.users[state.session.id] : {},
         mealName: mealName,
         mealDescription: mealDescription,
         mealPhoto: mealPhoto,
@@ -29,7 +35,7 @@ const mapStateToProps = state => {
         toppings: ingredients ? ingredients["Top it off"] : {},
         lifestyleBowls: ingredients ? ingredients["Bowls"] : {},
         sides: (ingredients && (mealName === ("sides"))) ? ingredients["Sides"] : sideIngredients,
-        drinks: ingredients ? ingredients["Drinks"] : {}
+        drinks: (ingredients && (mealName === ("drinks"))) ? ingredients["Drinks"] : drinkIngredients
     });
 };
 
