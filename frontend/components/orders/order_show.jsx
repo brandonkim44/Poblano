@@ -2,7 +2,7 @@ import React from 'react';
 import { OrderIngredientItem } from './order_ingredient_item';
 import { OrderFooter } from './order_footer';
 import { FILLINGS, DRINKS, SIDES } from '../../util/sections_ingredients';
-import { pick } from 'lodash';
+import { pick, times } from 'lodash';
 
 class OrderShow extends React.Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class OrderShow extends React.Component {
         this.orderPrice = 0;
         //an array of orders for multiple meals in an order, push an order into the order. An order will be a JSON object, which can be stringified
         this.orders = [];
-        this.orderDetails = "Select a protein or veggie to get started";
+        this.orderDetails = {default: "Select a protein or veggie to get started"};
         this.orderStoreId = 0;
         this.state = {
             userId: this.props.currentUser.id,
@@ -63,6 +63,7 @@ class OrderShow extends React.Component {
                     e.target.className = "ingredient-img-clicked";
                     this.fillingsDetail = `${ingredientName} ${this.props.mealName}`;
                     this.fillingsCount++;
+                    this.orderDetails["fillingsDetail"] = this.fillingsDetail;
                     // this.setState({ details: this.orderDetails });
                 } else {
                     alert('You can select only 2 fillings');
@@ -75,6 +76,7 @@ class OrderShow extends React.Component {
                 } else {
                     this.sidesDetail = `${this.sidesCount} Side`
                 }
+                this.orderDetails["sidesDetail"] = this.sidesDetail;
                 // this.setState({ details: this.orderDetails });
             } else if (DRINKS.includes(ingredientName)){
                 e.target.className = "ingredient-img-clicked";
@@ -84,27 +86,39 @@ class OrderShow extends React.Component {
                 } else {
                     this.drinksDetail = `${this.drinksCount} Drink`
                 }
+                this.orderDetails["drinksDetail"] = this.drinksDetail;
                 // this.setState({ details: this.orderDetails });
             }
-            if (this.fillingsDetail === "" && this.sidesDetail === "" && this.drinksDetails === "") {
-                this.orderDetails = "Select a protein or veggie to get started";
+            if (this.fillingsDetail === "" && this.sidesDetail === "" && this.drinksDetail === "") {
+                this.setState({ details: this.orderDetails.default });
             } else {
                 debugger;
-                this.orderDetails = this.fillingsDetail + " " + this.sidesDetail + " " + this.drinksDetail;
+                let displayText = Object.values(this.orderDetails).slice(1).join(", ");
+                this.setState({ details: displayText });
             }
             debugger;
-            this.setState({ details: this.orderDetails });
         } else {
             if (ingredientName === "Veggie") {
                 this.veggie = false;
             }
             if (FILLINGS.includes(ingredientName)) {
                 e.target.className = "ingredient-img";
-                this.fillingsDetails = "Select a protein or veggie to get started";
+                this.fillingsDetail = "";
                 this.fillingsCount--;
-                this.setState({ details: this.orderDetails })
+                //have logic for fillingsCount 0 1 or 2
+                this.orderDetails["fillingsDetail"] = this.fillingsDetail; 
+                // this.setState({ details: this.orderDetails })
             } else {
                 e.target.className = "ingredient-img";
+            }
+            debugger;
+            if (this.fillingsDetail === "" && this.sidesDetail === "" && this.drinksDetail === "") {
+                debugger;
+                this.setState({ details: this.orderDetails.default });
+            } else {
+                debugger;
+                let displayText = Object.values(this.orderDetails).slice(1).join(", ");
+                this.setState({ details: displayText });
             }
         }
         // this.orderPrice += e.currentTarget.getAttribute('data-price');
@@ -327,7 +341,7 @@ class OrderShow extends React.Component {
                     </div>
                 </ul>
                 <div className="order-footer-container">
-                    <OrderFooter orderDetails={this.state.details} orderState={this.state}/>
+                    <OrderFooter orderDetails={this.state.details.default ? this.state.details.default : this.state.details} orderState={this.state}/>
                 </div>
             </div>
         )
