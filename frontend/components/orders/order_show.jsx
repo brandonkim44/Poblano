@@ -1,7 +1,8 @@
 import React from 'react';
 import { OrderIngredientItem } from './order_ingredient_item';
 import { OrderFooter } from './order_footer';
-import { FILLINGS } from '../../util/sections_ingredients';
+import { FILLINGS, DRINKS, SIDES } from '../../util/sections_ingredients';
+import { pick } from 'lodash';
 
 class OrderShow extends React.Component {
     constructor(props) {
@@ -23,8 +24,18 @@ class OrderShow extends React.Component {
             userId: this.props.currentUser.id,
             storeId: this.orderStoreId,
             price: this.orderPrice,
-            details: this.orderDetails
+            details: this.orderDetails,
+            fillingsDetail: this.fillingsDetail,
+            sidesDetail: this.sidesDetail,
+            drinksDetail: this.drinksDetail
         }
+        this.fillingsCount = 0;
+        this.veggie = false;
+        this.sidesCount = 0;
+        this.drinksCount = 0;
+        this.fillingsDetail = "";
+        this.sidesDetail = "";
+        this.drinksDetail = "";
     }
 
     startOver() {
@@ -32,20 +43,69 @@ class OrderShow extends React.Component {
     }
 
     handleClick(e) {
-        //change class name so it stays the color that it is hovered
+        let ingredientName = e.target.nextSibling.innerText;
         if (e.target.className === "ingredient-img") {
-            e.target.className = "ingredient-img-clicked";
-            let filling = e.target.nextSibling.innerText;
-            console.log(filling);
-            if (FILLINGS.includes(filling)) {
-                this.orderDetails = `${filling} ${this.props.mealName}`;
+            //if fillings, run fillingsFunction
+            //if sides, run sidesFunction
+            //if drinks, run drinksFunction
+            if (this.veggie) {
+                alert("Can't go halfsies with Veggies");
+            } else if (FILLINGS.includes(ingredientName)) {
+                debugger;
+                if (ingredientName === "Veggie") {
+                    this.veggie = true;
+                }
+                if (this.veggie && this.fillingsCount > 0) {
+                    alert("Can't go halfsies with Veggies");
+                    this.veggie = false;
+                } else if (this.fillingsCount < 2) {
+                    debugger;
+                    e.target.className = "ingredient-img-clicked";
+                    this.fillingsDetail = `${ingredientName} ${this.props.mealName}`;
+                    this.fillingsCount++;
+                    // this.setState({ details: this.orderDetails });
+                } else {
+                    alert('You can select only 2 fillings');
+                }
+            } else if (SIDES.includes(ingredientName)) {
+                e.target.className = "ingredient-img-clicked";
+                this.sidesCount++;
+                if (this.sidesCount > 1) {
+                    this.sidesDetail = `${this.sidesCount} Sides`
+                } else {
+                    this.sidesDetail = `${this.sidesCount} Side`
+                }
+                // this.setState({ details: this.orderDetails });
+            } else if (DRINKS.includes(ingredientName)){
+                e.target.className = "ingredient-img-clicked";
+                this.drinksCount++;
+                if (this.drinksCount > 1) {
+                    this.drinksDetail = `${this.drinksCount} Drinks`
+                } else {
+                    this.drinksDetail = `${this.drinksCount} Drink`
+                }
+                // this.setState({ details: this.orderDetails });
             }
-            this.setState({ details: this.orderDetails})
-            console.log(this.orderDetails);
+            if (this.fillingsDetail === "" && this.sidesDetail === "" && this.drinksDetails === "") {
+                this.orderDetails = "Select a protein or veggie to get started";
+            } else {
+                debugger;
+                this.orderDetails = this.fillingsDetail + " " + this.sidesDetail + " " + this.drinksDetail;
+            }
+            debugger;
+            this.setState({ details: this.orderDetails });
         } else {
-            this.orderDetails = "Select a protein or veggie to get started";
-            this.setState({ details: this.orderDetails })
-            e.target.className = "ingredient-img";
+            if (ingredientName === "Veggie") {
+                this.veggie = false;
+            }
+            if (FILLINGS.includes(ingredientName)) {
+                e.target.className = "ingredient-img";
+                this.fillingsDetails = "Select a protein or veggie to get started";
+                this.fillingsCount--;
+                this.setState({ details: this.orderDetails })
+            } else {
+                e.target.className = "ingredient-img";
+            }
         }
         // this.orderPrice += e.currentTarget.getAttribute('data-price');
     }
@@ -267,7 +327,7 @@ class OrderShow extends React.Component {
                     </div>
                 </ul>
                 <div className="order-footer-container">
-                    <OrderFooter orderDetails={this.state.details}/>
+                    <OrderFooter orderDetails={this.state.details} orderState={this.state}/>
                 </div>
             </div>
         )
