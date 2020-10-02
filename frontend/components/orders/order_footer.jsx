@@ -1,12 +1,13 @@
 import React from 'react';
 import { pick } from 'lodash';
 
+//might have to make this a class component
 export const OrderFooter = (props) => {
 
 
     let state = props.orderState;
 
-    const order = _.pick(state, ['userId', 'storeId', 'price', 'details']);
+    const order = pick(state, ['userId', 'storeId', 'price', 'details']);
     
     const handleSubmit = (e) => {
         // logic to check if one of the fillings, rice, and beans pics have been clicked

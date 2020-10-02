@@ -48,21 +48,25 @@ class OrderShow extends React.Component {
             //if fillings, run fillingsFunction
             //if sides, run sidesFunction
             //if drinks, run drinksFunction
-            if (this.veggie) {
-                alert("Can't go halfsies with Veggies");
-            } else if (FILLINGS.includes(ingredientName)) {
+           if (FILLINGS.includes(ingredientName)) {
                 debugger;
                 if (ingredientName === "Veggie") {
                     this.veggie = true;
                 }
                 if (this.veggie && this.fillingsCount > 0) {
                     alert("Can't go halfsies with Veggies");
-                    this.veggie = false;
                 } else if (this.fillingsCount < 2) {
                     debugger;
-                    e.target.className = "ingredient-img-clicked";
-                    this.fillingsDetail = `${ingredientName} ${this.props.mealName}`;
                     this.fillingsCount++;
+                    e.target.className = "ingredient-img-clicked";
+                    if (this.fillingsCount === 1) {
+                        this.fillingsDetail = `${ingredientName} ${this.props.mealName}`;
+                    } else if (this.fillingsCount === 2) {
+                        let splitDisplayText = this.fillingsDetail.split(" ");
+                        debugger;
+                        splitDisplayText.splice(1, 0, "&", ingredientName);
+                        this.fillingsDetail = splitDisplayText.join(" ");
+                    }
                     this.orderDetails["fillingsDetail"] = this.fillingsDetail;
                     // this.setState({ details: this.orderDetails });
                 } else {
@@ -88,11 +92,22 @@ class OrderShow extends React.Component {
                 }
                 this.orderDetails["drinksDetail"] = this.drinksDetail;
                 // this.setState({ details: this.orderDetails });
+            } else {
+                e.target.className = "ingredient-img-clicked";
             }
             if (this.fillingsDetail === "" && this.sidesDetail === "" && this.drinksDetail === "") {
                 this.setState({ details: this.orderDetails.default });
             } else {
                 debugger;
+                if (this.fillingsDetail === "") {
+                    delete this.orderDetails['fillingsDetail'];
+                }
+                if (this.sidesDetail === "") {
+                  delete this.orderDetails["sidesDetail"];
+                }
+                if (this.drinksDetail === "") {
+                  delete this.orderDetails["drinksDetail"];
+                }
                 let displayText = Object.values(this.orderDetails).slice(1).join(", ");
                 this.setState({ details: displayText });
             }
@@ -103,11 +118,48 @@ class OrderShow extends React.Component {
             }
             if (FILLINGS.includes(ingredientName)) {
                 e.target.className = "ingredient-img";
-                this.fillingsDetail = "";
+                if (this.fillingsCount === 2) {
+                    let splitDisplayText = this.fillingsDetail.split(" ");
+                    const indexMealName = splitDisplayText.indexOf(ingredientName);
+                    if (indexMealName > -1) {
+                        splitDisplayText.splice(indexMealName, 1);
+                    }
+                    const indexAnd = splitDisplayText.indexOf("&");
+                    if (indexAnd > -1) {
+                        splitDisplayText.splice(indexAnd, 1);
+                    }
+                    this.fillingsDetail = splitDisplayText.join(" ");
+                } else if (this.fillingsCount === 1) {
+                    this.fillingsDetail = "";
+                }
                 this.fillingsCount--;
                 //have logic for fillingsCount 0 1 or 2
                 this.orderDetails["fillingsDetail"] = this.fillingsDetail; 
                 // this.setState({ details: this.orderDetails })
+            } else if (SIDES.includes(ingredientName)) {
+                e.target.className = "ingredient-img";
+                this.sidesCount--;
+                if (this.sidesCount > 1) {
+                    this.sidesDetail = `${this.sidesCount} Sides`;
+                } else if (this.sidesCount === 1) {
+                    this.sidesDetail = `${this.sidesCount} Side`;
+                } else {
+                    this.sidesDetail = "";
+                }
+                this.orderDetails["sidesDetail"] = this.sidesDetail;
+                // this.setState({ details: this.orderDetails });
+            } else if (DRINKS.includes(ingredientName)) {
+                e.target.className = "ingredient-img";
+                this.drinksCount--;
+                if (this.drinksCount > 1) {
+                    this.drinksDetail = `${this.drinksCount} Drinks`;
+                } else if (this.drinksCount === 1) {
+                    this.drinksDetail = `${this.drinksCount} Drink`;
+                } else {
+                    this.drinksDetail = "";
+                }
+                this.orderDetails["drinksDetail"] = this.drinksDetail;
+                // this.setState({ details: this.orderDetails });
             } else {
                 e.target.className = "ingredient-img";
             }
@@ -116,6 +168,15 @@ class OrderShow extends React.Component {
                 debugger;
                 this.setState({ details: this.orderDetails.default });
             } else {
+                if (this.fillingsDetail === "") {
+                  delete this.orderDetails["fillingsDetail"];
+                }
+                if (this.sidesDetail === "") {
+                  delete this.orderDetails["sidesDetail"];
+                }
+                if (this.drinksDetail === "") {
+                  delete this.orderDetails["drinksDetail"];
+                }
                 debugger;
                 let displayText = Object.values(this.orderDetails).slice(1).join(", ");
                 this.setState({ details: displayText });
