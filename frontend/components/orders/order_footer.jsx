@@ -19,6 +19,7 @@ export const OrderFooter = (props) => {
         <div className="order-footer">
             <div className="order-footer-left">
                 <h1>YOUR MEAL</h1>
+                <br/>
                 <span>{props.orderDetails}</span>
             </div>
             <div className="order-footer-right">

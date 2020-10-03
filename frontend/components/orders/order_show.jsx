@@ -186,10 +186,6 @@ class OrderShow extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        debugger;
-        console.log(prevProps);
-        console.log(this.props);
-
         if (JSON.stringify(this.props) != JSON.stringify(prevProps)) {
             debugger;
             if (this.props.mealName != "sides" && this.props.sidesId) {
@@ -213,9 +209,10 @@ class OrderShow extends React.Component {
             })
             return (
                 <div className="section" >
-                    <span className="section-name">Protein or Veggie</span>
-                    <span>Choose up to two</span>
-                    <ul className="section-container">
+                    <span className="order-section-name">Protein or Veggie</span>
+                    <br/>
+                    <span className="order-section-subtitle">Choose up to two.</span>
+                    <ul className="order-section-container">
                         {section}
                     </ul>
                 </div>
@@ -252,8 +249,8 @@ class OrderShow extends React.Component {
             return (
                 <>
                 <div className="section" >
-                    <span className="section-name">RICE</span>
-                    <ul className="section-container">
+                    <span className="order-section-name">RICE</span>
+                    <ul className="order-section-container">
                         {sectionRice}
                         <li>
                             <figure className="figure">
@@ -268,8 +265,8 @@ class OrderShow extends React.Component {
                     </ul>
                 </div>
                 <div className="section" >
-                    <span className="section-name">BEANS</span>
-                    <ul className="section-container">
+                    <span className="order-section-name">BEANS</span>
+                    <ul className="order-section-container">
                         {sectionBean}
                          <li>
                             <figure className="figure">
@@ -297,8 +294,8 @@ class OrderShow extends React.Component {
             })
             return (
                 <div className="section" >
-                    <span className="section-name">TOP&nbsp;THINGS&nbsp;OFF</span>
-                    <ul className="section-container">
+                    <span className="order-section-name">TOP&nbsp;THINGS&nbsp;OFF</span>
+                    <ul className="order-section-container">
                         {section}
                     </ul>
                 </div>
@@ -315,7 +312,7 @@ class OrderShow extends React.Component {
             })
             return (
                 <div className="section" >
-                    <ul className="section-container">
+                    <ul className="order-section-container">
                         {section}
                     </ul>
                 </div>
@@ -333,8 +330,8 @@ class OrderShow extends React.Component {
             })
             return (
                 <div className="section" >
-                    <span className="section-name">SIDES</span>
-                    <ul className="section-container">
+                    <span className="order-section-name">SIDES</span>
+                    <ul className="order-section-container">
                         {section}
                     </ul>
                 </div>
@@ -351,8 +348,8 @@ class OrderShow extends React.Component {
             })
             return (
                 <div className="section" >
-                    <span className="section-name">DRINKS</span>
-                    <ul className="section-container">
+                    <span className="order-section-name">DRINKS</span>
+                    <ul className="order-section-container">
                         {section}
                     </ul>
                 </div>
@@ -368,7 +365,7 @@ class OrderShow extends React.Component {
             if (this.props.ingredients.length > 0) {
                 debugger;
                 return (
-                    <div>
+                    <div className="order-page-ingredients-grid">
                         {this.fillings()}
                         {this.riceAndBeans()}
                         {this.toppings()}
@@ -385,17 +382,18 @@ class OrderShow extends React.Component {
             <div className="order-show-page-container">
                 <br />
                 <ul>
-                    <div className="show-page-header">
+                    <div className="order-show-page-header">
                         <img src={this.props.mealPhoto} alt={`${this.props.mealName}-pic`}/>
-                        <h1>BUILD YOUR</h1>
-                        <span className="meal-name-show-page">{this.props.mealName}</span>
-                        <span className="meal-description">{this.props.mealDescription}</span>
-                        <span className="main-or">|</span>
-                        <span
-                            className="start-over"
-                            onClick={() => this.startOver()}>
-                            START OVER
-                        </span>
+                        <div className="show-page-header-right">
+                            <h1>BUILD YOUR</h1>
+                            <span className="meal-name-order-show-page">{this.props.mealName}</span>
+                            <span className="meal-description">{this.props.mealDescription}</span>
+                            <span
+                                className="start-over-order-show-page"
+                                onClick={() => this.startOver()}>
+                                START OVER
+                            </span>
+                        </div>
                     </div>
                     <div className="order-ingredients-container">
                         {component()}

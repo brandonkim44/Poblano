@@ -930,15 +930,12 @@ input[class="input-Password-required-focused"]::placeholder {
 
 .show-page-header {
   display: flex;
-  justify-content: left;
   position: relative;
   top: 0%;
-  border-bottom: 1px solid #d4cbc7;
   margin-bottom: 25px;
   padding-top: 10px;
   padding-bottom: 20px;
 }
-
 
 
 // .fillings {
@@ -1317,6 +1314,74 @@ input[class="input-Password-required-focused"]::placeholder {
 
 /* Order page */
 
+.order-show-page-header {
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  top: 0%;
+  margin-bottom: 40px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.order-show-page-header > img {
+  width: 530px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.show-page-header-right {
+  max-width: 570px;
+  max-height: 185px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.show-page-header-right > h1 {
+  color: $light-brown;
+  font-family: $font-nunito;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.meal-name-order-show-page {
+  font-size: 64px;
+  max-height: 24px;
+  color: $dark-brown;
+  font-family: $font-stack;
+  margin-bottom: 30px;
+  font-weight: 500;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.meal-description {
+  font-family: $font-nunito;
+  font-size: 16px;
+  color: $dark-brown;
+  font-weight: 300;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.start-over-order-show-page {
+  cursor: pointer;
+  color: #b68207;
+  font-family: $font-nunito;
+  position: relative;
+  padding-top: 2px;
+  width: 100px;
+}
+
+.start-over-order-show-page:hover {
+  color: #815d08;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
 .order-entrees-container {
   width: 100%;
   z-index: 20;
@@ -1356,6 +1421,10 @@ input[class="input-Password-required-focused"]::placeholder {
 .order-footer {
   display: flex;
   justify-content: space-between;
+  padding-left: 120px;
+  padding-right: 120px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .order-footer-left {
@@ -1367,27 +1436,62 @@ input[class="input-Password-required-focused"]::placeholder {
 .order-footer-left > h1 {
   font-family: $font-stack;
   color: $dark-brown;
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.order-footer-left > span {
-  font-family: $font-stack;
-  color: $dark-brown;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 500;
 }
 
-.order-footer-right {
+.order-footer-left > span {
+  font-family: $font-nunito;
+  color: $dark-brown;
+  font-size: 16px;
+  font-weight: 300;
+}
 
+.order-section-container {
+  max-width: 1100px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  margin-bottom: 35px;
+}
+
+.order-section-name {
+  font-size: 24px;
+  max-height: 24px;
+  color: $dark-brown;
+  font-family: $font-stack;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-weight: 500;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin: 10px;
+}
+
+.order-section-subtitle {
+  font-family: $font-nunito;
+  font-size: 16px;
+  color: $light-brown;
+  font-weight: 300;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  position: relative;
+  margin: 10px;
+  top: 5px;
 }
 
 .order-footer-btn {
   background-color: $dark-brown;
   color: white;
   font-family: $font-stack;
-  font-size: 32px;
+  font-size: 22px;
   text-align: center;
   font-weight: 700;
+  width: 300px;
+  height: 60px;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
