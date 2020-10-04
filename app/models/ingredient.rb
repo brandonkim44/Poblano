@@ -1,5 +1,5 @@
 class Ingredient < ApplicationRecord
-    validates :ingredient_name, presence: true
+    validates :ingredient_name, :price, presence: true
 
     has_one_attached :photo
 

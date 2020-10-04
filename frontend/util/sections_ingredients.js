@@ -8,7 +8,7 @@ export const FILLINGS = [
 export const RICE_AND_BEANS = [
     "Cilantro-Lime Brown Rice", 
     "Cilantro-Lime White Rice", 
-    "Black Beans", 
+    "Black Beans",
     "Pinto Beans"];
 export const TOP_IT_OFF = [
     "Fajita Vegetables",
@@ -51,3 +51,9 @@ export const DRINKS = [
     "Blackberry",
     "Clementine",
     "Grapefruit"];
+export const RICE = [
+    "Cilantro-Lime Brown Rice", 
+    "Cilantro-Lime White Rice"];
+export const BEANS = [
+    "Black Beans", 
+    "Pinto Beans"];

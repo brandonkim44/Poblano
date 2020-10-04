@@ -62,7 +62,8 @@ flourtortilla = Ingredient.create({
   fats: 9,
   carbs: 50,
   protein: 8,
-  filename: "flourtortilla"
+  filename: "flourtortilla",
+  price: 0
 })
 
 barbacoa = Ingredient.create({
@@ -71,7 +72,8 @@ barbacoa = Ingredient.create({
   fats: 7,
   carbs: 2,
   protein: 24,
-  filename: "barbacoa"
+  filename: "barbacoa",
+  price: 8.70
 })
 
 carnitas = Ingredient.create({
@@ -80,7 +82,8 @@ carnitas = Ingredient.create({
   fats: 12,
   carbs: 0,
   protein: 23, 
-  filename: "carnitas"
+  filename: "carnitas",
+  price: 8.20
 })
 
 chicken = Ingredient.create({
@@ -89,7 +92,8 @@ chicken = Ingredient.create({
   fats: 7,
   carbs: 0,
   protein: 32,
-  filename: "chicken"
+  filename: "chicken",
+  price: 7.70
 })
 
 sofritas = Ingredient.create({
@@ -98,7 +102,8 @@ sofritas = Ingredient.create({
   fats: 10,
   carbs: 9,
   protein: 8,
-  filename: "sofritas"
+  filename: "sofritas",
+  price: 7.70
 })
 
 steak = Ingredient.create({
@@ -107,7 +112,8 @@ steak = Ingredient.create({
   fats: 6,
   carbs: 1,
   protein: 21,
-  filename: "steak"
+  filename: "steak",
+  price: 8.70
 })
 
 veggie = Ingredient.create({
@@ -116,7 +122,8 @@ veggie = Ingredient.create({
   fats: 22,
   carbs: 8,
   protein: 2,
-  filename: "veggie"
+  filename: "veggie",
+  price: 7.70
 })
 
 brownrice = Ingredient.create({
@@ -125,7 +132,8 @@ brownrice = Ingredient.create({
   fats: 6,
   carbs: 36,
   protein: 4,
-  filename: "brownrice" 
+  filename: "brownrice",
+  price: 0
 })
 
 whiterice = Ingredient.create({
@@ -134,7 +142,8 @@ whiterice = Ingredient.create({
   fats: 4,
   carbs: 40,
   protein: 4,
-  filename: "whiterice" 
+  filename: "whiterice",
+  price: 0
 })
 
 blackbeans = Ingredient.create({
@@ -143,7 +152,8 @@ blackbeans = Ingredient.create({
   fats: 2,
   carbs: 22,
   protein: 8,
-  filename: "blackbeans"
+  filename: "blackbeans",
+  price: 0
 })
 
 pintobeans = Ingredient.create({
@@ -152,7 +162,8 @@ pintobeans = Ingredient.create({
   fats: 2,
   carbs: 21,
   protein: 8,
-  filename: "pintobeans"
+  filename: "pintobeans",
+  price: 0
 })
 
 fajita = Ingredient.create({
@@ -161,7 +172,8 @@ fajita = Ingredient.create({
   fats: 0,
   carbs: 5,
   protein: 1,
-  filename: "fajita" 
+  filename: "fajita",
+  price: 0
 })
 
 tomato = Ingredient.create({
@@ -170,7 +182,8 @@ tomato = Ingredient.create({
   fats: 0,
   carbs: 4,
   protein: 0,
-  filename: "tomato"
+  filename: "tomato",
+  price: 0
 })
 
 guac = Ingredient.create({
@@ -179,7 +192,8 @@ guac = Ingredient.create({
   fats: 22,
   carbs: 8,
   protein: 2,
-  filename: "guac"
+  filename: "guac",
+  price: 2.60
 })
 
 cheese = Ingredient.create({
@@ -188,7 +202,8 @@ cheese = Ingredient.create({
   fats: 8,
   carbs: 1,
   protein: 6,
-  filename: "cheese" 
+  filename: "cheese",
+  price: 0
 })
 
 queso = Ingredient.create({
@@ -197,7 +212,8 @@ queso = Ingredient.create({
   fats: 9,
   carbs: 4,
   protein: 5,
-  filename: "queso"
+  filename: "queso",
+  price: 0
 })
 
 cornsalsa = Ingredient.create({
@@ -206,7 +222,8 @@ cornsalsa = Ingredient.create({
   fats: 2,
   carbs: 16,
   protein: 3,
-  filename: "cornsalsa"
+  filename: "cornsalsa",
+  price: 0
 })
 
 sourcream = Ingredient.create({
@@ -215,7 +232,8 @@ sourcream = Ingredient.create({
   fats: 9,
   carbs: 2,
   protein: 2,
-  filename: "sourcream"
+  filename: "sourcream",
+  price: 0
 })
 
 greensalsa = Ingredient.create({
@@ -224,7 +242,8 @@ greensalsa = Ingredient.create({
   fats: 0,
   carbs: 4,
   protein: 0,
-  filename: "greensalsa" 
+  filename: "greensalsa",
+  price: 0
 })
 
 redsalsa = Ingredient.create({
@@ -233,7 +252,8 @@ redsalsa = Ingredient.create({
   fats: 0,
   carbs: 4,
   protein: 1, 
-  filename: "redsalsa"
+  filename: "redsalsa",
+  price: 0
 })
 
 lettuce = Ingredient.create({
@@ -242,7 +262,8 @@ lettuce = Ingredient.create({
   fats: 0,
   carbs: 1,
   protein: 0,
-  filename: "lettuce" 
+  filename: "lettuce",
+  price: 0
 })
 
  corntortilla = Ingredient.create({
@@ -251,7 +272,8 @@ lettuce = Ingredient.create({
   fats: 9,
   carbs: 29,
   protein: 3,
-  filename: "corntortilla" 
+  filename: "corntortilla",
+  price: 0
 })
 
 supergreens = Ingredient.create({
@@ -260,16 +282,8 @@ supergreens = Ingredient.create({
   fats: 0,
   carbs: 3,
   protein: 1,
-  filename: "supergreens" 
-})
-
-supergreens = Ingredient.create({
-  ingredient_name: "Supergreens Lettuce Blend",
-  calories: 15,
-  fats: 0,
-  carbs: 3,
-  protein: 1,
-  filename: "supergreens" 
+  filename: "supergreens",
+  price: 0
 })
 
 tortillachips = Ingredient.create({
@@ -278,7 +292,8 @@ tortillachips = Ingredient.create({
   fats: 25,
   carbs: 73,
   protein: 7,
-  filename: "tortillachips" 
+  filename: "tortillachips",
+  price: 1.55
 })
 
 largechips = Ingredient.create({
@@ -287,7 +302,8 @@ largechips = Ingredient.create({
   fats: 38,
   carbs: 110,
   protein: 11,
-  filename: "largechips" 
+  filename: "largechips",
+  price: 2.25
 })
 
 chipsguac = Ingredient.create({
@@ -296,7 +312,8 @@ chipsguac = Ingredient.create({
   fats: 47,
   carbs: 81,
   protein: 9,
-  filename: "chipsguac" 
+  filename: "chipsguac",
+  price: 3.85
 })
 
 largechipsguac = Ingredient.create({
@@ -305,7 +322,8 @@ largechipsguac = Ingredient.create({
   fats: 82,
   carbs: 126,
   protein: 15,
-  filename: "largechipsguac" 
+  filename: "largechipsguac",
+  price: 6.15
 })
 
 chipsqueso = Ingredient.create({
@@ -314,7 +332,8 @@ chipsqueso = Ingredient.create({
   fats: 43,
   carbs: 80,
   protein: 17,
-  filename: "chipsqueso" 
+  filename: "chipsqueso",
+  price: 3.85
 })
 
 largechipsqueso = Ingredient.create({
@@ -323,7 +342,8 @@ largechipsqueso = Ingredient.create({
   fats: 75,
   carbs: 124,
   protein: 31,
-  filename: "largechipsqueso" 
+  filename: "largechipsqueso",
+  price: 6.15
 })
 
 chipstomato = Ingredient.create({
@@ -332,7 +352,8 @@ chipstomato = Ingredient.create({
   fats: 25,
   carbs: 74,
   protein: 7,
-  filename: "chipstomato" 
+  filename: "chipstomato",
+  price: 2.05
 })
 
 chipscorn = Ingredient.create({
@@ -341,7 +362,8 @@ chipscorn = Ingredient.create({
   fats: 27,
   carbs: 89,
   protein: 10,
-  filename: "chipscorn" 
+  filename: "chipscorn",
+  price: 2.05
 })
 
 chipstomatillo = Ingredient.create({
@@ -350,7 +372,8 @@ chipstomatillo = Ingredient.create({
   fats: 25,
   carbs: 77,
   protein: 7,
-  filename: "chipstomatillo" 
+  filename: "chipstomatillo",
+  price: 2.05
 })
 
 chipsredsalsa = Ingredient.create({
@@ -359,7 +382,8 @@ chipsredsalsa = Ingredient.create({
   fats: 25,
   carbs: 77,
   protein: 7,
-  filename: "chipsredsalsa" 
+  filename: "chipsredsalsa",
+  price: 2.05
 })
 
 largeguac = Ingredient.create({
@@ -368,7 +392,8 @@ largeguac = Ingredient.create({
   fats: 44,
   carbs: 16,
   protein: 4,
-  filename: "guac" 
+  filename: "guac",
+  price: 3.50
 })
 
 peach = Ingredient.create({
@@ -377,7 +402,8 @@ peach = Ingredient.create({
   fats: 0,
   carbs: 64,
   protein: 2,
-  filename: "peach" 
+  filename: "peach",
+  price: 3.40
 })
 
 apple = Ingredient.create({
@@ -386,7 +412,8 @@ apple = Ingredient.create({
   fats: 0,
   carbs: 60,
   protein: 0,
-  filename: "apple" 
+  filename: "apple",
+  price: 3.40
 })
 
 pineapple = Ingredient.create({
@@ -395,7 +422,8 @@ pineapple = Ingredient.create({
   fats: 0,
   carbs: 64,
   protein: 2,
-  filename: "pineapple" 
+  filename: "pineapple",
+  price: 3.40
 })
 
 pomegranate = Ingredient.create({
@@ -404,7 +432,8 @@ pomegranate = Ingredient.create({
   fats: 0,
   carbs: 58,
   protein: 0,
-  filename: "pomegranate" 
+  filename: "pomegranate",
+  price: 3.40
 })
 
 blackberry = Ingredient.create({
@@ -413,7 +442,8 @@ blackberry = Ingredient.create({
   fats: 0,
   carbs: 41,
   protein: 0,
-  filename: "blackberry" 
+  filename: "blackberry",
+  price: 3.40
 })
 
 clementine = Ingredient.create({
@@ -422,7 +452,8 @@ clementine = Ingredient.create({
   fats: 0,
   carbs: 41,
   protein: 0,
-  filename: "clementine" 
+  filename: "clementine",
+  price: 3.40
 })
 
 grapefruit = Ingredient.create({
@@ -431,7 +462,8 @@ grapefruit = Ingredient.create({
   fats: 0,
   carbs: 41,
   protein: 0,
-  filename: "grapefruit" 
+  filename: "grapefruit",
+  price: 3.40
 })
 
 keto = Ingredient.create({
@@ -440,7 +472,8 @@ keto = Ingredient.create({
   fats: 36,
   carbs: 17,
   protein: 30,
-  filename: "keto" 
+  filename: "keto",
+  price: 12.84
 })
 
 whole30 = Ingredient.create({
@@ -449,7 +482,8 @@ whole30 = Ingredient.create({
   fats: 34,
   carbs: 20,
   protein: 27,
-  filename: "whole30" 
+  filename: "whole30",
+  price: 11.84
 })
 
 paleo = Ingredient.create({
@@ -458,7 +492,8 @@ paleo = Ingredient.create({
   fats: 29,
   carbs: 20,
   protein: 36,
-  filename: "paleo" 
+  filename: "paleo",
+  price: 11.30
 })
 
 vegan = Ingredient.create({
@@ -467,7 +502,8 @@ vegan = Ingredient.create({
   fats: 19,
   carbs: 88,
   protein: 23,
-  filename: "vegan" 
+  filename: "vegan",
+  price: 8.69
 })
 
 vegetarian = Ingredient.create({
@@ -476,7 +512,8 @@ vegetarian = Ingredient.create({
   fats: 30,
   carbs: 78,
   protein: 16,
-  filename: "vegetarian" 
+  filename: "vegetarian",
+  price: 8.69
 })
 
 
@@ -537,15 +574,18 @@ burrito = Meal.create({
 })
 
 bowl = Meal.create({
-  meal_name: "bowl"
+  meal_name: "bowl",
+  description: "Your choice of freshly grilled meat or sofritas served in a delicious bowl with rice, beans, or fajita veggies, and topped with guac, salsa, queso blanco, sour cream or cheese."
 })
 
 tacos = Meal.create({
-  meal_name: "tacos"
+  meal_name: "tacos",
+  description: "Your choice of freshly grilled meat or sofritas served in a soft or hard-shell tortilla with guac, salsa, queso blanco, sour cream or cheese, and topped with hand-cut romaine lettuce."
 })
 
 salad = Meal.create({
-  meal_name: "salad"
+  meal_name: "salad",
+  description: "Your choice of meat or sofritas served with our fresh supergreens lettuce blend made of Romaine, Baby Kale, and Baby Spinach. Add beans, queso blanco, salsa, guacamole, sour cream or cheese and top it off with our signature Chipotle-Honey Vinaigrette."
 })
 
 quesadilla = Meal.create({
@@ -553,11 +593,13 @@ quesadilla = Meal.create({
 })
 
 kids = Meal.create({
-  meal_name: "kids"
+  meal_name: "kids",
+  description: "Build your own meal or enjoy a quesadilla, both served with a drink and seasonal fruit or chips."
 })
 
 sides = Meal.create({
-  meal_name: "sides"
+  meal_name: "sides",
+  description: "Everything else you need to round out your meal."
 })
 
 lifestyle = Meal.create({
