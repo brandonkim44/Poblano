@@ -6,23 +6,31 @@ const mapStateToProps = state => {
     const mealName = Object.keys(state.entities.ingredients)[0];
     const sides = state.entities.ingredients.sides;
     const drinks = state.entities.ingredients.drinks;
+    debugger;
     let mealDescription = null;
     let mealPhoto = null;
     let sidesId = null;
+    // let orderDetails = { default: "Select a protein or veggie to get started" };
+
     if (mealName) {
         mealDescription = state.entities.meals[mealName].description;
         mealPhoto = state.entities.meals[mealName].photoUrl;
         sidesId = state.entities.meals["sides"].id;
+
+        // if (mealName === "sides") {
+        //     orderDetails = { default: "Select an item to get started" };
+        // } else {
+        //     orderDetails = { default: "Select a protein or veggie to get started" };
+        // }
     }
     let sideIngredients = {};
-    if (sides) {
-        sideIngredients = sides;
-    }
     let drinkIngredients = {};
-    if (drinks) {
-        drinkIngredients = drinks;
-    }
+
+    if (sides) sideIngredients = sides;
+    if (drinks) drinkIngredients = drinks;
+
     const ingredients = state.entities.ingredients[mealName];
+    debugger;
     return ({
         currentUser: state.session.id ? state.entities.users[state.session.id] : {},
         mealName: mealName,
@@ -35,7 +43,8 @@ const mapStateToProps = state => {
         toppings: ingredients ? ingredients["Top it off"] : {},
         lifestyleBowls: ingredients ? ingredients["Bowls"] : {},
         sides: (ingredients && (mealName === ("sides"))) ? ingredients["Sides"] : sideIngredients,
-        drinks: (ingredients && (mealName === ("drinks"))) ? ingredients["Drinks"] : drinkIngredients
+        drinks: (ingredients && (mealName === ("sides"))) ? ingredients["Drinks"] : drinkIngredients,
+        // orderDetails: orderDetails
     });
 };
 

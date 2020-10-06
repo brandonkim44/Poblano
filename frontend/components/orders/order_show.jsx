@@ -3,6 +3,7 @@ import { OrderIngredientItem } from './order_ingredient_item';
 import { OrderFooter } from './order_footer';
 import { FILLINGS, DRINKS, SIDES } from '../../util/sections_ingredients';
 import { pick, times } from 'lodash';
+import { OrderModal } from "./order_modal";
 
 class OrderShow extends React.Component {
     constructor(props) {
@@ -18,7 +19,9 @@ class OrderShow extends React.Component {
         this.orderPrice = 0;
         //an array of orders for multiple meals in an order, push an order into the order. An order will be a JSON object, which can be stringified
         this.orders = [];
-        this.orderDetails = {default: "Select a protein or veggie to get started"};
+        debugger;
+        this.orderDetails = { default: "Select an item to get started" };
+        debugger;
         this.orderStoreId = 0;
         this.state = {
             userId: this.props.currentUser.id,
@@ -37,6 +40,15 @@ class OrderShow extends React.Component {
         this.sidesDetail = "";
         this.drinksDetail = "";
     }
+
+    // static getDerivedStateFromProps(nextProps, prevState) {
+    //     debugger;
+    //     if (nextProps.orderDetails !== prevState.details) {
+    //         return { details: nextProps.orderDetails}
+    //     } else {
+    //         return null;
+    //     }
+    // }
 
     startOver() {
         this.props.update();
@@ -188,7 +200,7 @@ class OrderShow extends React.Component {
     componentDidUpdate(prevProps) {
         if (JSON.stringify(this.props) != JSON.stringify(prevProps)) {
             debugger;
-            if (this.props.mealName != "sides" && this.props.sidesId) {
+            if (this.props.sidesId) {
                 debugger;
                 if (Array.isArray(this.props.sides)) {
                     return null;
@@ -323,7 +335,6 @@ class OrderShow extends React.Component {
     sides() {
         if (this.props.sides.length > 0) {
             const section = this.props.sides.map(ingredient => {
-                debugger;
                 return (
                     <OrderIngredientItem key={ingredient.id} ingredient={ingredient} handleClick={this.handleClick}/>
                 )
@@ -340,6 +351,7 @@ class OrderShow extends React.Component {
     }
 
     drinks() {
+        debugger;
         if (this.props.drinks.length > 0) {
             const section = this.props.drinks.map(ingredient => {
                 return (
@@ -359,7 +371,6 @@ class OrderShow extends React.Component {
 
     render() {
 
-
         const component = () => {
             debugger;
             if (this.props.ingredients.length > 0) {
@@ -369,9 +380,9 @@ class OrderShow extends React.Component {
                         {this.fillings()}
                         {this.riceAndBeans()}
                         {this.toppings()}
+                        {this.lifestyleBowls()}
                         {this.sides()}
                         {this.drinks()}
-                        {this.lifestyleBowls()}
                     </div>
                 );
             } else {
@@ -379,6 +390,8 @@ class OrderShow extends React.Component {
             }
         }
         return (
+            <>
+            <OrderModal/>
             <div className="order-show-page-container">
                 <br />
                 <ul>
@@ -400,9 +413,14 @@ class OrderShow extends React.Component {
                     </div>
                 </ul>
                 <div className="order-footer-container">
-                    <OrderFooter orderDetails={this.state.details.default ? this.state.details.default : this.state.details} orderState={this.state}/>
+                    <OrderFooter 
+                        orderDetails={this.state.details.default ? this.state.details.default : this.state.details} 
+                        orderState={this.state}
+                        mealName={this.props.mealName}
+                    />
                 </div>
             </div>
+            </>
         )
     }
 }
