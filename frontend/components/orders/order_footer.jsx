@@ -15,7 +15,7 @@ export const OrderFooter = (props) => {
     const handleSubmit = (e) => {
         e.stopPropagation();
         const ingredients = document.querySelectorAll(".ingredient-img-clicked");
-        (checkForCompleteOrder(ingredients)) ? showModal(ingredients) : displayWarning();
+        (hasCompleteOrder(ingredients)) ? showModal(ingredients) : displayWarning();
         //need mealname from props like "Chicken Burrito" and price
         //logic that checks to see if userId, storeId, price, and details are valid <= should be validated by server
         // if all valid, then dispatch this action to reducer -> so it can then be added to global redux state under session
@@ -25,7 +25,7 @@ export const OrderFooter = (props) => {
         
     }
 
-    const checkForCompleteOrder = (ingredients) => {
+    const hasCompleteOrder = (ingredients) => {
         if (props.mealName === "lifestyle") {
           return hasLifeStyle(ingredients);
         } else if (props.mealName === "sides") {
@@ -43,6 +43,8 @@ export const OrderFooter = (props) => {
           if (BEANS.includes(ingredientName)) hasBeans = true;
         });
 
+        if (hasFillings && hasRice && hasBeans) return true;
+
         if (!hasFillings && !hasRice && !hasBeans) {
           displayText = ["Please choose your protein or veggie, rice, and beans"];
         } else {
@@ -51,7 +53,7 @@ export const OrderFooter = (props) => {
           if (!hasRice) displayText.push("rice");
           if (!hasBeans) displayText.push("beans");
         }
-
+        
         if (displayText.length > 2) {
           displayText.splice(2, 0, "and");
           displayText = displayText.join(" ");
@@ -59,8 +61,6 @@ export const OrderFooter = (props) => {
         } else if (displayText.length === 2) {
           displayText = displayText.join(" ");
           return false;
-        } else if (displayText.length === 1) {
-          return true;
         }
     };
 

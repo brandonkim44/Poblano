@@ -78,7 +78,6 @@ class SessionForm extends React.Component {
             } else {
                 return e.currentTarget.firstChild.className = "shown"
             }
-
             e.target.classname = "input";
         }
     }
@@ -132,11 +131,6 @@ class SessionForm extends React.Component {
     }
 
     signInForm() {
-        const fillerSpace = (num) => {
-            let arr = [];
-            for(let i = 0; i < num; i++) { arr.push(<br/>) };
-            return arr;
-        };
 
         return (
             <div className="signInForm">

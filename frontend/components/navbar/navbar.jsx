@@ -8,7 +8,7 @@ const NavBar = () => {
                 <ul className="ul-list-nav">
                     <li>
                         <NavLink 
-                            to="/order" 
+                            to="/order"
                             className="nav-bar-item" 
                             activeClassName="nav-bar-item-clicked" 
                             replace
