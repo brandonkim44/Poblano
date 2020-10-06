@@ -3,6 +3,7 @@ import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import ProfileContainer from '../profile/profile_container';
 import NavBar from './../navbar/navbar';
+import OrderModalContainer from '../orders/order_modal_container';
 
 class Modal extends React.Component {
     constructor(props) {
@@ -28,10 +29,14 @@ class Modal extends React.Component {
                 component = <SignupFormContainer />;
                 break;
             case 'profile':
-                component = <ProfileContainer />
+                component = <ProfileContainer />;
                 break;
             case 'nav':
-                component = <NavBar />
+                component = <NavBar />;
+            case 'order':
+                debugger;
+                component = <OrderModalContainer />;
+                break;
             default:
                 return null;
         }
@@ -47,6 +52,13 @@ class Modal extends React.Component {
                         <div className="modal-child-profile" onClick={e => e.stopPropagation()}>
                             {component}
                         </div>
+                    </div>
+                )
+            } else if (this.props.modal === "order") {
+                debugger;
+                return (
+                    <div>
+                        {component}
                     </div>
                 )
             } else {

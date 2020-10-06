@@ -1,6 +1,7 @@
 import React from 'react';
 import { pick } from 'lodash';
-import { FILLINGS, RICE, BEANS, SIDES, DRINKS, LIFESTYLE } from '../../util/sections_ingredients';
+import { FILLINGS, RICE, BEANS } from '../../util/sections_ingredients';
+import { openModal } from '../../actions/modal_actions';
 
 //might have to make this a class component
 export const OrderFooter = (props) => {
@@ -45,26 +46,40 @@ export const OrderFooter = (props) => {
         if (!hasFillings && !hasRice && !hasBeans) {
           displayText = ["Please choose your protein or veggie, rice, and beans"];
         } else {
+          displayText.push("Please choose your");
           if (!hasFillings) displayText.push("protein or veggie");
           if (!hasRice) displayText.push("rice");
           if (!hasBeans) displayText.push("beans");
         }
 
-        if (displayText.length > 1) {
+        if (displayText.length > 2) {
           displayText.splice(2, 0, "and");
           displayText = displayText.join(" ");
           return false;
-        } else if (displayText.length === 0) {
+        } else if (displayText.length === 2) {
+          displayText = displayText.join(" ");
+          return false;
+        } else if (displayText.length === 1) {
           return true;
         }
     };
 
     const hasLifeStyle = (ingredients) => {
-
+        if (ingredients.length > 0) {
+            return true;
+        } else {
+            displayText = "Please select a lifestyle bowl";
+            return false;
+        }
     };
 
     const hasSidesDrinks = (ingredients) => {
-
+        if (ingredients.length > 0) {
+            return true;
+        } else {
+            displayText = "Select an item to get started";
+            return false;
+        }
     };
 
     const separateIngredients = (ingredients) => {
@@ -75,17 +90,8 @@ export const OrderFooter = (props) => {
         ingredientMealList.push(obj);
     };
 
-    const handleClick = () => {
-    
-      // open hidden modal, listen for cancel, which you can just hide modal,
-
-      // if they click save, then invoke separateIngredients(), and 
-      // dispatch action and add to redux state, which will then prompt open side modal where bag is added
-      separateIngredients(ingredients);
-    };
-
     const showModal = () => {
-        
+       dispatch(openModal('order'));
     };
 
     const displayWarning = () => {

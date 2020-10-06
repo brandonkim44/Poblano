@@ -390,8 +390,7 @@ class OrderShow extends React.Component {
             }
         }
         return (
-            <>
-            <OrderModal/>
+        
             <div className="order-show-page-container">
                 <br />
                 <ul>
@@ -420,7 +419,6 @@ class OrderShow extends React.Component {
                     />
                 </div>
             </div>
-            </>
         )
     }
 }

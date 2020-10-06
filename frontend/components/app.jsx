@@ -9,7 +9,6 @@ import FindChipotleContainer from './find_chipotle/find_chipotle_container';
 import NavBar from './navbar/navbar';
 import Footer from '../footer/footer';
 import Main from '../components/main/main';
-import { openModal } from '../actions/modal_actions';
 import Header from './header/header';
 
 

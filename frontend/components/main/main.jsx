@@ -1,5 +1,4 @@
 import React from 'react';
-import { openModal } from '../../actions/modal_actions';
 import MainLandingPage from './main_landing_page';
 import NutritionLandingContainer from '../nutrition/nutrition_landing_container';
 import { Route } from 'react-router-dom';
