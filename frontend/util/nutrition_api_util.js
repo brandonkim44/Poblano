@@ -1,8 +1,26 @@
+// export const fetchIngredients = id => {
+//     return (
+//         $.ajax({
+//             method: 'GET',
+//             url: `/api/meals/${id}`,
+//         })
+//     );
+// };
+
+export const fetchLifestyleBowls = () => {
+    return (
+        $.ajax({
+            method: 'GET',
+            url: `/api/meals/`
+        })
+    )
+};
+
 export const fetchIngredients = id => {
     return (
         $.ajax({
             method: 'GET',
-            url: `/api/meals/${id}`,
+            url: `/api/ingredients/${id}`,
         })
     );
 };

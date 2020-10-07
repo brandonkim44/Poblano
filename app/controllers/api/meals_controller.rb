@@ -14,5 +14,4 @@ class Api::MealsController < ApplicationController
             render json: ["Could not find meal"], status: 401
         end
     end
-
 end

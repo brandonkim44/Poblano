@@ -16,6 +16,7 @@ const ingredientsReducer = (state = {}, action) => {
             const lifestyleArr = [];
             const sidesArr = [];
             const drinksArr = [];
+            debugger;
             ingredientsArr.forEach( ingredient => {
                 if (FILLINGS.includes(ingredient.ingredientName)) {
                     fillingsArr.push(ingredient)

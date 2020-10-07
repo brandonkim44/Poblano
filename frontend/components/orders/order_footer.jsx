@@ -5,13 +5,19 @@ import { FILLINGS, RICE, BEANS } from '../../util/sections_ingredients';
 import { addOrderToBag } from '../../actions/order_actions';
 
 //might have to make this a class component
+
+const userId = 'userId';
+const storeId = 'storeId';
+const price = 'price';
+const details = 'details';
+
 export const OrderFooter = (props) => {
     let hasFillings = false;
     let hasRice = false;
     let hasBeans = false;
     let displayText = [];
     let state = props.orderState;
-    const order = pick(state, ['userId', 'storeId', 'price', 'details']);
+    const order = pick(state, [userId, storeId, price, details]);
 
     const handleSubmit = (e) => {
         e.stopPropagation();
@@ -83,20 +89,29 @@ export const OrderFooter = (props) => {
         }
     };
 
-    const separateIngredients = (ingredients) => {
+    const createListOfIngredients = (ingredients) => {
         const mealIngredients = [];
-        const sideDrinkIngredients = [];
-        let obj = {};
         // obj[ingredient.dataset.ingredientname] = ingredient.dataset.price;
         ingredientMealList.push(obj);
     };
-
-    const createOrderState = () => {
+    
+    const createSidesSlice = (ingredients) => {
+        const sideDrinkIngredients = [];
 
     };
 
-    const showModal = () => {
+    const createOrderState = (ingredients) => {
+        let ingredientsArray = createListOfIngredients(ingredients);
+        let sidesSlice = createSidesSlice(ingredients);
+
+        order[details] = ingredientsArray;
+        order["sides"] = sidesSlice;
+        return order;
+    };
+
+    const showModal = (ingredients) => {
         document.body.className = "modal-open";
+        order = createOrderState(ingredients);
         dispatch(addOrderToBag(order));
 
         // root reducer will make 
@@ -111,10 +126,10 @@ export const OrderFooter = (props) => {
             // orders:
             // {
                 // 1: {
-                    //userId:
-                    //storeId:
-                    //price:
-                    //details: [fillings, rice, beans, toppings]
+                    //userId: null,
+                    //storeId: 0,
+                    //price: 9.40,
+                    //details: [fillings, rice, beans, toppings],
                     //mealName:
                     //sides: {
                     // "name of side": 1.55,
