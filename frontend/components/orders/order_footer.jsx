@@ -97,9 +97,16 @@ export const OrderFooter = (props) => {
 
     const showModal = () => {
         document.body.className = "modal-open";
-        addOrderToBag(order);
+        dispatch(addOrderToBag(order));
 
-        // state of order
+        // root reducer will make 
+        // {
+            //orders: 
+
+        // }
+
+        // order reducer will count num of objects and inc by 1 for the key of new added object
+        // desired state of order
         // {
             // orders:
             // {
