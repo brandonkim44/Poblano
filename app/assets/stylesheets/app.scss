@@ -1573,6 +1573,8 @@ input[class="mealname-required-focused"]::placeholder {
   font-weight: 700;
   width: 100%;
   margin-right: 5px;
+  cursor: pointer;
+  outline: none;
 }
 
 .order-save-btn {
@@ -1586,4 +1588,6 @@ input[class="mealname-required-focused"]::placeholder {
   font-weight: 700;
   width: 100%;
   margin-left: 5px;
+  cursor: pointer;
+  outline: none;
 }

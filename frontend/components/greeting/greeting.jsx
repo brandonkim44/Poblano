@@ -4,7 +4,7 @@ import PersonOutline from "../../../app/assets/images/person-outline.png";
 const Greeting = ({ currentUser, openModal }) => {
 
     const handleClick = (modal) => {
-        document.body.className = 'modal-open'
+        document.body.className = 'modal-open';
         return (
             openModal(modal)
         );

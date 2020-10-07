@@ -4,42 +4,31 @@ import React from 'react';
 // have state
 // setState for input value and then pass field into handleSubmit
 
-export const OrderModal = () => {
+export const OrderModal = (props) => {
 
-    const onCancelClick = (e) => {
-      // open hidden modal, listen for cancel, which you can just hide modal,
-
-      // if they click save, then invoke separateIngredients(), and
-      // dispatch action and add to redux state, which will then prompt open side modal where bag is added
-      separateIngredients(ingredients);
+    const clickCancel = () => {
+        document.body.className = "modal-close";
+        props.closeModal();
     };
+    
+    const clickSave = (e) => {
+        let inputBox = document.querySelector("#orderText");
+        if (inputBox.value.length === 0) return;
 
-    const onSaveClick = (e) => {
+       
 
     }
 
-    const handleBlur = () => {
+    const handleBlurAndFocus = () => {
         return e => {
             let currentText = e.currentTarget.value;
             if (currentText.length === 0) {
                 e.currentTarget.placeholder = "Meal Name Is Required";
-                e.currentTarget.className = "input-required-focused";
+                e.currentTarget.className = "mealname-required-focused";
             } else {
-                e.currentTarget.className = "order-modal-label";
+                e.currentTarget.className = "mealname-box";
             }
         }
-    };
-
-    const handleFocus = () => {
-        return (e) => {
-          let currentText = e.currentTarget.value;
-          if (currentText.length === 0) {
-            e.currentTarget.placeholder = "Meal Name Is Required";
-            e.currentTarget.className = "mealname-required-focused";
-          } else {
-            e.currentTarget.className = "order-modal-label";
-          }
-        };
     };
 
     const handleInput = ()  => {
@@ -71,12 +60,13 @@ export const OrderModal = () => {
                     id="orderText"
                     placeholder="Enter a Meal Name"
                     onChange={handleInput()}
-                    onBlur={handleBlur()}
-                    onFocus={handleFocus()}
+                    onBlur={handleBlurAndFocus()}
+                    onFocus={handleBlurAndFocus()}
+                    maxLength="20"
                 />
                 <div className="order-modal-buttons">
-                    <button className="order-cancel-btn" onClick={(e) => onCancelClick(e)}>Cancel</button>
-                    <button className="order-save-btn" onClick={(e) => onSaveClick(e)}>Save</button>
+                    <button className="order-cancel-btn" onClick={() => clickCancel()}>Cancel</button>
+                    <button className="order-save-btn" onClick={(e) => clickSave(e)}>Save</button>
                 </div>
             </div>
         </div>

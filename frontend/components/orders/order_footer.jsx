@@ -1,7 +1,8 @@
 import React from 'react';
 import { pick } from 'lodash';
 import { FILLINGS, RICE, BEANS } from '../../util/sections_ingredients';
-import { openModal } from '../../actions/modal_actions';
+// import { openModal } from '../../actions/modal_actions';
+import { addOrderToBag } from '../../actions/order_actions';
 
 //might have to make this a class component
 export const OrderFooter = (props) => {
@@ -53,7 +54,7 @@ export const OrderFooter = (props) => {
           if (!hasRice) displayText.push("rice");
           if (!hasBeans) displayText.push("beans");
         }
-        
+
         if (displayText.length > 2) {
           displayText.splice(2, 0, "and");
           displayText = displayText.join(" ");
@@ -90,9 +91,33 @@ export const OrderFooter = (props) => {
         ingredientMealList.push(obj);
     };
 
-    const showModal = () => {
-       dispatch(openModal('order'));
+    const createOrderState = () => {
+
     };
+
+    const showModal = () => {
+        document.body.className = "modal-open";
+        addOrderToBag(order);
+
+        // state of order
+        // {
+            // orders:
+            // {
+                // 1: {
+                    //userId:
+                    //storeId:
+                    //price:
+                    //details: [fillings, rice, beans, toppings]
+                    //mealName:
+                    //sides: {
+                    // "name of side": 1.55,
+                    // "name of side": 2.65
+                    // }
+                // }
+            // }
+        //}
+    };
+
 
     const displayWarning = () => {
         alert(displayText);
