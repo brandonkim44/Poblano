@@ -17,7 +17,7 @@ export const OrderFooter = (props) => {
     let hasBeans = false;
     let displayText = [];
     let state = props.orderState;
-    const order = pick(state, [userId, storeId, price, details]);
+    let order = pick(state, [userId, storeId, price, details]);
 
     const handleSubmit = (e) => {
         e.stopPropagation();
@@ -90,22 +90,29 @@ export const OrderFooter = (props) => {
     };
 
     const createListOfIngredients = (ingredients) => {
-        const mealIngredients = [];
+        let mealIngredients = [];
+        
         // obj[ingredient.dataset.ingredientname] = ingredient.dataset.price;
         ingredientMealList.push(obj);
     };
     
     const createSidesSlice = (ingredients) => {
-        const sideDrinkIngredients = [];
+        let sideDrinkIngredients = [];
 
+    };
+
+    const createLifestyleSlice = (ingredients) => {
+        let lifestyleBowls = [];
     };
 
     const createOrderState = (ingredients) => {
         let ingredientsArray = createListOfIngredients(ingredients);
         let sidesSlice = createSidesSlice(ingredients);
+        let lifestyleSlice = createLifestyleSlice(ingredients);
 
         order[details] = ingredientsArray;
         order["sides"] = sidesSlice;
+        order["lifestyles"] = lifestyleSlice;
         return order;
     };
 
@@ -134,6 +141,10 @@ export const OrderFooter = (props) => {
                     //sides: {
                     // "name of side": 1.55,
                     // "name of side": 2.65
+                    // }
+                    // lifestyles: {
+                    //  "name of lifestyle bowl": 11.20,
+                    //  "name of lifestyle bowl": 8.67
                     // }
                 // }
             // }

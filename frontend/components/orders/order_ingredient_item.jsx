@@ -1,11 +1,25 @@
 import React from 'react';
+import { addOrderToBag } from '../../actions/order_actions';
 
 export const OrderIngredientItem = (props) => {
 
+    // const createOrderState = () => {
+    //     let order = {};
+        
+    // };
+
+    // const handleClick = () => {
+    //     const order = createOrderState();
+    //     dispatch(addOrderToBag(order));
+    // };
+
     const showLifeBowlIngredients = () => {
-        if (props.ingredient.ingredientName === "lifestyle") {
+    
+        if (props.mealName === "lifestyle") {
+            let ingredientDescription;
+            if (props.ingredient.details) ingredientDescription = props.ingredient.details.join(", ");
             return (
-                <div>{props.ingredient.details}</div>
+                <div>{ingredientDescription}</div>
             )
         } else {
             return null;

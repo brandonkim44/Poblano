@@ -216,7 +216,7 @@ class OrderShow extends React.Component {
         if (this.props.fillings.length > 0) {
             const section = this.props.fillings.map(ingredient => {
                 return (
-                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient} handleClick={this.handleClick}/>
+                    <OrderIngredientItem key={ingredient.id} mealName={this.props.mealName} ingredient={ingredient} handleClick={this.handleClick} />
                 )
             })
             return (
@@ -248,13 +248,13 @@ class OrderShow extends React.Component {
 
             const sectionRice = riceOpts.map(ingredient => {
                 return (
-                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient} handleClick={this.handleClick}/>
+                    <OrderIngredientItem key={ingredient.id} mealName={this.props.mealName} ingredient={ingredient} handleClick={this.handleClick}/>
                 )
             })
 
             const sectionBean = beanOpts.map(ingredient => {
                 return (
-                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient} handleClick={this.handleClick}/>
+                    <OrderIngredientItem key={ingredient.id} mealName={this.props.mealName} ingredient={ingredient} handleClick={this.handleClick}/>
                 )
             })
 
@@ -301,7 +301,7 @@ class OrderShow extends React.Component {
         if (this.props.toppings.length > 0) {
             const section = this.props.toppings.map(ingredient => {
                 return (
-                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient} handleClick={this.handleClick}/>
+                    <OrderIngredientItem key={ingredient.id} mealName={this.props.mealName} ingredient={ingredient} handleClick={this.handleClick}/>
                 )
             })
             return (
@@ -319,7 +319,7 @@ class OrderShow extends React.Component {
         if (this.props.lifestyleBowls.length > 0) {
             const section = this.props.lifestyleBowls.map(ingredient => {
                 return (
-                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient} handleClick={this.handleClick}/>
+                    <OrderIngredientItem key={ingredient.id} mealName={this.props.mealName} ingredient={ingredient} handleClick={this.handleClick}/>
                 )
             })
             return (
@@ -336,7 +336,7 @@ class OrderShow extends React.Component {
         if (this.props.sides.length > 0) {
             const section = this.props.sides.map(ingredient => {
                 return (
-                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient} handleClick={this.handleClick}/>
+                    <OrderIngredientItem key={ingredient.id} mealName={this.props.mealName} ingredient={ingredient} handleClick={this.handleClick}/>
                 )
             })
             return (
@@ -355,7 +355,7 @@ class OrderShow extends React.Component {
         if (this.props.drinks.length > 0) {
             const section = this.props.drinks.map(ingredient => {
                 return (
-                    <OrderIngredientItem key={ingredient.id} ingredient={ingredient} handleClick={this.handleClick}/>
+                    <OrderIngredientItem key={ingredient.id} mealName={this.props.mealName} ingredient={ingredient} handleClick={this.handleClick}/>
                 )
             })
             return (
