@@ -473,7 +473,8 @@ keto = Ingredient.create({
   carbs: 17,
   protein: 30,
   filename: "keto",
-  price: 12.84
+  price: 12.84,
+  details: ["Steak", "Supergreens", "Tomatillo Red Chili Salsa", "Monterey Jack Cheese", "Guacamole"]
 })
 
 whole30 = Ingredient.create({
@@ -483,7 +484,8 @@ whole30 = Ingredient.create({
   carbs: 20,
   protein: 27,
   filename: "whole30",
-  price: 11.84
+  price: 11.84,
+  details: ["Carnitas", "Supergreens", "Fajita Vegetables", "Fresh Tomato Salsa", "Guacamole"]
 })
 
 paleo = Ingredient.create({
@@ -493,7 +495,8 @@ paleo = Ingredient.create({
   carbs: 20,
   protein: 36,
   filename: "paleo",
-  price: 11.30
+  price: 11.30,
+  details: ["Chicken", "Supergreens", "Fajita Vegetables", "Tomatillo Green-Chili Salsa", "Guacamole"]
 })
 
 vegan = Ingredient.create({
@@ -503,7 +506,8 @@ vegan = Ingredient.create({
   carbs: 88,
   protein: 23,
   filename: "vegan",
-  price: 8.69
+  price: 8.69,
+  details: ["Brown Rice", "Black Beans", "Sofritas", "Tomato Salsa", "Corn Salsa", "Lettuce"]
 })
 
 vegetarian = Ingredient.create({
@@ -513,7 +517,8 @@ vegetarian = Ingredient.create({
   carbs: 78,
   protein: 16,
   filename: "vegetarian",
-  price: 8.69
+  price: 8.69,
+  details: ["Brown Rice", "Supergreens", "Black Beans", "Tomato Salsa", "Fajita Vegetables", "Guacamole"]
 })
 
 
@@ -605,6 +610,8 @@ sides = Meal.create({
 lifestyle = Meal.create({
   meal_name: "lifestyle"
 })
+
+
 
 meals = [burrito, bowl, tacos, salad, quesadilla, kids, sides, lifestyle]
 

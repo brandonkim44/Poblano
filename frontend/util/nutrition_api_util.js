@@ -11,7 +11,7 @@ export const fetchLifestyleBowls = () => {
     return (
         $.ajax({
             method: 'GET',
-            url: `/api/meals/`
+            url: `/api/meals/?lifestyle="true"`
         })
     )
 };
