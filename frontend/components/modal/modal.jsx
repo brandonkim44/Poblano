@@ -4,6 +4,7 @@ import SignupFormContainer from '../session_form/signup_form_container';
 import ProfileContainer from '../profile/profile_container';
 import NavBar from './../navbar/navbar';
 import OrderModalContainer from '../orders/order_modal_container';
+import BagContainer from '../bag/bag_container';
 
 class Modal extends React.Component {
     constructor(props) {
@@ -34,8 +35,10 @@ class Modal extends React.Component {
             case 'nav':
                 component = <NavBar />;
             case 'order':
-                debugger;
                 component = <OrderModalContainer />;
+                break;
+            case 'bag':
+                component = <BagContainer />
                 break;
             default:
                 return null;

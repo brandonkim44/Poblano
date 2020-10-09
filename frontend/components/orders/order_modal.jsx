@@ -1,4 +1,5 @@
 import React from 'react';
+import { addNameToOrder } from '../../actions/order_actions';
 
 // make this a class
 // have state
@@ -14,9 +15,9 @@ export const OrderModal = (props) => {
     const clickSave = (e) => {
         let inputBox = document.querySelector("#orderText");
         if (inputBox.value.length === 0) return;
-
-       
-
+        document.body.className = "modal-open";
+        debugger;
+        dispatch(addNameToOrder(inputBox.value, props.orderId));
     }
 
     const handleBlurAndFocus = () => {

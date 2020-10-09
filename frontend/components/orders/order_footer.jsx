@@ -1,6 +1,6 @@
 import React from 'react';
 import { pick } from 'lodash';
-import { FILLINGS, RICE, BEANS } from '../../util/sections_ingredients';
+import { FILLINGS, RICE, BEANS, RICE_AND_BEANS, TOP_IT_OFF, SIDES, DRINKS } from '../../util/sections_ingredients';
 // import { openModal } from '../../actions/modal_actions';
 import { addOrderToBag } from '../../actions/order_actions';
 
@@ -17,19 +17,16 @@ export const OrderFooter = (props) => {
     let hasBeans = false;
     let displayText = [];
     let state = props.orderState;
+    let mealIngredients = [];
+    let sidesSlice = {};
+    let lifestyleSlice = {};
+
     let order = pick(state, [userId, storeId, price, details]);
 
     const handleSubmit = (e) => {
         e.stopPropagation();
         const ingredients = document.querySelectorAll(".ingredient-img-clicked");
         (hasCompleteOrder(ingredients)) ? showModal(ingredients) : displayWarning();
-        //need mealname from props like "Chicken Burrito" and price
-        //logic that checks to see if userId, storeId, price, and details are valid <= should be validated by server
-        // if all valid, then dispatch this action to reducer -> so it can then be added to global redux state under session
-
-            // separate selected ingredients into mealIngredients and sideDrinkIngredients based off of inclusion for names and push into arrays
-            
-        
     }
 
     const hasCompleteOrder = (ingredients) => {
@@ -89,30 +86,41 @@ export const OrderFooter = (props) => {
         }
     };
 
-    const createListOfIngredients = (ingredients) => {
-        let mealIngredients = [];
+    const separateIngredients = (ingredients) => {
         
-        // obj[ingredient.dataset.ingredientname] = ingredient.dataset.price;
-        ingredientMealList.push(obj);
+        for (let i = 0; i < ingredients.length; i++) {
+            let ingredientName = ingredients[i].dataset.ingredientname;
+            if (FILLINGS.includes(ingredientName) || RICE_AND_BEANS.includes(ingredientName) || TOP_IT_OFF.includes(ingredientName)) {
+                mealIngredients.push(ingredientName);
+            } else if (SIDES.includes(ingredientName) || DRINKS.includes(ingredientName)) {
+                createSlice(ingredients[i], "sides");
+            } else if (LIFESTYLE.includes(ingredientName)) {
+                createSlice(ingredients[i], "lifestyle");
+            }
+        }
+    };
+
+    const createListOfIngredients = () => {
+        return mealIngredients.join(", ");
     };
     
-    const createSidesSlice = (ingredients) => {
-        let sideDrinkIngredients = [];
-
-    };
-
-    const createLifestyleSlice = (ingredients) => {
-        let lifestyleBowls = [];
+    const createSlice = (ingredient, type) => {
+        let ingredientName = ingredient.dataset.ingredientname;;
+        let ingredientPrice = ingredient.dataset.price;
+        type === "sides"
+          ? (sidesSlice[ingredientName] = ingredientPrice)
+          : (lifestyleSlice[ingredientName] = ingredientPrice);
     };
 
     const createOrderState = (ingredients) => {
-        let ingredientsArray = createListOfIngredients(ingredients);
-        let sidesSlice = createSidesSlice(ingredients);
-        let lifestyleSlice = createLifestyleSlice(ingredients);
+        separateIngredients(ingredients);
+        let listOfIngredients = createListOfIngredients();
 
-        order[details] = ingredientsArray;
+        order[details] = listOfIngredients;
         order["sides"] = sidesSlice;
         order["lifestyles"] = lifestyleSlice;
+        order["mealName"] = props.mealName;
+        order[price] = props.price;
         return order;
     };
 
@@ -133,10 +141,11 @@ export const OrderFooter = (props) => {
             // orders:
             // {
                 // 1: {
+                    //orderId: num
                     //userId: null,
                     //storeId: 0,
                     //price: 9.40,
-                    //details: [fillings, rice, beans, toppings],
+                    //details: [fillings, rice, beans, toppings] or "Fillings, rice, beans"
                     //mealName:
                     //sides: {
                     // "name of side": 1.55,
@@ -145,6 +154,8 @@ export const OrderFooter = (props) => {
                     // lifestyles: {
                     //  "name of lifestyle bowl": 11.20,
                     //  "name of lifestyle bowl": 8.67
+                    // need description
+                    // orderName: "brandon"
                     // }
                 // }
             // }

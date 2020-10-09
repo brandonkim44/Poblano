@@ -69,6 +69,7 @@ class OrderShow extends React.Component {
                     alert("Can't go halfsies with Veggies");
                 } else if (this.fillingsCount < 2) {
                     debugger;
+                    this.orderPrice += e.target.dataset.price;
                     this.fillingsCount++;
                     e.target.className = "ingredient-img-clicked";
                     if (this.fillingsCount === 1) {
@@ -130,6 +131,7 @@ class OrderShow extends React.Component {
             }
             if (FILLINGS.includes(ingredientName)) {
                 e.target.className = "ingredient-img";
+                this.orderPrice -= e.target.dataset.price;
                 if (this.fillingsCount === 2) {
                     let splitDisplayText = this.fillingsDetail.split(" ");
                     const indexMealName = splitDisplayText.indexOf(ingredientName);
@@ -194,7 +196,6 @@ class OrderShow extends React.Component {
                 this.setState({ details: displayText });
             }
         }
-        // this.orderPrice += e.currentTarget.getAttribute('data-price');
     }
 
     componentDidUpdate(prevProps) {
@@ -415,7 +416,8 @@ class OrderShow extends React.Component {
                     <OrderFooter 
                         orderDetails={this.state.details.default ? this.state.details.default : this.state.details} 
                         orderState={this.state}
-                        mealName={this.props.mealName}
+                        mealName={this.fillingsDetail}
+                        price={this.orderPrice}
                     />
                 </div>
             </div>

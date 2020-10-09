@@ -12,7 +12,7 @@ export const OrderIngredientItem = (props) => {
     //     const order = createOrderState();
     //     dispatch(addOrderToBag(order));
     // };
-
+    
     const showLifeBowlIngredients = () => {
     
         if (props.mealName === "lifestyle") {
@@ -34,7 +34,7 @@ export const OrderIngredientItem = (props) => {
                     className="ingredient-img"
                     alt={props.ingredient.ingredientName}
                     data-ingredientname={props.ingredient.ingredientName}
-                    // data-price={props.ingredient.price}
+                    data-price={props.ingredient.price}
                     onClick={(e) => props.handleClick(e)}
                 ></img>
                 <div className="ingredient-name">{props.ingredient.ingredientName}</div>

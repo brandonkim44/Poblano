@@ -3,16 +3,18 @@ import { closeModal } from "../../actions/modal_actions";
 import { connect } from "react-redux";
 import { OrderModal } from "./order_modal";
 
-const mapStateToProps = ({ ui: { modal } }) => {
+const mapStateToProps = ({ entities: { orders }, ui: { modal } }) => {
+  const orderId = orders["currentOrderId"];
   debugger;
   return {
     modal,
+    orderId
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    closeModal: () => dispatch(closeModal()),
+    closeModal: () => dispatch(closeModal())
   };
 };
 
