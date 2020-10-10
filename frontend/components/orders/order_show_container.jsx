@@ -2,6 +2,8 @@ import { connect } from 'react-redux';
 import OrderShow from './order_show';
 import { fetchSideIngredients } from '../../actions/order_actions';
 
+//why is this container being hit?
+
 const mapStateToProps = state => {
     const mealName = Object.keys(state.entities.ingredients)[0];
     const sides = state.entities.ingredients.sides;

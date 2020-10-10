@@ -11,18 +11,29 @@ class BagOrderItem extends React.Component {
     }
 
     handleInput() {
-        
        return e => {
            this.setState({ orderName: e.currentTarget.value })
        }
     }
+
+    handleBlurAndFocus() {
+        return e => {
+            let currentText = e.currentTarget.value;
+            if (currentText.length === 0) {
+                e.currentTarget.placeholder = "Who's this meal for?";
+                e.currentTarget.className = "mealname-required-focused";
+            } else {
+                e.currentTarget.className = "mealname-box";
+            }
+        }
+    };
 
     renderMealDetails() {
         return (
             <>
                 <div className="bag-order-entree-header">
                         <span>{this.props.mealType}</span>
-                        <span>{this.props.mainMealPrice}</span>
+                        <span>{this.props.mainMealPrice.toFixed(2)}</span>
                 </div>
                 <div className="bag-order-entree-details">
                         {this.props.details}
@@ -37,7 +48,7 @@ class BagOrderItem extends React.Component {
 
         const showSides = sideEntries.map((side, idx) => {
             let sideName = side[0];
-            let sidePrice = side[1];
+            let sidePrice = side[1].toFixed(2);
             return (
                 <div key={idx} className="bag-order-side-container">
                     <div className="bag-order-side-name">   
@@ -54,6 +65,7 @@ class BagOrderItem extends React.Component {
     }
 
     render() {
+        debugger;
         return (
           <div className="bag-order">
             <div className="bag-name-orderprice-container">
@@ -63,13 +75,14 @@ class BagOrderItem extends React.Component {
                   type="text"
                   name="orderText"
                   id="orderText"
-                  onChange={this.handleInput}
+                  onChange={this.handleInput()}
+                  onBlur={this.handleBlurAndFocus()}
+                  onFocus={this.handleBlurAndFocus()}
                   maxLength="20"
                   value={this.state.orderName}
                 />
-                ;
                 <span className="bag-orderTotalPrice">
-                  {this.props.totalPrice}
+                  {this.props.totalPrice.toFixed(2)}
                 </span>
               </div>
               <div className="bag-order-entree-container">

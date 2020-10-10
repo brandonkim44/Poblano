@@ -16,12 +16,22 @@ class Bag extends React.Component {
     }
   }
 
+  componentDidMount() {
+      debugger;
+    this.renderOrders();
+  }
+
   calcTotalPriceOfBag() {
 
   }
 
   calcTotalPriceOfOrder(order) {
-
+      const sidePrices = Object.values(order.sides);
+      let total = order.price;
+      sidePrices.forEach((price) => {
+        total += price;
+      })
+      return total;
   }
 
   handleClick() {
@@ -31,6 +41,7 @@ class Bag extends React.Component {
   
   renderOrders() {
     const orders = this.props.orders.map((order) => {
+        debugger;
         let totalPriceOfOrder = this.calcTotalPriceOfOrder(order);
         this.totalBagPrice += totalPriceOfOrder;
       return (
@@ -46,11 +57,12 @@ class Bag extends React.Component {
         />
       );
     });
-    this.setState( { totalBagPrice: this.totalBagPrice } );
-    return orders;
+    debugger;
+    this.setState({ totalBagPrice: this.totalBagPrice.toFixed(2), orders: orders });
   };
 
   render() {
+      debugger;
 
     return (
       <div id="bagModal" className="bag-modal">
@@ -65,7 +77,7 @@ class Bag extends React.Component {
             </div>
           </div>
           <div className="bag-main-container">
-            {this.renderOrders()}
+            {this.state.orders}
             <BagPricing bagTotal={this.state.totalBagPrice}/>
           </div>
           <div>Checkout</div>
