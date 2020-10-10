@@ -108,8 +108,8 @@ export const OrderFooter = (props) => {
         let ingredientName = ingredient.dataset.ingredientname;;
         let ingredientPrice = ingredient.dataset.price;
         type === "sides"
-          ? (sidesSlice[ingredientName] = ingredientPrice)
-          : (lifestyleSlice[ingredientName] = ingredientPrice);
+          ? (sidesSlice[ingredientName] = parseInt(ingredientPrice))
+          : (lifestyleSlice[ingredientName] = parseInt(ingredientPrice));
     };
 
     const createOrderState = (ingredients) => {
@@ -120,7 +120,7 @@ export const OrderFooter = (props) => {
         order["sides"] = sidesSlice;
         order["lifestyles"] = lifestyleSlice;
         order["mealName"] = props.mealName;
-        order[price] = props.price;
+        order[price] = parseInt(props.price);
         return order;
     };
 

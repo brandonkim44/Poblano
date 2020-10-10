@@ -64,6 +64,12 @@ class Modal extends React.Component {
                         {component}
                     </div>
                 )
+            } else if (this.props.modal === "bag") {
+                return (
+                    <div>
+                        {component}
+                    </div>
+                )
             } else {
                 return (
                     <div className="modal-background">
