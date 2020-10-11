@@ -1,4 +1,4 @@
-import { RECEIVE_ORDER, RECEIVE_NAME } from "../actions/order_actions";
+import { RECEIVE_ORDER, RECEIVE_NAME, REMOVE_ORDER } from "../actions/order_actions";
 import { merge } from 'lodash';
 
 const orderReducer = (state = null, action) => {
@@ -8,6 +8,7 @@ const orderReducer = (state = null, action) => {
   switch (action.type) {
     case RECEIVE_ORDER:
         if (state) {
+            if (stateCopy.currentOrderId) delete stateCopy.currentOrderId;
             id = Object.keys(stateCopy).length + 1;
         }
         action.order["orderId"] = id;
@@ -16,6 +17,11 @@ const orderReducer = (state = null, action) => {
         id = action.id;
         let order = stateCopy[id];
         order["orderName"] = action.name;
+        return merge({}, stateCopy);
+    case REMOVE_ORDER:
+        id = action.id;
+        debugger;
+        delete stateCopy[id];
         return merge({}, stateCopy);
     default:
         return state;

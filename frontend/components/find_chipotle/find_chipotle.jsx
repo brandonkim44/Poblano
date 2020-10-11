@@ -11,8 +11,11 @@ class FindChipotle extends React.Component {
 
     render() {
 
+        // const className = () => {
+        //     return this.state.location ? "find-poblano-location" : "find-poblano-no-location"
+        // }
         const className = () => {
-            return this.state.location ? "find-poblano-location" : "find-poblano-no-location"
+            return this.props.modalType === "bag" ? "bag-poblano-location" : "find-poblano-no-location"
         }
 
         return (

@@ -69,8 +69,8 @@ class Bag extends React.Component {
         <div className="bag-modal-content">
           <div className="bag-modal-header">
             <div className="bag-header-top">
-              <FindChipotleContainer />
-              <span className="modal-close-button" onClick={this.handleClick}>x</span>
+              <FindChipotleContainer modalType={this.props.modal}/>
+              <span className="bag-modal-close-button" onClick={this.handleClick}>x</span>
             </div>
             <div className="bag-header-bottom">
               <span>Make it a group order</span>
@@ -80,7 +80,8 @@ class Bag extends React.Component {
             {this.state.orders}
             <BagPricing bagTotal={this.state.totalBagPrice}/>
           </div>
-          <div>Checkout</div>
+          <br/><br/><br/>
+          <div className="bag-checkout">Checkout</div>
         </div>
       </div>
     );

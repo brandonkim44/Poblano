@@ -23,7 +23,7 @@ class BagOrderItem extends React.Component {
                 e.currentTarget.placeholder = "Who's this meal for?";
                 e.currentTarget.className = "mealname-required-focused";
             } else {
-                e.currentTarget.className = "mealname-box";
+                e.currentTarget.className = "bag-mealname-box";
             }
         }
     };
@@ -32,8 +32,8 @@ class BagOrderItem extends React.Component {
         return (
             <>
                 <div className="bag-order-entree-header">
-                        <span>{this.props.mealType}</span>
-                        <span>{this.props.mainMealPrice.toFixed(2)}</span>
+                        <span className="bag-meal-type-label">{this.props.mealType}</span>
+                        <span className="bag-price">${this.props.mainMealPrice.toFixed(2)}</span>
                 </div>
                 <div className="bag-order-entree-details">
                         {this.props.details}
@@ -54,8 +54,8 @@ class BagOrderItem extends React.Component {
                     <div className="bag-order-side-name">   
                         {sideName}
                     </div>
-                    <div className="bag-order-side-price">
-                        {sidePrice}
+                    <div className="bag-price">
+                        ${sidePrice}
                     </div>
                 </div>
             )
@@ -71,7 +71,7 @@ class BagOrderItem extends React.Component {
             <div className="bag-name-orderprice-container">
               <div className="bag-order-meal-header">
                 <input
-                  className="mealname-box"
+                  className="bag-mealname-box"
                   type="text"
                   name="orderText"
                   id="orderText"
@@ -81,8 +81,8 @@ class BagOrderItem extends React.Component {
                   maxLength="20"
                   value={this.state.orderName}
                 />
-                <span className="bag-orderTotalPrice">
-                  {this.props.totalPrice.toFixed(2)}
+                <span className="bag-price">
+                  ${this.props.totalPrice.toFixed(2)}
                 </span>
               </div>
               <div className="bag-order-entree-container">

@@ -1602,7 +1602,6 @@ input[class="mealname-required-focused"]::placeholder {
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   backdrop-filter: blur(5px);
@@ -1611,7 +1610,6 @@ input[class="mealname-required-focused"]::placeholder {
 .bag-modal-content {
   background-color: #fefefe;
   margin: auto;
-  padding: 20px;
   border: 1px solid #888;
   width: 430px;
   height: 100%;
@@ -1628,10 +1626,8 @@ input[class="mealname-required-focused"]::placeholder {
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid $light-brown;
-  position: fixed;
   top: 0;
-  width: 100%;
-  overflow: hidden;
+  width: 430px;
 }
 
 .bag-main-container {
@@ -1660,6 +1656,23 @@ input[class="mealname-required-focused"]::placeholder {
   flex-direction: column;
 }
 
+.bag-header-top {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 20px;
+}
+
+.bag-header-bottom {
+  padding-top: 20px;
+  padding-top: 20px;
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 19px;
+  color: $gold;
+  font-weight: 700;
+  font-family: $font-stack;
+}
+
 .bag-order-entree-header {
   display: flex;
   justify-content: space-between;
@@ -1678,3 +1691,84 @@ input[class="mealname-required-focused"]::placeholder {
   display: flex;
   justify-content: space-between;
 }
+
+.bag-poblano-location {
+  display: flex;
+  background-color: #451400;
+  color: white;
+  align-items: center;
+  position: relative;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  min-width: 200px;
+  background: linear-gradient(to right, black 50%, #451400 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.bag-modal-close-button {
+  color: #614436;
+  font-size: 45px;
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+}
+
+.bag-mealname-box {
+  @include input-field;
+  border-bottom: 2px solid $dark-brown;
+  background-color: transparent;
+  color: $dark-brown;
+  font-weight: 700;
+}
+
+.bag-price {
+  color: $dark-brown;
+  font-family: $font-nunito;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.bag-meal-type-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: $dark-brown;
+  font-family: $dark-brown;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.bag-order-entree-details {
+  font-size: 14px;
+  font-family: $font-nunito;
+  color: $light-brown;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.bag-order-side-name {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: $light-brown;
+  font-weight: 500;
+  font-family: $font-nunito;
+  font-size: 14px;
+}
+
+.bag-checkout {
+  width: 100%;
+  background-color: $dark-brown;
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 24px;
+  font-family: $font-stack; 
+}
+
+
+
+
+

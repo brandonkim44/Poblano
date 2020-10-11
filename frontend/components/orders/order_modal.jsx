@@ -1,5 +1,5 @@
 import React from 'react';
-import { addNameToOrder } from '../../actions/order_actions';
+import { addNameToOrder, removeOrderFromBag } from '../../actions/order_actions';
 
 // make this a class
 // have state
@@ -9,7 +9,7 @@ export const OrderModal = (props) => {
 
     const clickCancel = () => {
         document.body.className = "modal-close";
-        props.closeModal();
+        dispatch(removeOrderFromBag(props.orderId));
     };
     
     const clickSave = (e) => {
