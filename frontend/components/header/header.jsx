@@ -6,11 +6,15 @@ import FindChipotleContainer from '../find_chipotle/find_chipotle_container';
 import NavBar from '../navbar/navbar';
 
 const Header = () => {
+
+    const openBag = () => {
+        document.body.className = "modal-open";
+        dispatch(openModal('bag'));
+    }
     //come back to hamgburger menu
         return (
             <header className="header">
                 <img className="hamburger" src={window.hamburger} alt="hamburger-icon" onClick={() => dispatch(openModal('nav'))} />
-
                 <div className="header-left-container">
                     <Link to="/">
                         <img className="poblano-logo-img" src={window.poblanoLogo} alt="poblano-logo" />
@@ -25,7 +29,7 @@ const Header = () => {
                         <FindChipotleContainer />
                     </div>
                     <div>
-                        <img className="bag-icon" src={window.bagIcon} alt="bag-icon" />
+                        <img className="bag-icon" src={window.bagIcon} alt="bag-icon" onClick={() => openBag()}/>
                     </div>
                 </div>
             </header>

@@ -92,6 +92,11 @@ class BagOrderItem extends React.Component {
                 <div className="bag-order-entree-bottom">
                     {this.renderSides()}
                 </div>
+                <div className="bag-order-options">
+                    <span>Remove</span>
+                    <span>Edit</span>
+                    <span>Duplicate</span>
+                </div>
               </div>
             </div>
           </div>

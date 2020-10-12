@@ -8,6 +8,7 @@ $gold: #b68207;
 $darkest-brown: #1b0800;
 $poblano-green: #405749;
 $gray: #d4cbc7;
+$off-white: #f7f2ee;
 $font-nunito: 'Nunito', sans-serif;
 
 @mixin input-field {
@@ -1628,10 +1629,12 @@ input[class="mealname-required-focused"]::placeholder {
   border-bottom: 1px solid $light-brown;
   top: 0;
   width: 430px;
+  position: absolute;
+  margin-bottom: 10px;
+  overflow: hidden;
 }
 
 .bag-main-container {
-  padding-top: 25px;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -1639,6 +1642,7 @@ input[class="mealname-required-focused"]::placeholder {
 .bag-order {
   padding-bottom: 20px;
   border-bottom: 1px solid $light-brown;
+  margin-bottom: 20px;
 }
 
 .bag-order-meal-header {
@@ -1658,7 +1662,7 @@ input[class="mealname-required-focused"]::placeholder {
 
 .bag-header-top {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding-top: 20px;
 }
 
@@ -1669,8 +1673,10 @@ input[class="mealname-required-focused"]::placeholder {
   padding-bottom: 20px;
   font-size: 19px;
   color: $gold;
-  font-weight: 700;
+  font-weight: 500;
   font-family: $font-stack;
+  text-transform: uppercase;
+  text-decoration: underline;
 }
 
 .bag-order-entree-header {
@@ -1680,6 +1686,7 @@ input[class="mealname-required-focused"]::placeholder {
 
 .bag-order-entree-details {
   margin-top: 10px;
+  line-height: 1.3;
 }
 
 .bag-order-entree-bottom {
@@ -1690,6 +1697,7 @@ input[class="mealname-required-focused"]::placeholder {
 .bag-order-side-container {
   display: flex;
   justify-content: space-between;
+  line-height: 1.5;
 }
 
 .bag-poblano-location {
@@ -1706,6 +1714,7 @@ input[class="mealname-required-focused"]::placeholder {
   background: linear-gradient(to right, black 50%, #451400 50%);
   background-size: 200% 100%;
   background-position: right bottom;
+  left: 115px;
 }
 
 .bag-modal-close-button {
@@ -1714,6 +1723,7 @@ input[class="mealname-required-focused"]::placeholder {
   cursor: pointer;
   font-family: "Nunito", sans-serif;
   font-weight: 300;
+  margin-right: 20px;
 }
 
 .bag-mealname-box {
@@ -1735,7 +1745,7 @@ input[class="mealname-required-focused"]::placeholder {
   font-size: 16px;
   font-weight: 700;
   color: $dark-brown;
-  font-family: $dark-brown;
+  font-family: $font-nunito;
   padding-top: 2px;
   padding-bottom: 2px;
 }
@@ -1757,6 +1767,83 @@ input[class="mealname-required-focused"]::placeholder {
   font-size: 14px;
 }
 
+.bag-order-options {
+  display: flex;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.bag-order-options > span {
+  color: $dark-brown;
+  text-transform: uppercase;
+  font-family: $font-nunito;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.bag-complete-meals {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.bag-upsell-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bag-upsell-item span {
+  font-family: $font-nunito;
+  color: $dark-brown;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.bag-upsell-item span:nth-child(2) {
+  font-size: 13px;
+  font-weight: 700;
+  font-family: $font-stack;
+  text-transform: uppercase;
+}
+
+.bag-upsell-item > img {
+  width: 95px;
+  height: 95px;
+  margin: 0 auto;
+}
+
+.bag-order-add-item {
+  padding: 20px;
+  display: flex;
+}
+
+.bag-complete-meal-header {
+  margin: 0 auto;
+}
+
+.bag-order-add-item > button {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: $dark-brown;
+  font-family: $font-stack;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  background-color: transparent;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  cursor: pointer;
+  outline: none;
+}
+
 .bag-checkout {
   width: 100%;
   background-color: $dark-brown;
@@ -1766,9 +1853,122 @@ input[class="mealname-required-focused"]::placeholder {
   padding-bottom: 10px;
   font-size: 24px;
   font-family: $font-stack; 
+  text-transform: uppercase;
 }
 
+.bag-order-complete-header {
+  color: $light-brown;
+  font-family: $font-nunito;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
 
+.bag-pricing-container {
+  background-color: $off-white;
+}
 
+.bag-total {
+  margin-bottom: 10px;
+}
 
+.bag-signin {
+  padding: 20px;
+  display: flex;
+}
 
+.bag-signin > button {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: $dark-brown;
+  font-family: $font-stack;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  background-color: transparent;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* signed out */
+
+.bag-modal-content-no-order {
+  background-color: $off-white;
+  margin: auto;
+  border: 1px solid #888;
+  width: 430px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+
+.bag-modal-header-no-order {
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  width: 430px;
+  position: absolute;
+  margin-bottom: 10px;
+}
+
+.bag-modal-separator {
+  margin-top: 150px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.bag-modal-directions {
+  width: 260px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 18px;
+  font-family: $font-nunito;
+}
+
+.bag-modal-start {
+  padding: 20px;
+  display: flex;
+  margin-top: 20px;
+}
+
+.bag-modal-logo {
+  width: 68px;
+  height: 88px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.bag-modal-start > button {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  font-family: $font-stack;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+  background-color: $gold;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.bag-main {
+  overflow-y: scroll;
+  padding-top: 20px;
+  margin-top: 125px;
+}
