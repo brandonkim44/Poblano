@@ -9,7 +9,7 @@ import FindChipotleContainer from './find_chipotle/find_chipotle_container';
 import NavBar from './navbar/navbar';
 import Footer from '../footer/footer';
 import Main from '../components/main/main';
-import Header from './header/header';
+import HeaderContainer from './header/header_container';
 
 
 const App = (props) => {
@@ -24,7 +24,7 @@ const App = (props) => {
     <div>
         <ModalContainer />
 
-        <Header />
+        <HeaderContainer />
 
         <Main />
         
