@@ -40,11 +40,12 @@ class BagPricing extends React.Component {
                     <span>Subtotal</span>
                     <span>${this.props.bagTotal}</span>
                 </div>
-                <div>
+                <div className="bag-tax">
                     <span>Tax</span>
                     <span>${this.calculateTax()}</span>
                 </div>
-                <div>
+                <hr className="bag-price-separator"/>
+                <div className="bag-final-total">
                     <span>Total</span>
                     <span>${this.calculateTotal()}</span>
                 </div>

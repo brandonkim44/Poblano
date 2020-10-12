@@ -1854,6 +1854,7 @@ input[class="mealname-required-focused"]::placeholder {
   font-size: 24px;
   font-family: $font-stack; 
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .bag-order-complete-header {
@@ -1871,11 +1872,54 @@ input[class="mealname-required-focused"]::placeholder {
 
 .bag-total {
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: $dark-brown;
+  font-family: $font-nunito;
+  font-size: 17px;
 }
 
 .bag-signin {
   padding: 20px;
   display: flex;
+}
+
+.bag-subtotal {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 16px;
+  font-family: $font-nunito;
+  color: $dark-brown;
+  font-weight: 700;
+}
+
+.bag-tax {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 16px;
+  font-family: $font-nunito;
+  color: $dark-brown;
+  font-weight: 300;
+}
+
+.bag-final-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 20px;
+  font-family: $font-nunito;
+  color: $dark-brown;
+  font-weight: 700;
 }
 
 .bag-signin > button {
@@ -1894,6 +1938,18 @@ input[class="mealname-required-focused"]::placeholder {
   letter-spacing: -1px;
   cursor: pointer;
   outline: none;
+}
+
+.bag-main {
+  overflow-y: scroll;
+  padding-top: 20px;
+  margin-top: 125px;
+}
+
+.bag-price-separator {
+  color: $lightest-brown;
+  width: 390px;
+  border-bottom: 1px solid $lightest-brown;
 }
 
 /* signed out */
@@ -1965,10 +2021,4 @@ input[class="mealname-required-focused"]::placeholder {
   cursor: pointer;
   outline: none;
   border: none;
-}
-
-.bag-main {
-  overflow-y: scroll;
-  padding-top: 20px;
-  margin-top: 125px;
 }
