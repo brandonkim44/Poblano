@@ -1,5 +1,6 @@
 import React from 'react';
 import { openModal } from '../../actions/modal_actions';
+import OrderLanding from "../orders/order_landing";
 
 const MainLandingPage = () => {
     return (
@@ -19,7 +20,7 @@ const MainLandingPage = () => {
                     </div>
                 </div>
             </div>
-            <br />
+            <br/>
             <br />
             <br />
             <br />

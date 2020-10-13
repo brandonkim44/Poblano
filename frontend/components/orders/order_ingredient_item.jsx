@@ -29,14 +29,17 @@ export const OrderIngredientItem = (props) => {
     return (
         <li>
             <figure className="figure">
-                <img
+                <div
                     src={props.ingredient.photoUrl}
                     className="ingredient-img"
                     alt={props.ingredient.ingredientName}
                     data-ingredientname={props.ingredient.ingredientName}
                     data-price={props.ingredient.price}
+                    data-calories={props.ingredient.calories}
                     onClick={(e) => props.handleClick(e)}
-                ></img>
+                    style={ {backgroundImage: `url(${props.ingredient.photoUrl})`} }
+                >
+                </div>
                 <div className="ingredient-name">{props.ingredient.ingredientName}</div>
                 {showLifeBowlIngredients()}
             </figure>

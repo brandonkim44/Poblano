@@ -1,6 +1,6 @@
 import React from 'react';
 import { pick } from 'lodash';
-import { FILLINGS, RICE, BEANS, RICE_AND_BEANS, TOP_IT_OFF, SIDES, DRINKS } from '../../util/sections_ingredients';
+import { FILLINGS, RICE, BEANS, RICE_AND_BEANS, TOP_IT_OFF, SIDES, DRINKS, LIFESTYLE } from '../../util/sections_ingredients';
 // import { openModal } from '../../actions/modal_actions';
 import { addOrderToBag } from '../../actions/order_actions';
 
@@ -30,9 +30,11 @@ export const OrderFooter = (props) => {
     }
 
     const hasCompleteOrder = (ingredients) => {
-        if (props.mealName === "lifestyle") {
+        debugger;
+        if (props.mealType === "lifestyle") {
           return hasLifeStyle(ingredients);
-        } else if (props.mealName === "sides") {
+        } else if (props.mealType === "sides") {
+            debugger;
           return hasSidesDrinks(ingredients);
         } else {
           return hasFillingsRiceBeans(ingredients);
@@ -95,10 +97,18 @@ export const OrderFooter = (props) => {
             } else if (SIDES.includes(ingredientName) || DRINKS.includes(ingredientName)) {
                 createSlice(ingredients[i], "sides");
             } else if (LIFESTYLE.includes(ingredientName)) {
+                mealIngredients = getBowlIngredients(ingredientName)
                 createSlice(ingredients[i], "lifestyle");
             }
         }
     };
+
+    const getBowlIngredients = (ingredientName) => {
+        let bowlDetails = props.lifestyleBowls;
+        for( let i = 0; i < bowlDetails.length; i++) {
+            if (ingredientName === bowlDetails[i].ingredientName) return bowlDetails[i].details;
+        }
+    }
 
     const createListOfIngredients = () => {
         return mealIngredients.join(", ");

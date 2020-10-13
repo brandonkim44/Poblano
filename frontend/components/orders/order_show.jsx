@@ -1,7 +1,7 @@
 import React from 'react';
 import { OrderIngredientItem } from './order_ingredient_item';
 import { OrderFooter } from './order_footer';
-import { FILLINGS, DRINKS, SIDES } from '../../util/sections_ingredients';
+import { FILLINGS, DRINKS, SIDES, LIFESTYLE } from '../../util/sections_ingredients';
 import { pick, times } from 'lodash';
 import { OrderModal } from "./order_modal";
 
@@ -105,6 +105,16 @@ class OrderShow extends React.Component {
                 }
                 this.orderDetails["drinksDetail"] = this.drinksDetail;
                 // this.setState({ details: this.orderDetails });
+            } else if (LIFESTYLE.includes(ingredientName)) {
+                if (this.fillingsCount < 1) {
+                    e.target.className = "ingredient-img-clicked";
+                    this.orderPrice += e.target.dataset.price;
+                    this.fillingsCount++;
+                    this.fillingsDetail = ingredientName;
+                } else if (this.fillingsCount === 1) {
+                    alert('You can only select one bowl');
+                }
+                this.orderDetails["fillingsDetail"] = this.fillingsDetail;
             } else {
                 e.target.className = "ingredient-img-clicked";
             }
@@ -174,6 +184,10 @@ class OrderShow extends React.Component {
                 }
                 this.orderDetails["drinksDetail"] = this.drinksDetail;
                 // this.setState({ details: this.orderDetails });
+            } else if (LIFESTYLE.includes(ingredientName)) {
+                e.target.className = "ingredient-img";
+                this.fillingsCount--;
+                this.fillingsDetail = "";
             } else {
                 e.target.className = "ingredient-img";
             }
@@ -268,9 +282,10 @@ class OrderShow extends React.Component {
                         <li>
                             <figure className="figure">
                                 <img
-                                    src={window.comingsoon}
+                                    src={"https://poblano-app-seeds.s3.amazonaws.com/no-selection.png"}
                                     className="ingredient-img"
                                     alt="no-rice"
+                                    // style={{height: 50, width: 50}}
                                 ></img>
                                 <div className="ingredient-name">No&nbsp;Rice</div>
                             </figure>
@@ -284,7 +299,7 @@ class OrderShow extends React.Component {
                          <li>
                             <figure className="figure">
                                 <img
-                                    src={window.comingsoon}
+                                    src={"https://poblano-app-seeds.s3.amazonaws.com/no-selection.png"}
                                     className="ingredient-img"
                                     alt="no-beans"
                                 ></img>
@@ -417,7 +432,9 @@ class OrderShow extends React.Component {
                         orderDetails={this.state.details.default ? this.state.details.default : this.state.details} 
                         orderState={this.state}
                         mealName={this.fillingsDetail}
+                        mealType={this.props.mealName}
                         price={this.orderPrice}
+                        lifestyleBowls={this.props.lifestyleBowls}
                     />
                 </div>
             </div>

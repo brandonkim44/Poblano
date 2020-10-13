@@ -904,6 +904,9 @@ input[class="input-Password-required-focused"]::placeholder {
   border: 1px solid $gray;
   object-fit: fill;
   margin-bottom: 30px;
+  background-position: center 20.28571px;
+  background-size: 180%;
+  box-shadow: 0px 0px 5px 0px #d4cbc8;
 }
 
 .section-name {
@@ -991,7 +994,7 @@ input[class="input-Password-required-focused"]::placeholder {
   top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 20px;
+  font-size: 18px;
   color: $dark-brown;
   letter-spacing: -1px;
   font-weight: 500;
@@ -1017,16 +1020,21 @@ input[class="input-Password-required-focused"]::placeholder {
 
 
 .ingredient-img-clicked {
-  filter: brightness(50%);
+  opacity: 0.4;
+  background-color: #d4cbc8;;
   width: 180px;
   height: 230px;
-  border: 1px solid yellow;
+  border: 1px solid $gray;
   object-fit: fill;
   margin-bottom: 30px;
+  background-position: center 20.28571px;
+  background-size: 180%;
+  box-shadow: 0px 0px 5px 0px #d4cbc8;
 }
 
 .ingredient-img:hover {
-  filter: brightness(50%);
+  opacity: 0.3;
+  background-color: #d4cbc8;
 }
 
 .text {

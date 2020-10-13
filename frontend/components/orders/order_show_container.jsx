@@ -12,13 +12,15 @@ const mapStateToProps = state => {
     let mealDescription = null;
     let mealPhoto = null;
     let sidesId = null;
+    let lifestyleBowls = null;
     // let orderDetails = { default: "Select a protein or veggie to get started" };
 
     if (mealName) {
         mealDescription = state.entities.meals[mealName].description;
         mealPhoto = state.entities.meals[mealName].photoUrl;
         sidesId = state.entities.meals["sides"].id;
-
+        debugger;
+        if (mealName === "lifestyle") lifestyleBowls = state.entities.ingredients.lifestyle.Bowls;
         // if (mealName === "sides") {
         //     orderDetails = { default: "Select an item to get started" };
         // } else {
@@ -39,6 +41,7 @@ const mapStateToProps = state => {
         mealDescription: mealDescription,
         mealPhoto: mealPhoto,
         sidesId: sidesId,
+        lifestyleBowls: lifestyleBowls,
         ingredients: ingredients ? Object.keys(ingredients) : {},
         fillings: ingredients ? ingredients["Fillings"] : {},
         riceAndBeans: ingredients ? ingredients["Rice & Beans"] : {},

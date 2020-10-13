@@ -29,17 +29,21 @@ class BagOrderItem extends React.Component {
     };
 
     renderMealDetails() {
-        return (
-            <>
-                <div className="bag-order-entree-header">
-                        <span className="bag-meal-type-label">{this.props.mealType}</span>
-                        <span className="bag-price">${this.props.mainMealPrice.toFixed(2)}</span>
-                </div>
-                <div className="bag-order-entree-details">
-                        {this.props.details}
-                </div>
-            </>
-        )
+        if (this.props.mainMealPrice > 0) {
+            return (
+                <>
+                    <div className="bag-order-entree-header">
+                            <span className="bag-meal-type-label">{this.props.mealType}</span>
+                            <span className="bag-price">${this.props.mainMealPrice.toFixed(2)}</span>
+                    </div>
+                    <div className="bag-order-entree-details">
+                            {this.props.details}
+                    </div>
+                </>
+            )
+        } else {
+            return null;
+        }
     }
 
     renderSides() {
