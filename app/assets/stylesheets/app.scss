@@ -896,17 +896,34 @@ input[class="input-Password-required-focused"]::placeholder {
 
 /* show (ingredients page) */
 
-
-
-.ingredient-img {
+@mixin ingredient-img {
   width: 180px;
   height: 230px;
   border: 1px solid $gray;
   object-fit: fill;
   margin-bottom: 30px;
-  background-position: center 20.28571px;
+  background-position: center 28.28571px;
   background-size: 180%;
   box-shadow: 0px 0px 5px 0px #d4cbc8;
+}
+
+.ingredient-img {
+  @include ingredient-img;
+}
+
+.ingredient-selected {
+  position: absolute;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+  top: 48%;
+  display: none;
+  height: 50px;
+  width: 50px;
+  background-size: 100%;
+  transform: translate(-50%, -50%);
 }
 
 .section-name {
@@ -994,7 +1011,7 @@ input[class="input-Password-required-focused"]::placeholder {
   top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 18px;
+  font-size: 17px;
   color: $dark-brown;
   letter-spacing: -1px;
   font-weight: 500;
@@ -1004,6 +1021,10 @@ input[class="input-Password-required-focused"]::placeholder {
 
 .recharts-wrapper {
  
+}
+
+.ingredient-li {
+  margin-bottom: 15px;
 }
 
 .figure {
@@ -1018,23 +1039,43 @@ input[class="input-Password-required-focused"]::placeholder {
   cursor: pointer;
 }
 
-
 .ingredient-img-clicked {
-  opacity: 0.4;
-  background-color: #d4cbc8;;
-  width: 180px;
-  height: 230px;
-  border: 1px solid $gray;
-  object-fit: fill;
-  margin-bottom: 30px;
-  background-position: center 20.28571px;
-  background-size: 180%;
-  box-shadow: 0px 0px 5px 0px #d4cbc8;
+  @include ingredient-img;
 }
 
-.ingredient-img:hover {
+.ingredient-img:hover, .ingredient-img-clicked:hover {
   opacity: 0.3;
   background-color: #d4cbc8;
+}
+
+.ingredient-calories {
+  position: absolute;
+  top: 100%;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #d4cbc7;
+  width: 179px;
+  line-height: 1.5;
+  font-size: 12px;
+  font-family: $font-nunito;
+  font-weight: 700;
+  color: $light-brown;
+  border-top: none;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.ingredient-price {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: $light-brown;
+  letter-spacing: -1px;
+  font-weight: 700;
+  font-family: $font-nunito;
+  width: 180px;
 }
 
 .text {

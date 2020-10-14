@@ -55,11 +55,9 @@ class OrderShow extends React.Component {
     }
 
     handleClick(e) {
-        let ingredientName = e.target.nextSibling.innerText;
-        if (e.target.className === "ingredient-img") {
-            //if fillings, run fillingsFunction
-            //if sides, run sidesFunction
-            //if drinks, run drinksFunction
+        let ingredientName = e.currentTarget.dataset.ingredientname;
+        debugger;
+        if (e.currentTarget.className === "ingredient-img") {
            if (FILLINGS.includes(ingredientName)) {
                 debugger;
                 if (ingredientName === "Veggie") {
@@ -68,10 +66,11 @@ class OrderShow extends React.Component {
                 if (this.veggie && this.fillingsCount > 0) {
                     alert("Can't go halfsies with Veggies");
                 } else if (this.fillingsCount < 2) {
-                    debugger;
-                    this.orderPrice += e.target.dataset.price;
+                    this.orderPrice += e.currentTarget.dataset.price;
                     this.fillingsCount++;
-                    e.target.className = "ingredient-img-clicked";
+                    e.currentTarget.className = "ingredient-img-clicked";
+                    debugger;
+                    e.currentTarget.firstElementChild.style.display = "unset";
                     if (this.fillingsCount === 1) {
                         this.fillingsDetail = `${ingredientName} ${this.props.mealName}`;
                     } else if (this.fillingsCount === 2) {
@@ -86,7 +85,8 @@ class OrderShow extends React.Component {
                     alert('You can select only 2 fillings');
                 }
             } else if (SIDES.includes(ingredientName)) {
-                e.target.className = "ingredient-img-clicked";
+                e.currentTarget.className = "ingredient-img-clicked";
+                e.currentTarget.firstElementChild.style.display = "unset";
                 this.sidesCount++;
                 if (this.sidesCount > 1) {
                     this.sidesDetail = `${this.sidesCount} Sides`
@@ -96,7 +96,8 @@ class OrderShow extends React.Component {
                 this.orderDetails["sidesDetail"] = this.sidesDetail;
                 // this.setState({ details: this.orderDetails });
             } else if (DRINKS.includes(ingredientName)){
-                e.target.className = "ingredient-img-clicked";
+                e.currentTarget.className = "ingredient-img-clicked";
+                e.currentTarget.firstElementChild.style.display = "unset";
                 this.drinksCount++;
                 if (this.drinksCount > 1) {
                     this.drinksDetail = `${this.drinksCount} Drinks`
@@ -107,8 +108,9 @@ class OrderShow extends React.Component {
                 // this.setState({ details: this.orderDetails });
             } else if (LIFESTYLE.includes(ingredientName)) {
                 if (this.fillingsCount < 1) {
-                    e.target.className = "ingredient-img-clicked";
-                    this.orderPrice += e.target.dataset.price;
+                    e.currentTarget.className = "ingredient-img-clicked";
+                    e.currentTarget.firstElementChild.style.display = "unset";
+                    this.orderPrice += e.currentTarget.dataset.price;
                     this.fillingsCount++;
                     this.fillingsDetail = ingredientName;
                 } else if (this.fillingsCount === 1) {
@@ -116,7 +118,8 @@ class OrderShow extends React.Component {
                 }
                 this.orderDetails["fillingsDetail"] = this.fillingsDetail;
             } else {
-                e.target.className = "ingredient-img-clicked";
+                e.currentTarget.className = "ingredient-img-clicked";
+                e.currentTarget.firstElementChild.style.display = "unset";
             }
             if (this.fillingsDetail === "" && this.sidesDetail === "" && this.drinksDetail === "") {
                 this.setState({ details: this.orderDetails.default });
@@ -136,12 +139,12 @@ class OrderShow extends React.Component {
             }
             debugger;
         } else {
-            if (ingredientName === "Veggie") {
-                this.veggie = false;
-            }
+            e.currentTarget.className = "ingredient-img";
+            e.currentTarget.firstElementChild.style.display = "none";
+            if (ingredientName === "Veggie") this.veggie = false;
+
             if (FILLINGS.includes(ingredientName)) {
-                e.target.className = "ingredient-img";
-                this.orderPrice -= e.target.dataset.price;
+                this.orderPrice -= e.currentTarget.dataset.price;
                 if (this.fillingsCount === 2) {
                     let splitDisplayText = this.fillingsDetail.split(" ");
                     const indexMealName = splitDisplayText.indexOf(ingredientName);
@@ -161,7 +164,6 @@ class OrderShow extends React.Component {
                 this.orderDetails["fillingsDetail"] = this.fillingsDetail; 
                 // this.setState({ details: this.orderDetails })
             } else if (SIDES.includes(ingredientName)) {
-                e.target.className = "ingredient-img";
                 this.sidesCount--;
                 if (this.sidesCount > 1) {
                     this.sidesDetail = `${this.sidesCount} Sides`;
@@ -173,7 +175,6 @@ class OrderShow extends React.Component {
                 this.orderDetails["sidesDetail"] = this.sidesDetail;
                 // this.setState({ details: this.orderDetails });
             } else if (DRINKS.includes(ingredientName)) {
-                e.target.className = "ingredient-img";
                 this.drinksCount--;
                 if (this.drinksCount > 1) {
                     this.drinksDetail = `${this.drinksCount} Drinks`;
@@ -185,11 +186,8 @@ class OrderShow extends React.Component {
                 this.orderDetails["drinksDetail"] = this.drinksDetail;
                 // this.setState({ details: this.orderDetails });
             } else if (LIFESTYLE.includes(ingredientName)) {
-                e.target.className = "ingredient-img";
                 this.fillingsCount--;
                 this.fillingsDetail = "";
-            } else {
-                e.target.className = "ingredient-img";
             }
             debugger;
             if (this.fillingsDetail === "" && this.sidesDetail === "" && this.drinksDetail === "") {
@@ -273,43 +271,69 @@ class OrderShow extends React.Component {
                 )
             })
 
+            const styleNoBeansRiceImage = () => {
+                return {
+                  backgroundImage: `url("https://poblano-app-seeds.s3.amazonaws.com/no-selection.png")`,
+                  backgroundSize: "50px, 50px",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center 85.28571px",
+                };
+            }
+
             return (
-                <>
-                <div className="section" >
-                    <span className="order-section-name">RICE</span>
-                    <ul className="order-section-container">
-                        {sectionRice}
-                        <li>
-                            <figure className="figure">
-                                <img
-                                    src={"https://poblano-app-seeds.s3.amazonaws.com/no-selection.png"}
-                                    className="ingredient-img"
-                                    alt="no-rice"
-                                    // style={{height: 50, width: 50}}
-                                ></img>
-                                <div className="ingredient-name">No&nbsp;Rice</div>
-                            </figure>
-                        </li>
-                    </ul>
+              <>
+                <div className="section">
+                  <span className="order-section-name">RICE</span>
+                  <ul className="order-section-container">
+                    {sectionRice}
+                    <li>
+                      <figure className="figure">
+                        <div
+                          className="ingredient-img"
+                          alt="no-rice"
+                          data-rice="false"
+                          style={styleNoBeansRiceImage()}
+                          onClick={(e) => this.handleClick(e)}
+                        >
+                          <div
+                            className="ingredient-selected"
+                            style={{
+                              backgroundImage: `url(https://poblano-app-seeds.s3.amazonaws.com/selection.png)`,
+                            }}
+                          ></div>
+                        </div>
+                        <div className="ingredient-name">No&nbsp;Rice</div>
+                      </figure>
+                    </li>
+                  </ul>
                 </div>
-                <div className="section" >
-                    <span className="order-section-name">BEANS</span>
-                    <ul className="order-section-container">
-                        {sectionBean}
-                         <li>
-                            <figure className="figure">
-                                <img
-                                    src={"https://poblano-app-seeds.s3.amazonaws.com/no-selection.png"}
-                                    className="ingredient-img"
-                                    alt="no-beans"
-                                ></img>
-                                <div className="ingredient-name">No&nbsp;Beans</div>
-                            </figure>
-                        </li>
-                    </ul>
+                <div className="section">
+                  <span className="order-section-name">BEANS</span>
+                  <ul className="order-section-container">
+                    {sectionBean}
+                    <li>
+                      <figure className="figure">
+                        <div
+                          className="ingredient-img"
+                          alt="no-rice"
+                          data-beans="false"
+                          style={styleNoBeansRiceImage()}
+                          onClick={(e) => this.handleClick(e)}
+                        >
+                          <div
+                            className="ingredient-selected"
+                            style={{
+                              backgroundImage: `url(https://poblano-app-seeds.s3.amazonaws.com/selection.png)`,
+                            }}
+                          ></div>
+                        </div>
+                        <div className="ingredient-name">No&nbsp;Beans</div>
+                      </figure>
+                    </li>
+                  </ul>
                 </div>
-                </>
-            )
+              </>
+            );
         }
     }
 
@@ -427,6 +451,7 @@ class OrderShow extends React.Component {
                         {component()}
                     </div>
                 </ul>
+                <br/><br/><br/><br/><br/><br/>
                 <div className="order-footer-container">
                     <OrderFooter 
                         orderDetails={this.state.details.default ? this.state.details.default : this.state.details} 

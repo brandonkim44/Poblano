@@ -342,7 +342,7 @@ largechipsqueso = Ingredient.create({
   fats: 75,
   carbs: 124,
   protein: 31,
-  filename: "largechipsqueso",
+  filename: "chipsqueso",
   price: 6.15
 })
 

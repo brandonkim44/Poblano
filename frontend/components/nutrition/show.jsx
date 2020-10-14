@@ -283,6 +283,7 @@ class Show extends React.Component {
                         </div>
                     </div>
                 </ul>
+                <br/><br/><br/><br/>
             </div>
         )
     }
