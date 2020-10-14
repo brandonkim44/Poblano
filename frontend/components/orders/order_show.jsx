@@ -1,5 +1,6 @@
 import React from 'react';
 import { OrderIngredientItem } from './order_ingredient_item';
+import { OrderIngredientItemLifestyle } from './order_ingredient_item_lifestyle';
 import { OrderFooter } from './order_footer';
 import { FILLINGS, DRINKS, SIDES, LIFESTYLE, RICE, BEANS } from '../../util/sections_ingredients';
 import { pick, times } from 'lodash';
@@ -399,7 +400,7 @@ class OrderShow extends React.Component {
         if (this.props.lifestyleBowls.length > 0) {
             const section = this.props.lifestyleBowls.map(ingredient => {
                 return (
-                    <OrderIngredientItem key={ingredient.id} mealName={this.props.mealName} ingredient={ingredient} handleClick={this.handleClick}/>
+                    <OrderIngredientItemLifestyle key={ingredient.id} mealName={this.props.mealName} ingredient={ingredient} handleClick={this.handleClick}/>
                 )
             })
             return (

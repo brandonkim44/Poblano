@@ -1027,6 +1027,10 @@ input[class="input-Password-required-focused"]::placeholder {
   margin-bottom: 15px;
 }
 
+.lifestyle-ingredient-li {
+  margin-bottom: 100px;
+}
+
 .figure {
   position: relative;
   text-align: center;
@@ -1477,6 +1481,66 @@ input[class="input-Password-required-focused"]::placeholder {
   color: $gold;
   letter-spacing: -1px;
   visibility: hidden;
+}
+
+.lifestyle-bowl-information-container {
+  position: absolute;
+  top: 100%;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #d4cbc7;
+  width: 300px;
+  line-height: 1.5;
+  font-size: 12px;
+  font-family: $font-nunito;
+  font-weight: 700;
+  color: $light-brown;
+  border-top: none;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.lifestyle-price-cals {
+  display: flex;
+  justify-content: center;
+
+}
+
+.lifestyle-price-cals > span {
+  color: $light-brown;
+  font-family: $font-nunito;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.lifestyle-ingredient-name {
+  font-size: 20px;
+  font-family: $font-stack;
+  color: $dark-brown;
+}
+
+@mixin  lifestyle-ingredient {
+  font-size: 16px;
+  font-family: $font-stack;
+  color: $dark-brown;
+}
+
+.lifestyle-ingredient-calories {
+  @include lifestyle-ingredient;
+  padding-right: 15px;
+}
+
+.lifestyle-ingredient-price {
+  @include lifestyle-ingredient;
+  padding-left: 15px;
+}
+
+.lifestyle-bowl-details {
+  width: 300px;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: $font-nunito;
+  color: $light-brown;
 }
 
 .order-footer-container {
