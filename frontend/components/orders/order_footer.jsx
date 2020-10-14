@@ -45,8 +45,8 @@ export const OrderFooter = (props) => {
         ingredients.forEach((ingredient) => {
           let ingredientName = ingredient.dataset.ingredientname;
           if (FILLINGS.includes(ingredientName)) hasFillings = true;
-          if (RICE.includes(ingredientName)) hasRice = true;
-          if (BEANS.includes(ingredientName)) hasBeans = true;
+          if (RICE.includes(ingredientName) || props.hasRice) hasRice = true;
+          if (BEANS.includes(ingredientName) || props.hasBeans) hasBeans = true;
         });
 
         if (hasFillings && hasRice && hasBeans) return true;

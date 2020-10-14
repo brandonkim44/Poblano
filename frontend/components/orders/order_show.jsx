@@ -1,7 +1,7 @@
 import React from 'react';
 import { OrderIngredientItem } from './order_ingredient_item';
 import { OrderFooter } from './order_footer';
-import { FILLINGS, DRINKS, SIDES, LIFESTYLE } from '../../util/sections_ingredients';
+import { FILLINGS, DRINKS, SIDES, LIFESTYLE, RICE, BEANS } from '../../util/sections_ingredients';
 import { pick, times } from 'lodash';
 import { OrderModal } from "./order_modal";
 
@@ -39,6 +39,8 @@ class OrderShow extends React.Component {
         this.fillingsDetail = "";
         this.sidesDetail = "";
         this.drinksDetail = "";
+        this.rice = false;
+        this.beans = false;
     }
 
     // static getDerivedStateFromProps(nextProps, prevState) {
@@ -117,9 +119,44 @@ class OrderShow extends React.Component {
                     alert('You can only select one bowl');
                 }
                 this.orderDetails["fillingsDetail"] = this.fillingsDetail;
-            } else {
-                e.currentTarget.className = "ingredient-img-clicked";
+            } else if (RICE.includes(ingredientName)){
+                const noRiceImage = document.querySelector("#no-rice");
+                if (noRiceImage.style.display !== "none") {
+                    noRiceImage.firstElementChild.style.display = "none";
+                    noRiceImage.className = "ingredient-img";
+                }
+                this.rice = true;
+                e.currentTarget.className = "ingredient-img-clicked rice-selected";
                 e.currentTarget.firstElementChild.style.display = "unset";
+            } else if (BEANS.includes(ingredientName)) {
+                const noBeansImage = document.querySelector("#no-beans");
+                if (noBeansImage.style.display !== "none") {
+                    noBeansImage.firstElementChild.style.display = "none";
+                    noBeansImage.className = "ingredient-img";
+                }
+                this.beans = true;
+                e.currentTarget.className = "ingredient-img-clicked beans-selected";
+                e.currentTarget.firstElementChild.style.display = "unset";
+            } else {
+                const selectedRiceImages = document.querySelectorAll(".ingredient-img-clicked.rice-selected");
+                const selectedBeansImages = document.querySelectorAll(".ingredient-img-clicked.beans-selected");
+                debugger;
+                if (e.currentTarget.id === "no-rice" && selectedRiceImages.length >= 0) {
+                    for (let i = 0; i < selectedRiceImages.length; i++) {
+                        selectedRiceImages[i].className="ingredient-img";
+                        selectedRiceImages[i].firstElementChild.style.display = "none";
+                    }
+                    this.rice = true;
+                }
+                if (e.currentTarget.id === "no-beans" && selectedBeansImages.length >= 0) {
+                    for (let i = 0; i < selectedBeansImages.length; i++) {
+                        selectedBeansImages[i].className="ingredient-img";
+                        selectedBeansImages[i].firstElementChild.style.display = "none";
+                    }
+                    this.beans = true;
+                }
+                e.currentTarget.firstElementChild.style.display = "unset";
+                e.currentTarget.className = "ingredient-img-clicked";
             }
             if (this.fillingsDetail === "" && this.sidesDetail === "" && this.drinksDetail === "") {
                 this.setState({ details: this.orderDetails.default });
@@ -188,6 +225,9 @@ class OrderShow extends React.Component {
             } else if (LIFESTYLE.includes(ingredientName)) {
                 this.fillingsCount--;
                 this.fillingsDetail = "";
+            } else {
+                if (e.currentTarget.dataset.rice) this.rice = false;
+                if (e.currentTarget.dataset.beans) this.beans = false;
             }
             debugger;
             if (this.fillingsDetail === "" && this.sidesDetail === "" && this.drinksDetail === "") {
@@ -290,8 +330,8 @@ class OrderShow extends React.Component {
                       <figure className="figure">
                         <div
                           className="ingredient-img"
+                          id="no-rice"
                           alt="no-rice"
-                          data-rice="false"
                           style={styleNoBeansRiceImage()}
                           onClick={(e) => this.handleClick(e)}
                         >
@@ -315,8 +355,8 @@ class OrderShow extends React.Component {
                       <figure className="figure">
                         <div
                           className="ingredient-img"
-                          alt="no-rice"
-                          data-beans="false"
+                          alt="no-beans"
+                          id="no-beans"
                           style={styleNoBeansRiceImage()}
                           onClick={(e) => this.handleClick(e)}
                         >
@@ -460,6 +500,8 @@ class OrderShow extends React.Component {
                         mealType={this.props.mealName}
                         price={this.orderPrice}
                         lifestyleBowls={this.props.lifestyleBowls}
+                        hasRice={this.rice}
+                        hasBeans={this.beans}
                     />
                 </div>
             </div>
