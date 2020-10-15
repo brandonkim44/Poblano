@@ -1,6 +1,7 @@
 import React from 'react';
 import { openModal } from '../../actions/modal_actions';
 import OrderLanding from "../orders/order_landing";
+import { NavLink } from "react-router-dom";
 
 const MainLandingPage = () => {
     return (
@@ -34,40 +35,47 @@ const MainLandingPage = () => {
             </div>
           </div>
         </div>
-          <div className="main-page-promo-container">
-            <div className="main-page-promo">
-                <div className="main-left-promo-container">
-                    <div className="main-left-promo-header">
-                        Real food is really easy
-                    </div>
-                    <div className="main-left-promo-description">
-                        Customize, pay and skip the line with contactless pickup. Just
-                        grab your sealed Chipotle order from the shelf and go.
-                    </div>
-                    <div className="main-left-promo-button-container">
-                        <button className="main-left-promo-button">Order now</button>
-                    </div>
-                </div>
-                <div className="main-right-promo-container"></div>
+        <div className="main-page-promo-container">
+          <div className="main-page-promo">
+            <div className="main-left-promo-container">
+              <div className="main-left-promo-header">
+                Real food is really easy
+              </div>
+              <div className="main-left-promo-description">
+                Customize, pay and skip the line with contactless pickup. Just
+                grab your sealed Poblano order from the shelf and go.
+              </div>
+              <div className="main-left-promo-button-container">
+                <NavLink className="main-left-promo-button" to="/order">
+                  Order now
+                </NavLink>
+              </div>
+            </div>
+            <div className="main-right-promo-container"></div>
+          </div>
+        </div>
+        <div className="checkout-chipotle">
+          <h1>Checkout Chipotle's Website</h1>
+          <div className="chipotle-website-image">
+            <div className="chipotle-title">Chipotle</div>
+          </div>
+          <div className="chipotle-website-container">
+            <div className="chipotle-details">
+              Inspired by Chipotle Mexican Grill. All food photos and gif
+              credits go to Chipotle's website.
+            </div>
+            <div className="chipotle-button-container">
+              <button
+                onClick={() =>
+                  window.open("https://www.chipotle.com/", "_blank")
+                }
+                className="main-left-promo-button"
+              >
+                Go to Chipotle
+              </button>
             </div>
           </div>
-            <div className="checkout-chipotle">
-                <h1>Checkout Chipotle's Website</h1>
-                <div className="chipotle-website-image">
-                    <div className="chipotle-title">
-                        Chipotle
-                    </div>
-                </div>
-                <div className="chipotle-website-container">
-                    <div className="chipotle-details">
-                        Inspired by Chipotle Mexican Grill.
-                        All food photos and gif credits go to Chipotle's website.
-                    </div>
-                    <div className="chipotle-button-container">
-                        <button className="main-left-promo-button">Order now</button>
-                    </div>
-                </div>
-            </div>
+        </div>
       </div>
     );
 };

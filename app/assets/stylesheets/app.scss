@@ -564,9 +564,8 @@ body.modal-close {
   display: flex;
 }
 
-.main-left-promo-button-container > button {
+.main-left-promo-button {
   padding-top: 15px;
-  padding-bottom: 15px;
   color: white;
   font-family: $font-stack;
   text-align: center;
@@ -580,9 +579,10 @@ body.modal-close {
   letter-spacing: -1px;
   cursor: pointer;
   outline: none;
+  text-decoration: none;
 }
 
-.main-left-promo-button-container > button:hover {
+.main-left-promo-button:hover {
   background-color: $gold;
 }
 
@@ -1007,6 +1007,15 @@ input[class="input-Password-required-focused"]::placeholder {
 
 /* footer */
 
+@mixin headlines {
+  color: #d4cbc7;
+  font-size: 25px;
+  font-family: $font-stack;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
 .footer-container {
   background-color: $darkest-brown;
   display: flex;
@@ -1016,11 +1025,54 @@ input[class="input-Password-required-focused"]::placeholder {
   align-items: center;
 }
 
-//fix this to make it not hard coded later
+.footer-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding-bottom: 100px;
+}
+
+.portfolio-container {
+  color: white;
+  width: 280px;
+}
+
+.portfolio-container > h1, .tech-stack-container > h1 {
+  @include headlines;
+}
+
+.portfolio-container > h1:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.tech-stack-container {
+  color: white;
+}
+
+.tech-stack-items {
+  display: flex;
+  flex-direction: column;
+}
+
 .connect-container {
-  position: relative;
-  top: 40px;
-  left: 400%;
+  display: unset;
+}
+
+@mixin footer-spans {
+  font-size: 16px;
+  font-family: $font-nunito;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.portfolio-container > span {
+  @include footer-spans;
+}
+
+.tech-stack-items > span {
+  @include footer-spans;
+  padding-bottom: 10px;
 }
 
 .connect-icons {
@@ -1045,9 +1097,10 @@ input[class="input-Password-required-focused"]::placeholder {
 
 .connect-icons-title {
   color: #d4cbc7;
-  font-size: 16px;
+  font-size: 25px;
   font-family: $font-stack;
   margin: 10px;
+  margin-bottom: 20px;
 }
 
 .linkedin-icon:hover {

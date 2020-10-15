@@ -5,6 +5,22 @@ const Footer = () => {
         <footer className="footer-container">
             <div className="footer-content">
 
+                <div className="portfolio-container">
+                    <h1 onClick={() => window.open("https://www.brandonkim.dev/", "_blank")}>Brandon's Portfolio</h1>
+                    <span>Check out my website to get to know me and see my other projects!</span>
+                </div>
+
+                <div className="tech-stack-container">
+                    <h1>Poblano Tech Stack</h1>
+                    <div className="tech-stack-items">
+                        <span>JavaScript</span>
+                        <span>React/Redux</span>
+                        <span>HTML5/CSS3</span>
+                        <span>Ruby/Ruby on Rails</span>
+                        <span>PostgreSQL</span>
+                    </div>
+                </div>
+
                 <div className="connect-container">
                     <h4 className="connect-icons-title">CONNECT WITH ME</h4>
                     <div className="connect-icons">
