@@ -509,16 +509,168 @@ body.modal-close {
 
 /* main page */
 
-.main-page-order-container {
-
-}
-
 .main-page-promo-container {
-
+  height: 500px;
+  display: flex;
+  position: relative;
+  top: 150px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-.checkout-website {
-  
+.main-page-promo {
+  display: flex;
+  border: 1px solid $gray;
+  width: 100%;
+}
+
+.main-left-promo-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 20px;
+}
+
+.main-left-promo-header {
+  padding-top: 20px;
+  margin-bottom: 40px;
+  font-size: 80px;
+  text-transform: uppercase;
+  font-family: $font-stack;
+  color: $dark-brown;
+  font-weight: 700;
+  letter-spacing: -1;
+}
+
+.main-left-promo-description {
+  font-size: 30px;
+  padding-right: 60px;
+  margin-bottom: 70px;
+  font-family: $font-nunito;
+  color: $light-brown;
+}
+
+.main-right-promo-container {
+  background-image: url("https://poblano-app-seeds.s3.amazonaws.com/contactless.gif");
+  height: 100%;
+  width: 50%;
+  background-position: 50%, 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main-left-promo-button-container {
+  padding-right: 80px;
+  display: flex;
+}
+
+.main-left-promo-button-container > button {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  font-family: $font-stack;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: $dark-brown;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  cursor: pointer;
+  outline: none;
+}
+
+.main-left-promo-button-container > button:hover {
+  background-color: $gold;
+}
+
+.checkout-chipotle {
+  height: 300px;
+  margin-top: 200px;
+  text-align: center;
+  font-size: 30px;
+  color: $dark-brown;
+  font-family: $font-stack;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 100px;
+}
+
+.checkout-chipotle > h1 {
+  margin-bottom: 10px;
+}
+
+.chipotle-title {
+  font-size: 50px;
+  font-family: $font-stack;
+  color: white;
+  top: 40%;
+  position: relative;
+}
+
+.chipotle-details {
+  width: 300px;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: $font-nunito;
+  color: #786259;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.chipotle-button-container {
+  display: flex;
+}
+
+.chipotle-button-container > button {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  font-family: $font-stack;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: $dark-brown;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  cursor: pointer;
+  outline: none;
+}
+
+.chipotle-button-container > button:hover {
+  background-color: $gold;
+}
+
+.chipotle-website-container {
+  top: 100%;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #d4cbc7;
+  width: 600px;
+  line-height: 1.5;
+  font-size: 12px;
+  font-family: $font-nunito;
+  font-weight: 700;
+  color: $light-brown;
+  border-top: none;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin: 0 auto;
+}
+
+.chipotle-website-image {
+  background-image: url("https://poblano-app-seeds.s3.amazonaws.com/chipotlelongpicc.jpg");
+  width: 600px;
+  height: 200px;
+  margin: 0 auto;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 /* Guac Banner */
@@ -569,7 +721,6 @@ body.modal-close {
 .main-advertisement-container {
   display: flex;
   justify-content: center;
-  position: absolute;
   top: 99%;
   padding-top: 2px;
   border-bottom: 1px solid #d4cbc7;

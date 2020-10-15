@@ -34,35 +34,40 @@ const MainLandingPage = () => {
             </div>
           </div>
         </div>
-        <div className="main-page-order-container">
-          <div>Ready to Order?</div>
-          <div>
-            <span>Order now</span>
-          </div>
-        </div>
-        <div className="main-page-promo-container">
-          <div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-        <div className="checkout-chipotle">
-          <h1>Checkout Chipotle's Website</h1>
-          <div className="chipotle-website-image">
-            <div className="lifestyle-bowl-information-container">
-              <div className="lifestyle-ingredient-name">
-                {/* {props.ingredient.ingredientName} */}
-              </div>
-              <div className="lifestyle-price-cals">
-                <div className="lifestyle-ingredient-calories">
+          <div className="main-page-promo-container">
+            <div className="main-page-promo">
+                <div className="main-left-promo-container">
+                    <div className="main-left-promo-header">
+                        Real food is really easy
+                    </div>
+                    <div className="main-left-promo-description">
+                        Customize, pay and skip the line with contactless pickup. Just
+                        grab your sealed Chipotle order from the shelf and go.
+                    </div>
+                    <div className="main-left-promo-button-container">
+                        <button className="main-left-promo-button">Order now</button>
+                    </div>
                 </div>
-              </div>
-              <div className="lifestyle-bowl-details">
-                {/* {props.ingredient.details.join(", ")} */}
-              </div>
+                <div className="main-right-promo-container"></div>
             </div>
           </div>
-        </div>
+            <div className="checkout-chipotle">
+                <h1>Checkout Chipotle's Website</h1>
+                <div className="chipotle-website-image">
+                    <div className="chipotle-title">
+                        Chipotle
+                    </div>
+                </div>
+                <div className="chipotle-website-container">
+                    <div className="chipotle-details">
+                        Inspired by Chipotle Mexican Grill.
+                        All food photos and gif credits go to Chipotle's website.
+                    </div>
+                    <div className="chipotle-button-container">
+                        <button className="main-left-promo-button">Order now</button>
+                    </div>
+                </div>
+            </div>
       </div>
     );
 };
