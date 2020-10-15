@@ -2397,7 +2397,7 @@ input[class="mealname-required-focused"]::placeholder {
   margin-top: 30px;
 }
 
-.bag-modal-start > button {
+.start-order-button {
   padding-top: 15px;
   padding-bottom: 15px;
   color: white;
@@ -2413,4 +2413,9 @@ input[class="mealname-required-focused"]::placeholder {
   cursor: pointer;
   outline: none;
   border: none;
+  text-decoration: none;
+}
+
+.start-order-button:hover {
+  background-color: $dark-brown;
 }

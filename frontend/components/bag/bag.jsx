@@ -2,7 +2,8 @@ import React from 'react';
 import BagOrderItem from './bag_order_item';
 import BagPricing from './bag_pricing';
 import FindChipotleContainer from '../find_chipotle/find_chipotle_container';
- 
+import { NavLink } from "react-router-dom";
+
 class Bag extends React.Component {
   constructor(props) {
     super(props);
@@ -146,7 +147,9 @@ class Bag extends React.Component {
                     </div>
                     <img src={window.tinyLogo} alt="logo" className="bag-modal-logo"/>
                     <div className="bag-modal-start">
-                        <button>Start My Order</button>
+                        <NavLink className="start-order-button" to="/order" onClick={this.handleClick}>
+                          Order now
+                        </NavLink>
                     </div>
                     <div className="bag-header-bottom">
                       <span>Invite Others</span>
