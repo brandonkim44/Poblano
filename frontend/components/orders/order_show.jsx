@@ -20,9 +20,7 @@ class OrderShow extends React.Component {
         this.orderPrice = 0;
         //an array of orders for multiple meals in an order, push an order into the order. An order will be a JSON object, which can be stringified
         this.orders = [];
-        debugger;
         this.orderDetails = { default: "Select an item to get started" };
-        debugger;
         this.orderStoreId = 0;
         this.state = {
             userId: this.props.currentUser.id,
@@ -45,7 +43,6 @@ class OrderShow extends React.Component {
     }
 
     // static getDerivedStateFromProps(nextProps, prevState) {
-    //     debugger;
     //     if (nextProps.orderDetails !== prevState.details) {
     //         return { details: nextProps.orderDetails}
     //     } else {
@@ -59,10 +56,10 @@ class OrderShow extends React.Component {
 
     handleClick(e) {
         let ingredientName = e.currentTarget.dataset.ingredientname;
-        debugger;
+    
         if (e.currentTarget.className === "ingredient-img") {
            if (FILLINGS.includes(ingredientName)) {
-                debugger;
+            
                 if (ingredientName === "Veggie") {
                     this.veggie = true;
                 }
@@ -72,13 +69,13 @@ class OrderShow extends React.Component {
                     this.orderPrice += e.currentTarget.dataset.price;
                     this.fillingsCount++;
                     e.currentTarget.className = "ingredient-img-clicked";
-                    debugger;
+                
                     e.currentTarget.firstElementChild.style.display = "unset";
                     if (this.fillingsCount === 1) {
                         this.fillingsDetail = `${ingredientName} ${this.props.mealName}`;
                     } else if (this.fillingsCount === 2) {
                         let splitDisplayText = this.fillingsDetail.split(" ");
-                        debugger;
+                    
                         splitDisplayText.splice(1, 0, "&", ingredientName);
                         this.fillingsDetail = splitDisplayText.join(" ");
                     }
@@ -141,7 +138,7 @@ class OrderShow extends React.Component {
             } else {
                 const selectedRiceImages = document.querySelectorAll(".ingredient-img-clicked.rice-selected");
                 const selectedBeansImages = document.querySelectorAll(".ingredient-img-clicked.beans-selected");
-                debugger;
+            
                 if (e.currentTarget.id === "no-rice" && selectedRiceImages.length >= 0) {
                     for (let i = 0; i < selectedRiceImages.length; i++) {
                         selectedRiceImages[i].className="ingredient-img";
@@ -162,7 +159,7 @@ class OrderShow extends React.Component {
             if (this.fillingsDetail === "" && this.sidesDetail === "" && this.drinksDetail === "") {
                 this.setState({ details: this.orderDetails.default });
             } else {
-                debugger;
+            
                 if (this.fillingsDetail === "") {
                     delete this.orderDetails['fillingsDetail'];
                 }
@@ -175,7 +172,7 @@ class OrderShow extends React.Component {
                 let displayText = Object.values(this.orderDetails).slice(1).join(", ");
                 this.setState({ details: displayText });
             }
-            debugger;
+        
         } else {
             e.currentTarget.className = "ingredient-img";
             e.currentTarget.firstElementChild.style.display = "none";
@@ -230,9 +227,9 @@ class OrderShow extends React.Component {
                 if (e.currentTarget.dataset.rice) this.rice = false;
                 if (e.currentTarget.dataset.beans) this.beans = false;
             }
-            debugger;
+        
             if (this.fillingsDetail === "" && this.sidesDetail === "" && this.drinksDetail === "") {
-                debugger;
+            
                 this.setState({ details: this.orderDetails.default });
             } else {
                 if (this.fillingsDetail === "") {
@@ -244,7 +241,7 @@ class OrderShow extends React.Component {
                 if (this.drinksDetail === "") {
                   delete this.orderDetails["drinksDetail"];
                 }
-                debugger;
+            
                 let displayText = Object.values(this.orderDetails).slice(1).join(", ");
                 this.setState({ details: displayText });
             }
@@ -253,9 +250,9 @@ class OrderShow extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (JSON.stringify(this.props) != JSON.stringify(prevProps)) {
-            debugger;
+        
             if (this.props.sidesId) {
-                debugger;
+            
                 if (Array.isArray(this.props.sides)) {
                     return null;
                 } else {
@@ -432,7 +429,7 @@ class OrderShow extends React.Component {
     }
 
     drinks() {
-        debugger;
+    
         if (this.props.drinks.length > 0) {
             const section = this.props.drinks.map(ingredient => {
                 return (
@@ -453,9 +450,7 @@ class OrderShow extends React.Component {
     render() {
 
         const component = () => {
-            debugger;
             if (this.props.ingredients.length > 0) {
-                debugger;
                 return (
                     <div className="order-page-ingredients-grid">
                         {this.fillings()}

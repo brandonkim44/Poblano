@@ -23,7 +23,6 @@ class Header extends React.Component {
             if (document.querySelector(".bag-order-count")) document.querySelector(".bag-order-count").style.display = 'unset';
             return this.props.orders.length;
         } else {
-            debugger;
             if (document.querySelector(".bag-order-count")) document.querySelector(".bag-order-count").style.display = 'none';
         }
     }

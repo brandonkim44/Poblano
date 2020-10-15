@@ -5,7 +5,6 @@ import { OrderModal } from "./order_modal";
 
 const mapStateToProps = ({ entities: { orders }, ui: { modal } }) => {
   const orderId = orders["currentOrderId"];
-  debugger;
   return {
     modal,
     orderId

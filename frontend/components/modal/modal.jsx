@@ -58,7 +58,6 @@ class Modal extends React.Component {
                     </div>
                 )
             } else if (this.props.modal === "order") {
-                debugger;
                 return (
                     <div>
                         {component}

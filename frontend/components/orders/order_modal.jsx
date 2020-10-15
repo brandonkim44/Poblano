@@ -16,7 +16,6 @@ export const OrderModal = (props) => {
         let inputBox = document.querySelector("#orderText");
         if (inputBox.value.length === 0) return;
         document.body.className = "modal-open";
-        debugger;
         dispatch(addNameToOrder(inputBox.value, props.orderId));
     }
 

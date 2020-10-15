@@ -69,7 +69,7 @@ class BagOrderItem extends React.Component {
     }
 
     render() {
-        debugger;
+
         return (
           <div className="bag-order">
             <div className="bag-name-orderprice-container">

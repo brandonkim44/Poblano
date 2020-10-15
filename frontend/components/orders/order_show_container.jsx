@@ -8,7 +8,6 @@ const mapStateToProps = state => {
     const mealName = Object.keys(state.entities.ingredients)[0];
     const sides = state.entities.ingredients.sides;
     const drinks = state.entities.ingredients.drinks;
-    debugger;
     let mealDescription = null;
     let mealPhoto = null;
     let sidesId = null;
@@ -19,7 +18,6 @@ const mapStateToProps = state => {
         mealDescription = state.entities.meals[mealName].description;
         mealPhoto = state.entities.meals[mealName].photoUrl;
         sidesId = state.entities.meals["sides"].id;
-        debugger;
         if (mealName === "lifestyle") lifestyleBowls = state.entities.ingredients.lifestyle.Bowls;
         // if (mealName === "sides") {
         //     orderDetails = { default: "Select an item to get started" };
@@ -34,7 +32,6 @@ const mapStateToProps = state => {
     if (drinks) drinkIngredients = drinks;
 
     const ingredients = state.entities.ingredients[mealName];
-    debugger;
     return ({
         currentUser: state.session.id ? state.entities.users[state.session.id] : {},
         mealName: mealName,

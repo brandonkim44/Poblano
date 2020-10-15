@@ -15,7 +15,6 @@ class Index extends React.Component {
 
     handleClick(mealId) {
         this.props.fetchIngredients(mealId);
-        console.log(this.props);
         this.props.update();
     }
 

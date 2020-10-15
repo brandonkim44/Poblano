@@ -30,11 +30,9 @@ export const OrderFooter = (props) => {
     }
 
     const hasCompleteOrder = (ingredients) => {
-        debugger;
         if (props.mealType === "lifestyle") {
           return hasLifeStyle(ingredients);
         } else if (props.mealType === "sides") {
-            debugger;
           return hasSidesDrinks(ingredients);
         } else {
           return hasFillingsRiceBeans(ingredients);

@@ -70,7 +70,6 @@ class Reward extends React.Component {
     }
 
     progress() {
-        debugger;
         return (
             <div className="rewards-progress-container">
                 <div className="rewards-points">

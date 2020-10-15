@@ -63,13 +63,9 @@ class Show extends React.Component {
 
 
     fillings() {
-        debugger;
-        console.log(this.props);
-        console.log(this.props.fillings);
 
         if (this.props.fillings.length > 0) {
             const section = this.props.fillings.map(ingredient => {
-                debugger;
                 return (
                     <IngredientItem key={ingredient.id} ingredient={ingredient} updateState={this.updateState}/>
                 )
@@ -239,7 +235,6 @@ class Show extends React.Component {
     
 
         const component = () => { 
-            debugger;
             if (this.props.ingredients.length > 0) {
                 return (
                         <div>

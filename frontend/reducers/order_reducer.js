@@ -20,7 +20,6 @@ const orderReducer = (state = null, action) => {
         return merge({}, stateCopy);
     case REMOVE_ORDER:
         id = action.id;
-        debugger;
         delete stateCopy[id];
         return merge({}, stateCopy);
     default:

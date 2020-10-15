@@ -18,7 +18,6 @@ class Bag extends React.Component {
   }
 
   componentDidMount() {
-      debugger;
     this.renderOrders();
   }
 
@@ -42,7 +41,6 @@ class Bag extends React.Component {
   
   renderOrders() {
     const orders = this.props.orders.map((order) => {
-        debugger;
         let totalPriceOfOrder = this.calcTotalPriceOfOrder(order);
         this.totalBagPrice += totalPriceOfOrder;
       return (
@@ -58,7 +56,6 @@ class Bag extends React.Component {
         />
       );
     });
-    debugger;
     this.setState({ totalBagPrice: this.totalBagPrice.toFixed(2), orders: orders });
   };
 
@@ -66,7 +63,6 @@ class Bag extends React.Component {
       
     const renderBag = () => {
         if (this.props.orders.length > 0) {
-            debugger;
             return (
               <div id="bagModal" className="bag-modal">
                 <div className="bag-modal-content">
@@ -148,7 +144,7 @@ class Bag extends React.Component {
                     <img src={window.tinyLogo} alt="logo" className="bag-modal-logo"/>
                     <div className="bag-modal-start">
                         <NavLink className="start-order-button" to="/order" onClick={this.handleClick}>
-                          Order now
+                          Start my order
                         </NavLink>
                     </div>
                     <div className="bag-header-bottom">

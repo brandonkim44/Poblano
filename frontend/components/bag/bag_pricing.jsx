@@ -16,7 +16,6 @@ class BagPricing extends React.Component {
     }
 
     calculateTax() {
-        debugger;
         return (this.props.bagTotal * 0.053).toFixed(2);
     }
 

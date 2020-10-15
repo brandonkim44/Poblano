@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Bag from "./bag";
 
 const mapStateToProps = ({ entities: { orders }, ui: { modal } }) => {
-    debugger;
+
     let ordersCopy = Object.assign({}, orders);
     delete ordersCopy.currentOrderId;
     orders = Object.values(ordersCopy);
