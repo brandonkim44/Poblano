@@ -8,23 +8,22 @@ class Reward extends React.Component {
         this.displayRewards = this.displayRewards.bind(this);
         this.progress = this.progress.bind(this);
         this.greetingMessage = this.greetingMessage.bind(this);
-        this.rewardPointsLeft = (1250 - parseInt(this.props.currentUser.rewardPoints));
-        debugger;
-        this.percentage = Math.floor((this.rewardPointsLeft / 1250) * 100);
+        this.calculateRewardsPercentage = this.calculateRewardsPercentage.bind(this);
+        this.calculateRewardsLeft = this.calculateRewardsLeft.bind(this);
     }
     
 
     advertisement() {
         return (
             <div className="falling-burritos-banner" >
-                <img className="falling-burritos-img" src={window.fallingburritos} alt="burritos" />
+                <img className="falling-burritos-img" src={"https://poblano-app-seeds.s3.amazonaws.com/fallingburritos.gif"} alt="burritos" />
                 <div className="falling-burritos-message">
                     <div className="rewards-titles">
                         <h1 className="rewards-pre-title">UNWRAP SOME</h1>
                         <h1 className="rewards-title">FREE POBLANO</h1>
                         <span>Join Poblano Rewards to earn points towards free Poblano. Oh, and let's just say - we won't forget you on your birthday.</span>
                     </div>
-                    <img className="rewards-img" src={window.rewards} alt="rewards"/>
+                    <img className="rewards-img" src={"https://poblano-app-seeds.s3.amazonaws.com/rewards.png"} alt="rewards"/>
                 </div>
 
                 <div className="main-advertisement-container">
@@ -58,17 +57,27 @@ class Reward extends React.Component {
         );
     }
 
+    calculateRewardsPercentage() {
+        let usersRewards = this.props.currentUser.rewardPoints;
+        let rewardPointsLeft = 1250 - parseInt(usersRewards);
+        const percentage = Math.floor((rewardPointsLeft / 1250) * 100);
+        return percentage;
+    }
+
+    calculateRewardsLeft() {
+        let usersRewards = this.props.currentUser.rewardPoints;
+        return 1250 - parseInt(usersRewards);
+    }
+
     progress() {
         debugger;
         return (
-            <div className="progress-container">
-                <div className="points">
+            <div className="rewards-progress-container">
+                <div className="rewards-points">
                     {this.props.currentUser.rewardPoints} /  1250
                     </div>
-                <br />
-                <ProgressBar percentage={this.percentage}/>
-                <br/>
-                <span className="points-message-rewards">{this.rewardPointsLeft} points until your next reward</span>
+                <ProgressBar percentage={this.calculateRewardsPercentage()}/>
+                <span className="rewards-points-message">{this.calculateRewardsLeft()} points until your next reward</span>
             </div>
         );
 

@@ -366,12 +366,14 @@ body.modal-close {
 }
 
 .sign-out-button {
-  position: relative;
+  position: absolute;
   left: 45%;
-  font-family: $font-nunito;
+  font-family: "Nunito", sans-serif;
   text-decoration: underline;
   margin: 0 auto;
   font-size: 12px;
+  top: 70%;
+  transform: translate(10px, 10px);
 }
 
 .sign-out-button:hover {
@@ -660,7 +662,6 @@ body.modal-close {
   color: $light-brown;
   border-top: none;
   padding-top: 2px;
-  padding-bottom: 2px;
   margin: 0 auto;
 }
 
@@ -1444,6 +1445,7 @@ input[class="input-Password-required-focused"]::placeholder {
   width: 465px;
   border-radius: 50px;
   border: 1px solid $gray;
+  margin-bottom: 20px;
 }
 
 .filler {
@@ -1545,7 +1547,6 @@ input[class="input-Password-required-focused"]::placeholder {
   font-size: 16px;
   letter-spacing: -1px;
   font-family: $font-nunito;
-  margin-top: 20px;
 }
 
 .points-message {
@@ -1566,15 +1567,37 @@ input[class="input-Password-required-focused"]::placeholder {
   color: $dark-brown;
   letter-spacing: -1px;
   font-family: $font-stack;
-  min-width: 430px;
+  min-width: 465px;
+  margin-bottom: 20px;
+}
+
+.rewards-points {
+  margin: 0 auto;
+  font-size: 88px;
+  font-weight: 700;
+  color: $dark-brown;
+  letter-spacing: -1px;
+  font-family: $font-stack;
+  min-width: 465px;
+  margin-bottom: 20px;
 }
 
 .progress-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 465px;
+  justify-items: center;
+  text-align: center;
+}
+
+.rewards-progress-container {
   position: relative;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 400px;
+  max-width: 465px;
   justify-items: center;
 }
 
@@ -1594,7 +1617,17 @@ input[class="input-Password-required-focused"]::placeholder {
   text-align: center;
 }
 
-.points-message-rewards {
+.points-message {
+  margin: 0 auto;
+  font-size: 22px;
+  font-weight: 700;
+  color: $dark-brown;
+  letter-spacing: -1px;
+  font-family: $font-nunito;
+  min-width: 430px;
+}
+
+.rewards-points-message {
   margin: 0 auto;
   font-size: 22px;
   font-weight: 700;

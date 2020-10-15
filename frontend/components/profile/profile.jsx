@@ -13,7 +13,8 @@ class Profile extends React.Component {
     greetingMessage() {
         return (
             <div className="profile-modal-greeting-container">
-                <div className="">
+                <div className="header-left-container-sign-in">
+                    <img className="person-outline-img" src={"https://poblano-app-seeds.s3.amazonaws.com/useroutlinehalo.png"} alt="person"/>
                     <h4 className="profile-greeting">HEY {this.props.currentUser.firstName}</h4>
                 </div>
             </div>
@@ -25,10 +26,8 @@ class Profile extends React.Component {
             <div className="progress-container">
                 <div className="points">
                     {this.props.currentUser.rewardPoints} /  1250
-                    </div>
-                <br />
+                </div>
                 <ProgressBar percentage={this.percentage} />
-                <br />
                 <span className="points-message">{this.rewardPointsLeft} points until your next reward</span>
             </div>
         );

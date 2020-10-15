@@ -25,10 +25,10 @@ const Footer = () => {
                     <h4 className="connect-icons-title">CONNECT WITH ME</h4>
                     <div className="connect-icons">
                         <a href="https://www.linkedin.com/in/brandon-kim-0a7391114/">
-                            <img className="linkedin-icon" src={window.linkedIcon} alt="linked-in-icon" />
+                            <img className="linkedin-icon" src={"https://poblano-app-seeds.s3.amazonaws.com/linkedinicon.png"} alt="linked-in-icon" />
                         </a>
                         <a href="https://github.com/brandonkim44/">
-                            <img className="github-icon" src={window.githubIcon} alt="github-in-icon" />
+                            <img className="github-icon" src={"https://poblano-app-seeds.s3.amazonaws.com/githubicon.png"} alt="github-in-icon" />
                         </a>
                     </div>
                 </div>

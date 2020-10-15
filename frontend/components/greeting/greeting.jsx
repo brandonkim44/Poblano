@@ -26,7 +26,7 @@ const Greeting = ({ currentUser, openModal }) => {
         return (
             <div className="header-left-container-greeting">
                 <div className="header-left-container-sign-in" onClick={() => handleClick('profile')}>
-                    {/* <img className="" src={} alt="person" /> */}
+                    <img className="person-outline-img" src={"https://poblano-app-seeds.s3.amazonaws.com/useroutlinehalo.png"} alt="person"/>
                     <h4 className="sign-in-header">HEY {currentUser.firstName}</h4>
                 </div>
             </div>
