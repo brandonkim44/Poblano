@@ -8,9 +8,9 @@ Poblano is a website that allows you to order mexican food and customize your ow
 
 ## Table of Content
 
-### Order Customization
-### Nutrition Calculator
-### User Authentication
+### Order Customization[here](#order-customization)
+### Nutrition Calculator[here](#nutriton-calculator)
+### User Authentication[here](#user-authentication)
 
 ## 1. Order Customization
 #### Poblano allows you to select an entree and customize it to your liking. Once you build an order, you can name the meal, and add it to your bag.
