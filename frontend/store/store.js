@@ -6,7 +6,7 @@ import { logger } from 'redux-logger';
 //remove logger when deploying to production
 
 const configureStore = (preloadedState = {}) => (
-    createStore(rootReducer, preloadedState, applyMiddleware(thunk, logger))
+    createStore(rootReducer, preloadedState, applyMiddleware(thunk))
 );
 
 export default configureStore;
