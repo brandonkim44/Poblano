@@ -1,28 +1,27 @@
-<<<<<<< HEAD
-# README
+# Poblano
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Poblano is a website that allows you to order mexican food and customize your own meals. It is inspired by Chipotle, and is a Single Page Application Clone of Chipotle's website.
 
-Things you may want to cover:
+* Front-end: React/Redux, HTML5/CSS3/SCSS
+* Back-end: PostgreSQL and Ruby on Rails
+* Others: Amazon S3, JavaScript, Recharts API
 
-* Ruby version
+## Table of Content
 
-* System dependencies
+### Order Customization
+### Nutrition Calculator
+### User Authentication
 
-* Configuration
+## 1. Order Customization
+#### Poblano allows you to select an entree and customize it to your liking. Once you build an order, you can name the meal, and add it to your bag.
 
-* Database creation
+## 2. Nutrition Calculator
+#### You can calculate the percent breakdown and total amount of calories, fats, and proteins by using Poblano's Nutrition Calculator. This is implemented by a Recharts API, which allows you to pass data and render a responsive Pie-Chart on the client-side. You can play around with it to see the nutritional content for your ideal customized meal is or for an individual ingredient.
 
-* Database initialization
+## 3. User Authentication.
+#### You can sign in using a demo login or create an account for yourself. On the front-end, Poblano uses JavaScript and regular expressions to validate user input and show various requirements that the user must fill out. Once a user logs in, they can click on their profile to see how many reward points they have and they can sign out through their profile page.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
-# ChipotleClone
->>>>>>> b28d7befdeefcf081df13010967a93dfecd2e845
+## Features I'd like to add
+* Google Maps API for store locations and selecting a nearby store
+* Finish adding small features to the bag side modal
+* Create a checkout page to finalize order
