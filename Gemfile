@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem "aws-sdk-s3"
+gem "actionview", ">= 5.2.4.4"
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
