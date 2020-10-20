@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   # get '*path' => redirect('/')
   # get '/nutrition-calculator', to: 'api/meals#index'
   # I believe ^ that requires a back-end view, which defeats the purpose of SPA
-  # get '*path' => redirect('/'), constraints: lambda { |req| req.path.exclude? 'rails/active_storage'}
+  get '*path' => redirect('/'), constraints: lambda { |req| req.path.exclude? 'rails/active_storage'}
   
 end
