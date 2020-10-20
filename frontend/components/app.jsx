@@ -1,6 +1,6 @@
 import React from 'react';
 import SignupFormContainer from './session_form/signup_form_container';
-import { Link, Route, Redirect, Switch, withRouter, NavLink } from 'react-router-dom';
+import { Link, Route, Redirect, Switch, withRouter, NavLink, BrowserRouter } from 'react-router-dom';
 import LoginFormContainer from './session_form/login_form_container';
 import GreetingContainer from './greeting/greeting_container';
 import ModalContainer from './modal/modal_container';
@@ -14,24 +14,24 @@ import HeaderContainer from './header/header_container';
 
 const App = (props) => {
 
-    const displayFooter = () => {
-        if (props.location.pathname !== "/order") {
-            return <Footer />
-        }
-    }
+    // const displayFooter = () => {
+    //     if (props.location.pathname !== "/order") {
+    //         return <Footer />
+    //     }
+    // }
 
     return (
-    <div>
-        <ModalContainer />
+      <div>
+        <BrowserRouter>
+          <ModalContainer />
 
-        <HeaderContainer />
+          <HeaderContainer />
 
-        <Main />
-        
-        {displayFooter()}
-
-    </div>
+          <Main />
+        </BrowserRouter>
+        {/* {displayFooter()} */}
+      </div>
     );
 };
 
-export default withRouter(App);
+export default App;
