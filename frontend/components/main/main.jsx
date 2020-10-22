@@ -1,9 +1,10 @@
 import React from 'react';
 import MainLandingPage from './main_landing_page';
 import NutritionLandingContainer from '../nutrition/nutrition_landing_container';
-import { Route } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import RewardContainer from '../rewards/reward_container';
 import OrderLanding from '../orders/order_landing';
+
 
 class Main extends React.Component {
     constructor(props) {
@@ -13,22 +14,27 @@ class Main extends React.Component {
     render() {
         return (
             <main className="main-container">
-                <Route 
-                    exact path="/nutrition-calculator" 
-                    component={NutritionLandingContainer} 
-                />
-                <Route
-                    exact path="/rewards"
-                    component={RewardContainer}
-                />
-                <Route
-                    exact path="/order"
-                    component={OrderLanding}
-                />
-                <Route
-                    exact path="/" 
-                    component={MainLandingPage} 
-                />
+                <Switch>
+                    <Route 
+                        exact path="/nutrition-calculator" 
+                        component={NutritionLandingContainer} 
+                    />
+                    <Route
+                        exact path="/rewards"
+                        component={RewardContainer}
+                    />
+                    <Route
+                        exact path="/order"
+                        component={OrderLanding}
+                    />
+                    <Route
+                        exact path="/" 
+                        component={MainLandingPage} 
+                    />
+                    <Redirect
+                        from='*' to="/"
+                    />
+                </Switch>
             </main>
         )
     }
